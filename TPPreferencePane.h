@@ -8,7 +8,7 @@
 
 #import <AppKit/AppKit.h>
 
-@class TPLayoutView, TPVerticalView, TPLocalHost, TPRemoteHost;
+@class TPLayoutView, TPLocalHost, TPRemoteHost;
 @class TPPreferencesManager;
 
 @interface TPPreferencePane : NSWindowController
