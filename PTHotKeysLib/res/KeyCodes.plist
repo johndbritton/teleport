@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>padKeyString</key>
+	<string>Pad</string>
+	<key>padKeys</key>
+	<array>
+		<string>65</string>
+		<string>67</string>
+		<string>69</string>
+		<string>75</string>
+		<string>78</string>
+		<string>81</string>
+		<string>82</string>
+		<string>83</string>
+		<string>84</string>
+		<string>85</string>
+		<string>86</string>
+		<string>87</string>
+		<string>88</string>
+		<string>89</string>
+		<string>91</string>
+		<string>92</string>
+	</array>
+	<key>unmappedKeys</key>
+	<dict>
+		<key>100</key>
+		<string>F8</string>
+		<key>101</key>
+		<string>F9</string>
+		<key>103</key>
+		<string>F11</string>
+		<key>105</key>
+		<string>F13</string>
+		<key>107</key>
+		<string>F14</string>
+		<key>109</key>
+		<string>F10</string>
+		<key>111</key>
+		<string>F12</string>
+		<key>113</key>
+		<string>F15</string>
+		<key>114</key>
+		<string>Ins</string>
+		<key>115</key>
+		<string>Home</string>
+		<key>116</key>
+		<string>Page Up</string>
+		<key>117</key>
+		<string>Del</string>
+		<key>118</key>
+		<string>F4</string>
+		<key>119</key>
+		<string>End</string>
+		<key>120</key>
+		<string>F2</string>
+		<key>121</key>
+		<string>Page Down</string>
+		<key>122</key>
+		<string>F1</string>
+		<key>123</key>
+		<string>Left Arrow</string>
+		<key>124</key>
+		<string>Right Arrow</string>
+		<key>125</key>
+		<string>Down Arrow</string>
+		<key>126</key>
+		<string>Up Arrow</string>
+		<key>36</key>
+		<string>Return</string>
+		<key>48</key>
+		<string>Tab</string>
+		<key>49</key>
+		<string>Space</string>
+		<key>51</key>
+		<string>Backspace</string>
+		<key>53</key>
+		<string>ESC</string>
+		<key>71</key>
+		<string>Clear</string>
+		<key>76</key>
+		<string>Pad Enter</string>
+		<key>96</key>
+		<string>F5</string>
+		<key>97</key>
+		<string>F6</string>
+		<key>98</key>
+		<string>F7</string>
+		<key>99</key>
+		<string>F3</string>
+	</dict>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

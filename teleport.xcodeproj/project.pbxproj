@@ -1,0 +1,1219 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A700510707AD3BAB0086D029 /* TPHostsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A700510507AD3BAB0086D029 /* TPHostsManager.h */; };
+		A700510807AD3BAB0086D029 /* TPHostsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A700510607AD3BAB0086D029 /* TPHostsManager.m */; };
+		A700510B07AD3C5C0086D029 /* TPBonjourController.h in Headers */ = {isa = PBXBuildFile; fileRef = A700510907AD3C5C0086D029 /* TPBonjourController.h */; };
+		A700510C07AD3C5C0086D029 /* TPBonjourController.m in Sources */ = {isa = PBXBuildFile; fileRef = A700510A07AD3C5C0086D029 /* TPBonjourController.m */; };
+		A702485615332CD800B9F965 /* 10.2-Jaguar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A702484A1533265000B9F965 /* 10.2-Jaguar.jpg */; };
+		A702485715332CD800B9F965 /* 10.3-Panther.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A702484B1533265000B9F965 /* 10.3-Panther.jpg */; };
+		A702485815332CD800B9F965 /* 10.4-Tiger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A702484C1533265000B9F965 /* 10.4-Tiger.jpg */; };
+		A702485915332CD800B9F965 /* 10.5-Leopard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A702484D1533265000B9F965 /* 10.5-Leopard.jpg */; };
+		A702485A15332CD800B9F965 /* 10.6-SnowLeopard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A702484E1533265000B9F965 /* 10.6-SnowLeopard.jpg */; };
+		A702485B15332CD800B9F965 /* 10.7-Lion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A702484F1533265000B9F965 /* 10.7-Lion.jpg */; };
+		A703972A0F609EAA006B8621 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A76426760E11BD9F00F60EA1 /* QuartzCore.framework */; };
+		A71221CD1159899E00DCD93B /* MultipleFiles.icns in Resources */ = {isa = PBXBuildFile; fileRef = A71221CC1159899E00DCD93B /* MultipleFiles.icns */; };
+		A715B6BA1AA191B200BC2EDE /* TPRemoteHost.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6ADD305EEB234001D7D35 /* TPRemoteHost.m */; };
+		A71E0B911AB4210E00911ACB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71E0B901AB4210E00911ACB /* Sparkle.framework */; };
+		A71E0B921AB4213800911ACB /* Sparkle.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = A71E0B901AB4210E00911ACB /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A71EA8C80A12688400805CC6 /* TPBackgroundImageTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = A71EA8C60A12688400805CC6 /* TPBackgroundImageTransfer.h */; };
+		A71EA8C90A12688400805CC6 /* TPBackgroundImageTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = A71EA8C70A12688400805CC6 /* TPBackgroundImageTransfer.m */; };
+		A72A1C5A07A464ED0012563F /* TPNetworkConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = A760369C05A0826D00D20845 /* TPNetworkConnection.h */; };
+		A72A1C5B07A464EE0012563F /* TPNetworkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A760369D05A0826D00D20845 /* TPNetworkConnection.m */; };
+		A736CF220923A4420008AB32 /* TPUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A736CF200923A4420008AB32 /* TPUtils.h */; };
+		A736CF230923A4420008AB32 /* TPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A736CF210923A4420008AB32 /* TPUtils.m */; };
+		A743A23008B2B6CD006B9FB2 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = A7C9DF5B059F4BDA00E67CB3 /* MainMenu.nib */; };
+		A744D58305FBE08E0011E56C /* TPApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = A744D58105FBE08E0011E56C /* TPApplication.m */; };
+		A744D58405FBE08E0011E56C /* TPApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = A744D58205FBE08E0011E56C /* TPApplication.h */; };
+		A745F8E207C00C5F00B295FD /* TPTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = A745F8E007C00C5F00B295FD /* TPTransfer.h */; };
+		A745F8E307C00C5F00B295FD /* TPTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = A745F8E107C00C5F00B295FD /* TPTransfer.m */; };
+		A745F90F07C0389600B295FD /* TPPasteboardTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = A745F90D07C0389600B295FD /* TPPasteboardTransfer.h */; };
+		A745F91007C0389600B295FD /* TPPasteboardTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = A745F90E07C0389600B295FD /* TPPasteboardTransfer.m */; };
+		A745F91F07C038E000B295FD /* TPFileTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = A745F91D07C038E000B295FD /* TPFileTransfer.h */; };
+		A745F92007C038E000B295FD /* TPFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = A745F91E07C038E000B295FD /* TPFileTransfer.m */; };
+		A746D70508B1733600CE2B89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A746D70308B1733600CE2B89 /* Localizable.strings */; };
+		A75752B605ADE74000D78303 /* TPTCPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = A75752B405ADE74000D78303 /* TPTCPSocket.h */; };
+		A75752B705ADE74000D78303 /* TPTCPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A75752B505ADE74000D78303 /* TPTCPSocket.m */; };
+		A75752D305ADF9B900D78303 /* TPConnectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = A75752D105ADF9B900D78303 /* TPConnectionController.h */; };
+		A75752D405ADF9B900D78303 /* TPConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A75752D205ADF9B900D78303 /* TPConnectionController.m */; };
+		A75ED6CC09A3FDCF00AFDD7D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A75ED6B709A3FDCF00AFDD7D /* Carbon.framework */; };
+		A7609656107ED026008572E5 /* TPFileSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = A7609654107ED026008572E5 /* TPFileSerialization.h */; };
+		A7609657107ED026008572E5 /* TPFileSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A7609655107ED026008572E5 /* TPFileSerialization.m */; };
+		A7614BEE0FE850210043C401 /* TPScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = A7614BEC0FE850210043C401 /* TPScreen.h */; };
+		A7614BEF0FE850210043C401 /* TPScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = A7614BED0FE850210043C401 /* TPScreen.m */; };
+		A7642F4A09F6DF1F00789DC0 /* TPTransfer_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A7642F4909F6DF1F00789DC0 /* TPTransfer_Private.h */; };
+		A7697D710DB25C8C0037F0A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7697D700DB25C8C0037F0A5 /* SystemConfiguration.framework */; };
+		A7697D750DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A7697D730DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.h */; };
+		A7697D760DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A7697D740DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.m */; };
+		A76BE04905CF016600FF0EA4 /* Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A76BE04705CF016600FF0EA4 /* Protocol.h */; };
+		A777B8010832B65B00C4D824 /* TPHostSnapping.h in Headers */ = {isa = PBXBuildFile; fileRef = A777B7FF0832B65B00C4D824 /* TPHostSnapping.h */; };
+		A777B8020832B65B00C4D824 /* TPHostSnapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A777B8000832B65B00C4D824 /* TPHostSnapping.m */; };
+		A77812120CAF331300EEC97E /* halo.png in Resources */ = {isa = PBXBuildFile; fileRef = A77812110CAF331300EEC97E /* halo.png */; };
+		A782102C05C0D10D00A555DC /* whitelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A782102B05C0D10D00A555DC /* whitelogo.png */; };
+		A78539B809E48D9A005C3446 /* TPTCPSecureSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = A78539B609E48D9A005C3446 /* TPTCPSecureSocket.h */; };
+		A78539B909E48D9A005C3446 /* TPTCPSecureSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A78539B709E48D9A005C3446 /* TPTCPSecureSocket.m */; };
+		A7853BE509E4967C005C3446 /* TPAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A7853BE109E4967C005C3446 /* TPAuthenticationManager.m */; };
+		A7853BE609E4967C005C3446 /* TPAuthenticationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A7853BE209E4967C005C3446 /* TPAuthenticationManager.h */; };
+		A7853BE709E4967C005C3446 /* TPAuthenticationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A7853BE309E4967C005C3446 /* TPAuthenticationRequest.h */; };
+		A7853BE809E4967C005C3446 /* TPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7853BE409E4967C005C3446 /* TPAuthenticationRequest.m */; };
+		A78569340921675F00301B93 /* TPTestsController.h in Headers */ = {isa = PBXBuildFile; fileRef = A78569320921675800301B93 /* TPTestsController.h */; };
+		A78569350921675F00301B93 /* TPTestsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78569330921675800301B93 /* TPTestsController.m */; };
+		A78569FE0921719100301B93 /* TPEventsController.h in Headers */ = {isa = PBXBuildFile; fileRef = A78569FC0921719100301B93 /* TPEventsController.h */; };
+		A78569FF0921719100301B93 /* TPEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78569FD0921719100301B93 /* TPEventsController.m */; };
+		A7856A28092171C300301B93 /* TPEventTapsController.h in Headers */ = {isa = PBXBuildFile; fileRef = A7856A26092171C300301B93 /* TPEventTapsController.h */; };
+		A7856A29092171C300301B93 /* TPEventTapsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7856A27092171C300301B93 /* TPEventTapsController.m */; };
+		A786DB3208BE71C400BF1E8B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A786DB3108BE71C400BF1E8B /* Security.framework */; };
+		A786E22F1A19E06E00E66B43 /* TPPreferencePane.m in Sources */ = {isa = PBXBuildFile; fileRef = F506C03D013D9D7901CA16C8 /* TPPreferencePane.m */; };
+		A786E2301A19E07D00E66B43 /* TPTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E475960A14DD7900DCEA57 /* TPTableView.m */; };
+		A786E2311A19E08100E66B43 /* TPClosingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D9BB2705C5CEB8003DD65C /* TPClosingWindow.m */; };
+		A786E2321A19E08400E66B43 /* TPVersionTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B5932C05F0F42000F7CA57 /* TPVersionTextField.m */; };
+		A786E2331A19E08700E66B43 /* TPLinkTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A7389ECC08808A29000D0DCB /* TPLinkTextField.m */; };
+		A786E2341A19E09200E66B43 /* TPLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6ADA305EEAE2C001D7D35 /* TPLayoutView.m */; };
+		A786E2351A19E09200E66B43 /* TPKeyComboView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BEF7740F8C286C00C54411 /* TPKeyComboView.m */; };
+		A786E2361A19E09200E66B43 /* TPOptionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A50B070F844F9900C5B878 /* TPOptionsController.m */; };
+		A786E2371A19E09200E66B43 /* TPOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D6388C0F213F6B000C5DB2 /* TPOptionsView.m */; };
+		A786E2381A19E09200E66B43 /* TPAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D638FC0F21446A000C5DB2 /* TPAnimationManager.m */; };
+		A786E2391A19E09200E66B43 /* TPLayoutHostView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B5934B05F17DFB00F7CA57 /* TPLayoutHostView.m */; };
+		A786E23A1A19E09200E66B43 /* TPLayoutRemoteHostView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DF20059F4B0500E67CB3 /* TPLayoutRemoteHostView.m */; };
+		A786E23B1A19E09200E66B43 /* TPLayoutLocalHostView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6ADDA05EEB47D001D7D35 /* TPLayoutLocalHostView.m */; };
+		A786E23C1A19E0D900E66B43 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E612E609EDC0210024712F /* SecurityInterface.framework */; };
+		A788AA7C09F5BFCA00570E96 /* Lock_White.tif in Resources */ = {isa = PBXBuildFile; fileRef = A788AA7B09F5BFCA00570E96 /* Lock_White.tif */; };
+		A78C04AA0E13287D00755C6D /* PTHotKey.h in Headers */ = {isa = PBXBuildFile; fileRef = A78C048C0E13287D00755C6D /* PTHotKey.h */; };
+		A78C04AB0E13287D00755C6D /* PTHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A78C048D0E13287D00755C6D /* PTHotKey.m */; };
+		A78C04AC0E13287D00755C6D /* PTHotKeyCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A78C048E0E13287D00755C6D /* PTHotKeyCenter.h */; };
+		A78C04AD0E13287D00755C6D /* PTHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A78C048F0E13287D00755C6D /* PTHotKeyCenter.m */; };
+		A78C04AE0E13287D00755C6D /* PTKeyBroadcaster.h in Headers */ = {isa = PBXBuildFile; fileRef = A78C04900E13287D00755C6D /* PTKeyBroadcaster.h */; };
+		A78C04AF0E13287D00755C6D /* PTKeyBroadcaster.m in Sources */ = {isa = PBXBuildFile; fileRef = A78C04910E13287D00755C6D /* PTKeyBroadcaster.m */; };
+		A78C04B00E13287D00755C6D /* PTKeyCodeTranslator.h in Headers */ = {isa = PBXBuildFile; fileRef = A78C04920E13287D00755C6D /* PTKeyCodeTranslator.h */; };
+		A78C04B10E13287D00755C6D /* PTKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A78C04930E13287D00755C6D /* PTKeyCodeTranslator.m */; };
+		A78C04B20E13287D00755C6D /* PTKeyCombo.h in Headers */ = {isa = PBXBuildFile; fileRef = A78C04940E13287D00755C6D /* PTKeyCombo.h */; };
+		A78C04B30E13287D00755C6D /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = A78C04950E13287D00755C6D /* PTKeyCombo.m */; };
+		A78C04B40E13287D00755C6D /* PTKeyComboPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A78C04960E13287D00755C6D /* PTKeyComboPanel.h */; };
+		A78C04B50E13287D00755C6D /* PTKeyComboPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A78C04970E13287D00755C6D /* PTKeyComboPanel.m */; };
+		A78FD1AB0CB31B99006AC28C /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78FD1AA0CB31B99006AC28C /* SecurityFoundation.framework */; };
+		A793B81A08AACC3B0078CAA7 /* TPPreferencesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A793B81808AACC3B0078CAA7 /* TPPreferencesManager.h */; };
+		A793B81B08AACC3B0078CAA7 /* TPPreferencesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A793B81908AACC3B0078CAA7 /* TPPreferencesManager.m */; };
+		A79D9D4009AEA25F00DCE620 /* TPConnectionsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A79D9D3E09AEA25F00DCE620 /* TPConnectionsManager.h */; };
+		A79D9D4109AEA25F00DCE620 /* TPConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A79D9D3F09AEA25F00DCE620 /* TPConnectionsManager.m */; };
+		A79ED91B08959FAC00DC4A6A /* TPTransfersManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A79ED91908959FAC00DC4A6A /* TPTransfersManager.h */; };
+		A79ED91C08959FAC00DC4A6A /* TPTransfersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A79ED91A08959FAC00DC4A6A /* TPTransfersManager.m */; };
+		A79EDD4F0897D69700DC4A6A /* TPBezelController.h in Headers */ = {isa = PBXBuildFile; fileRef = A79EDD4D0897D69700DC4A6A /* TPBezelController.h */; };
+		A79EDD500897D69700DC4A6A /* TPBezelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79EDD4E0897D69700DC4A6A /* TPBezelController.m */; };
+		A79F8E95142AAAF700ED1D19 /* KeyCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = A79F8E94142AAAF700ED1D19 /* KeyCodes.plist */; };
+		A7A8194E0C60042800DE5CD4 /* TPDirectEventTapsController.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A819490C60030700DE5CD4 /* TPDirectEventTapsController.h */; };
+		A7A8194F0C60042900DE5CD4 /* TPDirectEventTapsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A8194A0C60030700DE5CD4 /* TPDirectEventTapsController.m */; };
+		A7A819520C60047D00DE5CD4 /* TPEventTapsController_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A7A819510C60047D00DE5CD4 /* TPEventTapsController_Internal.h */; };
+		A7B08FAB0DCA10A3008CAFF2 /* TPFakeHostsGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B08FA90DCA10A3008CAFF2 /* TPFakeHostsGenerator.h */; };
+		A7B08FAC0DCA10A3008CAFF2 /* TPFakeHostsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B08FAA0DCA10A3008CAFF2 /* TPFakeHostsGenerator.m */; };
+		A7B799E707B8304C00C717E7 /* TPHotBorderView.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B799E507B8304C00C717E7 /* TPHotBorderView.h */; };
+		A7B799E807B8304C00C717E7 /* TPHotBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B799E607B8304C00C717E7 /* TPHotBorderView.m */; };
+		A7BB55E10A1BD00E007044EA /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BB550E0A1BD00D007044EA /* IOKit.framework */; };
+		A7C4711C0FA903C300282EF2 /* switch-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A7C4711B0FA903C300282EF2 /* switch-sound.wav */; };
+		A7C9DED1059F4A7400E67CB3 /* common.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DECF059F4A7400E67CB3 /* common.h */; };
+		A7C9DF00059F4AA100E67CB3 /* TPBezelView.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DEE5059F4AA100E67CB3 /* TPBezelView.h */; };
+		A7C9DF01059F4AA100E67CB3 /* TPBezelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DEE6059F4AA100E67CB3 /* TPBezelView.m */; };
+		A7C9DF02059F4AA100E67CB3 /* TPBezelWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DEE7059F4AA100E67CB3 /* TPBezelWindow.h */; };
+		A7C9DF03059F4AA100E67CB3 /* TPBezelWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DEE8059F4AA100E67CB3 /* TPBezelWindow.m */; };
+		A7C9DF04059F4AA100E67CB3 /* TPRemoteOperationsController.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DEE9059F4AA100E67CB3 /* TPRemoteOperationsController.h */; };
+		A7C9DF05059F4AA100E67CB3 /* TPRemoteOperationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DEEA059F4AA100E67CB3 /* TPRemoteOperationsController.m */; };
+		A7C9DF17059F4AE900E67CB3 /* TPHost.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DF15059F4AE900E67CB3 /* TPHost.h */; };
+		A7C9DF18059F4AE900E67CB3 /* TPHost.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DF16059F4AE900E67CB3 /* TPHost.m */; };
+		A7C9DF1D059F4AF600E67CB3 /* TPHotBorder.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DF1B059F4AF600E67CB3 /* TPHotBorder.h */; };
+		A7C9DF1E059F4AF600E67CB3 /* TPHotBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DF1C059F4AF600E67CB3 /* TPHotBorder.m */; };
+		A7C9DF2F059F4B1300E67CB3 /* TPMainController.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DF27059F4B1300E67CB3 /* TPMainController.h */; };
+		A7C9DF30059F4B1300E67CB3 /* TPMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DF28059F4B1300E67CB3 /* TPMainController.m */; };
+		A7C9DF31059F4B1300E67CB3 /* TPClientController.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DF29059F4B1300E67CB3 /* TPClientController.h */; };
+		A7C9DF32059F4B1300E67CB3 /* TPClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DF2A059F4B1300E67CB3 /* TPClientController.m */; };
+		A7C9DF33059F4B1300E67CB3 /* TPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DF2B059F4B1300E67CB3 /* TPMessage.h */; };
+		A7C9DF34059F4B1300E67CB3 /* TPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DF2C059F4B1300E67CB3 /* TPMessage.m */; };
+		A7C9DF35059F4B1300E67CB3 /* TPServerController.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DF2D059F4B1300E67CB3 /* TPServerController.h */; };
+		A7C9DF36059F4B1300E67CB3 /* TPServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DF2E059F4B1300E67CB3 /* TPServerController.m */; };
+		A7C9DF5F059F4C2500E67CB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DF5E059F4C2500E67CB3 /* main.m */; };
+		A7C9DF61059F4C5100E67CB3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		A7D173360F535F0E00CC6946 /* TPHostAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A7D173340F535F0E00CC6946 /* TPHostAnimationController.h */; };
+		A7D173370F535F0E00CC6946 /* TPHostAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D173350F535F0E00CC6946 /* TPHostAnimationController.m */; };
+		A7DD0BE2083D5F9E00DD477C /* TPStatusItemController.h in Headers */ = {isa = PBXBuildFile; fileRef = A7DD0BDE083D5F9E00DD477C /* TPStatusItemController.h */; };
+		A7DD0BE3083D5F9E00DD477C /* TPStatusItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DD0BDF083D5F9E00DD477C /* TPStatusItemController.m */; };
+		A7E61DA509F176340024712F /* teleport.icns in Resources */ = {isa = PBXBuildFile; fileRef = A7E61DA409F176340024712F /* teleport.icns */; };
+		A7E6351E083F7AD200BC143F /* menuicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7E6351D083F7AD200BC143F /* menuicon.png */; };
+		A7E635300840CAEF00BC143F /* menuicon-white.png in Resources */ = {isa = PBXBuildFile; fileRef = A7E6352E0840CAEF00BC143F /* menuicon-white.png */; };
+		A7E635310840CAEF00BC143F /* menuicon-black.png in Resources */ = {isa = PBXBuildFile; fileRef = A7E6352F0840CAEF00BC143F /* menuicon-black.png */; };
+		A7E6ADD005EEB223001D7D35 /* TPLocalHost.h in Headers */ = {isa = PBXBuildFile; fileRef = A7E6ADCC05EEB223001D7D35 /* TPLocalHost.h */; };
+		A7E6ADD105EEB223001D7D35 /* TPLocalHost.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6ADCD05EEB223001D7D35 /* TPLocalHost.m */; };
+		A7E6ADD605EEB234001D7D35 /* TPRemoteHost.h in Headers */ = {isa = PBXBuildFile; fileRef = A7E6ADD205EEB234001D7D35 /* TPRemoteHost.h */; };
+		A7EC1BD51A19E6CC00CDEC7B /* teleportPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7F1E84D0CAB155000D18B0C /* teleportPref.xib */; };
+		A7EC1BD61A19E82E00CDEC7B /* icon-about.png in Resources */ = {isa = PBXBuildFile; fileRef = A70901850CD007B6006576A6 /* icon-about.png */; };
+		A7EC1BD71A19E83A00CDEC7B /* remove.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A7033E250CF0AB8C004AFBEA /* remove.tiff */; };
+		A7EC1BD81A19E83D00CDEC7B /* sharedscreen.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A7033F3D0CF10E6C004AFBEA /* sharedscreen.tiff */; };
+		A7EC1BD91A19E84000CDEC7B /* sharedscreen-on.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A7BD4E860CF1D26B005B3BED /* sharedscreen-on.tiff */; };
+		A7EF8B0705AB6CA900E9BC56 /* TPBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8B0505AB6CA900E9BC56 /* TPBezierPath.m */; };
+		A7EF8B0805AB6CA900E9BC56 /* TPBezierPath.h in Headers */ = {isa = PBXBuildFile; fileRef = A7EF8B0605AB6CA900E9BC56 /* TPBezierPath.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A731475715CEE635000D7ED4 /* Copy frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A71E0B921AB4213800911ACB /* Sparkle.framework in Copy frameworks */,
+			);
+			name = "Copy frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		A700510507AD3BAB0086D029 /* TPHostsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHostsManager.h; sourceTree = "<group>"; };
+		A700510607AD3BAB0086D029 /* TPHostsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHostsManager.m; sourceTree = "<group>"; };
+		A700510907AD3C5C0086D029 /* TPBonjourController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBonjourController.h; sourceTree = "<group>"; };
+		A700510A07AD3C5C0086D029 /* TPBonjourController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBonjourController.m; sourceTree = "<group>"; };
+		A702484A1533265000B9F965 /* 10.2-Jaguar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.2-Jaguar.jpg"; sourceTree = "<group>"; };
+		A702484B1533265000B9F965 /* 10.3-Panther.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.3-Panther.jpg"; sourceTree = "<group>"; };
+		A702484C1533265000B9F965 /* 10.4-Tiger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.4-Tiger.jpg"; sourceTree = "<group>"; };
+		A702484D1533265000B9F965 /* 10.5-Leopard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.5-Leopard.jpg"; sourceTree = "<group>"; };
+		A702484E1533265000B9F965 /* 10.6-SnowLeopard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.6-SnowLeopard.jpg"; sourceTree = "<group>"; };
+		A702484F1533265000B9F965 /* 10.7-Lion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.7-Lion.jpg"; sourceTree = "<group>"; };
+		A7033E250CF0AB8C004AFBEA /* remove.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = remove.tiff; sourceTree = "<group>"; };
+		A7033F3D0CF10E6C004AFBEA /* sharedscreen.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = sharedscreen.tiff; sourceTree = "<group>"; };
+		A70901850CD007B6006576A6 /* icon-about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-about.png"; sourceTree = "<group>"; };
+		A70AE0D714674AD100A76119 /* teleport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teleport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A71221CC1159899E00DCD93B /* MultipleFiles.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MultipleFiles.icns; sourceTree = "<group>"; };
+		A71E0B901AB4210E00911ACB /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		A71EA8C60A12688400805CC6 /* TPBackgroundImageTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBackgroundImageTransfer.h; sourceTree = "<group>"; };
+		A71EA8C70A12688400805CC6 /* TPBackgroundImageTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBackgroundImageTransfer.m; sourceTree = "<group>"; };
+		A73510E505A65AA90049E8CD /* TPUDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUDPSocket.h; sourceTree = "<group>"; };
+		A73510E605A65AA90049E8CD /* TPUDPSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUDPSocket.m; sourceTree = "<group>"; };
+		A736CF200923A4420008AB32 /* TPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUtils.h; sourceTree = "<group>"; };
+		A736CF210923A4420008AB32 /* TPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUtils.m; sourceTree = "<group>"; };
+		A7389ECB08808A29000D0DCB /* TPLinkTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLinkTextField.h; sourceTree = "<group>"; };
+		A7389ECC08808A29000D0DCB /* TPLinkTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLinkTextField.m; sourceTree = "<group>"; };
+		A744D58105FBE08E0011E56C /* TPApplication.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPApplication.m; sourceTree = "<group>"; };
+		A744D58205FBE08E0011E56C /* TPApplication.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPApplication.h; sourceTree = "<group>"; };
+		A745F8E007C00C5F00B295FD /* TPTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTransfer.h; sourceTree = "<group>"; };
+		A745F8E107C00C5F00B295FD /* TPTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTransfer.m; sourceTree = "<group>"; };
+		A745F90D07C0389600B295FD /* TPPasteboardTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPasteboardTransfer.h; sourceTree = "<group>"; };
+		A745F90E07C0389600B295FD /* TPPasteboardTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPasteboardTransfer.m; sourceTree = "<group>"; };
+		A745F91D07C038E000B295FD /* TPFileTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFileTransfer.h; sourceTree = "<group>"; };
+		A745F91E07C038E000B295FD /* TPFileTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFileTransfer.m; sourceTree = "<group>"; };
+		A746D49B08B14AA100CE2B89 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A75752B405ADE74000D78303 /* TPTCPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTCPSocket.h; sourceTree = "<group>"; };
+		A75752B505ADE74000D78303 /* TPTCPSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTCPSocket.m; sourceTree = "<group>"; };
+		A75752D105ADF9B900D78303 /* TPConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPConnectionController.h; sourceTree = "<group>"; };
+		A75752D205ADF9B900D78303 /* TPConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPConnectionController.m; sourceTree = "<group>"; };
+		A75ED6B709A3FDCF00AFDD7D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		A760369C05A0826D00D20845 /* TPNetworkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPNetworkConnection.h; sourceTree = "<group>"; };
+		A760369D05A0826D00D20845 /* TPNetworkConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNetworkConnection.m; sourceTree = "<group>"; };
+		A7609654107ED026008572E5 /* TPFileSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFileSerialization.h; sourceTree = "<group>"; };
+		A7609655107ED026008572E5 /* TPFileSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFileSerialization.m; sourceTree = "<group>"; };
+		A7614BEC0FE850210043C401 /* TPScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPScreen.h; sourceTree = "<group>"; };
+		A7614BED0FE850210043C401 /* TPScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPScreen.m; sourceTree = "<group>"; };
+		A76426760E11BD9F00F60EA1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		A7642F4909F6DF1F00789DC0 /* TPTransfer_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTransfer_Private.h; sourceTree = "<group>"; };
+		A7697D700DB25C8C0037F0A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
+		A7697D730DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPNetworkConfigurationWatcher.h; sourceTree = "<group>"; };
+		A7697D740DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNetworkConfigurationWatcher.m; sourceTree = "<group>"; };
+		A76BE04705CF016600FF0EA4 /* Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocol.h; sourceTree = "<group>"; };
+		A77425610E1C41820059395D /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
+		A777B7FF0832B65B00C4D824 /* TPHostSnapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHostSnapping.h; sourceTree = "<group>"; };
+		A777B8000832B65B00C4D824 /* TPHostSnapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHostSnapping.m; sourceTree = "<group>"; };
+		A77812110CAF331300EEC97E /* halo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = halo.png; sourceTree = "<group>"; };
+		A782102B05C0D10D00A555DC /* whitelogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitelogo.png; sourceTree = "<group>"; };
+		A78539B609E48D9A005C3446 /* TPTCPSecureSocket.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPTCPSecureSocket.h; sourceTree = "<group>"; };
+		A78539B709E48D9A005C3446 /* TPTCPSecureSocket.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPTCPSecureSocket.m; sourceTree = "<group>"; };
+		A7853BE109E4967C005C3446 /* TPAuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPAuthenticationManager.m; sourceTree = "<group>"; };
+		A7853BE209E4967C005C3446 /* TPAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPAuthenticationManager.h; sourceTree = "<group>"; };
+		A7853BE309E4967C005C3446 /* TPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPAuthenticationRequest.h; sourceTree = "<group>"; };
+		A7853BE409E4967C005C3446 /* TPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPAuthenticationRequest.m; sourceTree = "<group>"; };
+		A78569320921675800301B93 /* TPTestsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTestsController.h; sourceTree = "<group>"; };
+		A78569330921675800301B93 /* TPTestsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTestsController.m; sourceTree = "<group>"; };
+		A78569FC0921719100301B93 /* TPEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEventsController.h; sourceTree = "<group>"; };
+		A78569FD0921719100301B93 /* TPEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEventsController.m; sourceTree = "<group>"; };
+		A7856A26092171C300301B93 /* TPEventTapsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEventTapsController.h; sourceTree = "<group>"; };
+		A7856A27092171C300301B93 /* TPEventTapsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEventTapsController.m; sourceTree = "<group>"; };
+		A786DB3108BE71C400BF1E8B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
+		A786E22D1A19E00300E66B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/teleportPref.xib; sourceTree = "<group>"; };
+		A788AA7B09F5BFCA00570E96 /* Lock_White.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Lock_White.tif; sourceTree = "<group>"; };
+		A78C048A0E13287D00755C6D /* PTKeyboardIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = PTKeyboardIcon.tiff; sourceTree = "<group>"; };
+		A78C048C0E13287D00755C6D /* PTHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTHotKey.h; sourceTree = "<group>"; };
+		A78C048D0E13287D00755C6D /* PTHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTHotKey.m; sourceTree = "<group>"; };
+		A78C048E0E13287D00755C6D /* PTHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTHotKeyCenter.h; sourceTree = "<group>"; };
+		A78C048F0E13287D00755C6D /* PTHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTHotKeyCenter.m; sourceTree = "<group>"; };
+		A78C04900E13287D00755C6D /* PTKeyBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKeyBroadcaster.h; sourceTree = "<group>"; };
+		A78C04910E13287D00755C6D /* PTKeyBroadcaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKeyBroadcaster.m; sourceTree = "<group>"; };
+		A78C04920E13287D00755C6D /* PTKeyCodeTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKeyCodeTranslator.h; sourceTree = "<group>"; };
+		A78C04930E13287D00755C6D /* PTKeyCodeTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKeyCodeTranslator.m; sourceTree = "<group>"; };
+		A78C04940E13287D00755C6D /* PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKeyCombo.h; sourceTree = "<group>"; };
+		A78C04950E13287D00755C6D /* PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKeyCombo.m; sourceTree = "<group>"; };
+		A78C04960E13287D00755C6D /* PTKeyComboPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKeyComboPanel.h; sourceTree = "<group>"; };
+		A78C04970E13287D00755C6D /* PTKeyComboPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKeyComboPanel.m; sourceTree = "<group>"; };
+		A78FD1AA0CB31B99006AC28C /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = /System/Library/Frameworks/SecurityFoundation.framework; sourceTree = "<absolute>"; };
+		A793B81808AACC3B0078CAA7 /* TPPreferencesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPreferencesManager.h; sourceTree = "<group>"; };
+		A793B81908AACC3B0078CAA7 /* TPPreferencesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPreferencesManager.m; sourceTree = "<group>"; };
+		A79C91D406DCF86A0044D87C /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A79D9D3E09AEA25F00DCE620 /* TPConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPConnectionsManager.h; sourceTree = "<group>"; };
+		A79D9D3F09AEA25F00DCE620 /* TPConnectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPConnectionsManager.m; sourceTree = "<group>"; };
+		A79ED91908959FAC00DC4A6A /* TPTransfersManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTransfersManager.h; sourceTree = "<group>"; };
+		A79ED91A08959FAC00DC4A6A /* TPTransfersManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTransfersManager.m; sourceTree = "<group>"; };
+		A79EDD4D0897D69700DC4A6A /* TPBezelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBezelController.h; sourceTree = "<group>"; };
+		A79EDD4E0897D69700DC4A6A /* TPBezelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBezelController.m; sourceTree = "<group>"; };
+		A79F8E94142AAAF700ED1D19 /* KeyCodes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = KeyCodes.plist; sourceTree = "<group>"; };
+		A7A50B060F844F9900C5B878 /* TPOptionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOptionsController.h; sourceTree = "<group>"; };
+		A7A50B070F844F9900C5B878 /* TPOptionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOptionsController.m; sourceTree = "<group>"; };
+		A7A819490C60030700DE5CD4 /* TPDirectEventTapsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDirectEventTapsController.h; sourceTree = "<group>"; };
+		A7A8194A0C60030700DE5CD4 /* TPDirectEventTapsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDirectEventTapsController.m; sourceTree = "<group>"; };
+		A7A819510C60047D00DE5CD4 /* TPEventTapsController_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEventTapsController_Internal.h; sourceTree = "<group>"; };
+		A7B08FA90DCA10A3008CAFF2 /* TPFakeHostsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFakeHostsGenerator.h; sourceTree = "<group>"; };
+		A7B08FAA0DCA10A3008CAFF2 /* TPFakeHostsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFakeHostsGenerator.m; sourceTree = "<group>"; };
+		A7B5932B05F0F42000F7CA57 /* TPVersionTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPVersionTextField.h; sourceTree = "<group>"; };
+		A7B5932C05F0F42000F7CA57 /* TPVersionTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPVersionTextField.m; sourceTree = "<group>"; };
+		A7B5934A05F17DFB00F7CA57 /* TPLayoutHostView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLayoutHostView.h; sourceTree = "<group>"; };
+		A7B5934B05F17DFB00F7CA57 /* TPLayoutHostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLayoutHostView.m; sourceTree = "<group>"; };
+		A7B799E507B8304C00C717E7 /* TPHotBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHotBorderView.h; sourceTree = "<group>"; };
+		A7B799E607B8304C00C717E7 /* TPHotBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHotBorderView.m; sourceTree = "<group>"; };
+		A7BB550E0A1BD00D007044EA /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		A7BD4E860CF1D26B005B3BED /* sharedscreen-on.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "sharedscreen-on.tiff"; sourceTree = "<group>"; };
+		A7BEF7730F8C286C00C54411 /* TPKeyComboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyComboView.h; sourceTree = "<group>"; };
+		A7BEF7740F8C286C00C54411 /* TPKeyComboView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyComboView.m; sourceTree = "<group>"; };
+		A7C4711B0FA903C300282EF2 /* switch-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "switch-sound.wav"; sourceTree = "<group>"; };
+		A7C9DECF059F4A7400E67CB3 /* common.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = SOURCE_ROOT; };
+		A7C9DEE5059F4AA100E67CB3 /* TPBezelView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPBezelView.h; sourceTree = "<group>"; };
+		A7C9DEE6059F4AA100E67CB3 /* TPBezelView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPBezelView.m; sourceTree = "<group>"; };
+		A7C9DEE7059F4AA100E67CB3 /* TPBezelWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPBezelWindow.h; sourceTree = "<group>"; };
+		A7C9DEE8059F4AA100E67CB3 /* TPBezelWindow.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPBezelWindow.m; sourceTree = "<group>"; };
+		A7C9DEE9059F4AA100E67CB3 /* TPRemoteOperationsController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPRemoteOperationsController.h; sourceTree = "<group>"; };
+		A7C9DEEA059F4AA100E67CB3 /* TPRemoteOperationsController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPRemoteOperationsController.m; sourceTree = "<group>"; };
+		A7C9DF15059F4AE900E67CB3 /* TPHost.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPHost.h; sourceTree = SOURCE_ROOT; };
+		A7C9DF16059F4AE900E67CB3 /* TPHost.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPHost.m; sourceTree = SOURCE_ROOT; };
+		A7C9DF1B059F4AF600E67CB3 /* TPHotBorder.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPHotBorder.h; sourceTree = "<group>"; };
+		A7C9DF1C059F4AF600E67CB3 /* TPHotBorder.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPHotBorder.m; sourceTree = "<group>"; };
+		A7C9DF1F059F4B0500E67CB3 /* TPLayoutRemoteHostView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPLayoutRemoteHostView.h; sourceTree = "<group>"; };
+		A7C9DF20059F4B0500E67CB3 /* TPLayoutRemoteHostView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPLayoutRemoteHostView.m; sourceTree = "<group>"; };
+		A7C9DF27059F4B1300E67CB3 /* TPMainController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPMainController.h; sourceTree = "<group>"; };
+		A7C9DF28059F4B1300E67CB3 /* TPMainController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPMainController.m; sourceTree = "<group>"; };
+		A7C9DF29059F4B1300E67CB3 /* TPClientController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPClientController.h; sourceTree = "<group>"; };
+		A7C9DF2A059F4B1300E67CB3 /* TPClientController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPClientController.m; sourceTree = "<group>"; };
+		A7C9DF2B059F4B1300E67CB3 /* TPMessage.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPMessage.h; sourceTree = SOURCE_ROOT; };
+		A7C9DF2C059F4B1300E67CB3 /* TPMessage.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPMessage.m; sourceTree = SOURCE_ROOT; };
+		A7C9DF2D059F4B1300E67CB3 /* TPServerController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPServerController.h; sourceTree = "<group>"; };
+		A7C9DF2E059F4B1300E67CB3 /* TPServerController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPServerController.m; sourceTree = "<group>"; };
+		A7C9DF5B059F4BDA00E67CB3 /* MainMenu.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = MainMenu.nib; sourceTree = "<group>"; };
+		A7C9DF5E059F4C2500E67CB3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
+		A7C9DF8B059F4EA700E67CB3 /* teleport_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = teleport_Prefix.pch; sourceTree = "<group>"; };
+		A7D173340F535F0E00CC6946 /* TPHostAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHostAnimationController.h; sourceTree = "<group>"; };
+		A7D173350F535F0E00CC6946 /* TPHostAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHostAnimationController.m; sourceTree = "<group>"; };
+		A7D6388B0F213F6B000C5DB2 /* TPOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOptionsView.h; sourceTree = "<group>"; };
+		A7D6388C0F213F6B000C5DB2 /* TPOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOptionsView.m; sourceTree = "<group>"; };
+		A7D638FB0F21446A000C5DB2 /* TPAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAnimationManager.h; sourceTree = "<group>"; };
+		A7D638FC0F21446A000C5DB2 /* TPAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAnimationManager.m; sourceTree = "<group>"; };
+		A7D9BB2605C5CEB8003DD65C /* TPClosingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPClosingWindow.h; sourceTree = "<group>"; };
+		A7D9BB2705C5CEB8003DD65C /* TPClosingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPClosingWindow.m; sourceTree = "<group>"; };
+		A7DD0BDE083D5F9E00DD477C /* TPStatusItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPStatusItemController.h; sourceTree = "<group>"; };
+		A7DD0BDF083D5F9E00DD477C /* TPStatusItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPStatusItemController.m; sourceTree = "<group>"; };
+		A7E475950A14DD7900DCEA57 /* TPTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTableView.h; sourceTree = "<group>"; };
+		A7E475960A14DD7900DCEA57 /* TPTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTableView.m; sourceTree = "<group>"; };
+		A7E612E609EDC0210024712F /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = /System/Library/Frameworks/SecurityInterface.framework; sourceTree = "<absolute>"; };
+		A7E61DA409F176340024712F /* teleport.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = teleport.icns; sourceTree = "<group>"; };
+		A7E6351D083F7AD200BC143F /* menuicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuicon.png; sourceTree = "<group>"; };
+		A7E6352E0840CAEF00BC143F /* menuicon-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuicon-white.png"; sourceTree = "<group>"; };
+		A7E6352F0840CAEF00BC143F /* menuicon-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuicon-black.png"; sourceTree = "<group>"; };
+		A7E6ADA205EEAE2C001D7D35 /* TPLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLayoutView.h; sourceTree = "<group>"; };
+		A7E6ADA305EEAE2C001D7D35 /* TPLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLayoutView.m; sourceTree = "<group>"; };
+		A7E6ADCC05EEB223001D7D35 /* TPLocalHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocalHost.h; sourceTree = "<group>"; };
+		A7E6ADCD05EEB223001D7D35 /* TPLocalHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocalHost.m; sourceTree = "<group>"; };
+		A7E6ADD205EEB234001D7D35 /* TPRemoteHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPRemoteHost.h; sourceTree = "<group>"; };
+		A7E6ADD305EEB234001D7D35 /* TPRemoteHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPRemoteHost.m; sourceTree = "<group>"; };
+		A7E6ADD905EEB47D001D7D35 /* TPLayoutLocalHostView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLayoutLocalHostView.h; sourceTree = "<group>"; };
+		A7E6ADDA05EEB47D001D7D35 /* TPLayoutLocalHostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLayoutLocalHostView.m; sourceTree = "<group>"; };
+		A7EF8B0505AB6CA900E9BC56 /* TPBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPBezierPath.m; sourceTree = "<group>"; };
+		A7EF8B0605AB6CA900E9BC56 /* TPBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPBezierPath.h; sourceTree = "<group>"; };
+		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
+		F506C03C013D9D7901CA16C8 /* TPPreferencePane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPreferencePane.h; sourceTree = "<group>"; };
+		F506C03D013D9D7901CA16C8 /* TPPreferencePane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPreferencePane.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7C9DEC7059F496500E67CB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A786E23C1A19E0D900E66B43 /* SecurityInterface.framework in Frameworks */,
+				A7C9DF61059F4C5100E67CB3 /* Cocoa.framework in Frameworks */,
+				A786DB3208BE71C400BF1E8B /* Security.framework in Frameworks */,
+				A75ED6CC09A3FDCF00AFDD7D /* Carbon.framework in Frameworks */,
+				A71E0B911AB4210E00911ACB /* Sparkle.framework in Frameworks */,
+				A7BB55E10A1BD00E007044EA /* IOKit.framework in Frameworks */,
+				A78FD1AB0CB31B99006AC28C /* SecurityFoundation.framework in Frameworks */,
+				A7697D710DB25C8C0037F0A5 /* SystemConfiguration.framework in Frameworks */,
+				A703972A0F609EAA006B8621 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* teleport */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AFFE84173DC02AAC07 /* Sources */,
+				32DBCFA10370C40200C91783 /* Other Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				A70AE0D814674AD100A76119 /* Products */,
+			);
+			name = teleport;
+			sourceTree = "<group>";
+			usesTabs = 1;
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A746D49B08B14AA100CE2B89 /* Info.plist */,
+				A7E61DA409F176340024712F /* teleport.icns */,
+				A70901850CD007B6006576A6 /* icon-about.png */,
+				A782102B05C0D10D00A555DC /* whitelogo.png */,
+				A77812110CAF331300EEC97E /* halo.png */,
+				A7E6351D083F7AD200BC143F /* menuicon.png */,
+				A7E6352E0840CAEF00BC143F /* menuicon-white.png */,
+				A7E6352F0840CAEF00BC143F /* menuicon-black.png */,
+				A7033E250CF0AB8C004AFBEA /* remove.tiff */,
+				A7033F3D0CF10E6C004AFBEA /* sharedscreen.tiff */,
+				A7BD4E860CF1D26B005B3BED /* sharedscreen-on.tiff */,
+				A788AA7B09F5BFCA00570E96 /* Lock_White.tif */,
+				A71221CC1159899E00DCD93B /* MultipleFiles.icns */,
+				A7C4711B0FA903C300282EF2 /* switch-sound.wav */,
+				A70901890CD00952006576A6 /* InfoPlist.strings */,
+				A7C9DF5B059F4BDA00E67CB3 /* MainMenu.nib */,
+				A7F1E84D0CAB155000D18B0C /* teleportPref.xib */,
+				A746D70308B1733600CE2B89 /* Localizable.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A7C9DECF059F4A7400E67CB3 /* common.h */,
+				A777B7FF0832B65B00C4D824 /* TPHostSnapping.h */,
+				A777B8000832B65B00C4D824 /* TPHostSnapping.m */,
+				A793B81808AACC3B0078CAA7 /* TPPreferencesManager.h */,
+				A793B81908AACC3B0078CAA7 /* TPPreferencesManager.m */,
+				A78C047E0E13287D00755C6D /* PTHotKeysLib */,
+				A7E6ADD805EEB2BA001D7D35 /* Hosts */,
+				A7D173380F535F3200CC6946 /* Host animation */,
+				A78568B709215B0C00301B93 /* Controllers */,
+				A78568B509215A7E00301B93 /* Back End */,
+				A78568B409215A7100301B93 /* Front End */,
+				A78569310921674500301B93 /* Debug */,
+				A7C9DECC059F4A4100E67CB3 /* Preferences */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A71E0B901AB4210E00911ACB /* Sparkle.framework */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+				A75ED6B709A3FDCF00AFDD7D /* Carbon.framework */,
+				F506C035013D953901CA16C8 /* PreferencePanes.framework */,
+				A786DB3108BE71C400BF1E8B /* Security.framework */,
+				A7E612E609EDC0210024712F /* SecurityInterface.framework */,
+				A76426760E11BD9F00F60EA1 /* QuartzCore.framework */,
+				A7BB550E0A1BD00D007044EA /* IOKit.framework */,
+				A78FD1AA0CB31B99006AC28C /* SecurityFoundation.framework */,
+				A7697D700DB25C8C0037F0A5 /* SystemConfiguration.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32DBCFA10370C40200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A7C9DF5E059F4C2500E67CB3 /* main.m */,
+				A7C9DF8B059F4EA700E67CB3 /* teleport_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		A70248491533265000B9F965 /* desktop-pictures */ = {
+			isa = PBXGroup;
+			children = (
+				A702484A1533265000B9F965 /* 10.2-Jaguar.jpg */,
+				A702484B1533265000B9F965 /* 10.3-Panther.jpg */,
+				A702484C1533265000B9F965 /* 10.4-Tiger.jpg */,
+				A702484D1533265000B9F965 /* 10.5-Leopard.jpg */,
+				A702484E1533265000B9F965 /* 10.6-SnowLeopard.jpg */,
+				A702484F1533265000B9F965 /* 10.7-Lion.jpg */,
+			);
+			path = "desktop-pictures";
+			sourceTree = "<group>";
+		};
+		A70AE0D814674AD100A76119 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A70AE0D714674AD100A76119 /* teleport.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A736CF1F0923A4310008AB32 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A736CF200923A4420008AB32 /* TPUtils.h */,
+				A736CF210923A4420008AB32 /* TPUtils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		A745F91107C038A800B295FD /* Transfers */ = {
+			isa = PBXGroup;
+			children = (
+				A79ED91908959FAC00DC4A6A /* TPTransfersManager.h */,
+				A79ED91A08959FAC00DC4A6A /* TPTransfersManager.m */,
+				A745F8E007C00C5F00B295FD /* TPTransfer.h */,
+				A7642F4909F6DF1F00789DC0 /* TPTransfer_Private.h */,
+				A745F8E107C00C5F00B295FD /* TPTransfer.m */,
+				A745F90D07C0389600B295FD /* TPPasteboardTransfer.h */,
+				A745F90E07C0389600B295FD /* TPPasteboardTransfer.m */,
+				A745F91D07C038E000B295FD /* TPFileTransfer.h */,
+				A745F91E07C038E000B295FD /* TPFileTransfer.m */,
+				A7609654107ED026008572E5 /* TPFileSerialization.h */,
+				A7609655107ED026008572E5 /* TPFileSerialization.m */,
+				A71EA8C60A12688400805CC6 /* TPBackgroundImageTransfer.h */,
+				A71EA8C70A12688400805CC6 /* TPBackgroundImageTransfer.m */,
+			);
+			name = Transfers;
+			sourceTree = "<group>";
+		};
+		A76BE04A05CF019900FF0EA4 /* Connections */ = {
+			isa = PBXGroup;
+			children = (
+				A79D9D3E09AEA25F00DCE620 /* TPConnectionsManager.h */,
+				A79D9D3F09AEA25F00DCE620 /* TPConnectionsManager.m */,
+				A760369C05A0826D00D20845 /* TPNetworkConnection.h */,
+				A760369D05A0826D00D20845 /* TPNetworkConnection.m */,
+				A73510E505A65AA90049E8CD /* TPUDPSocket.h */,
+				A73510E605A65AA90049E8CD /* TPUDPSocket.m */,
+				A75752B405ADE74000D78303 /* TPTCPSocket.h */,
+				A75752B505ADE74000D78303 /* TPTCPSocket.m */,
+				A78539B609E48D9A005C3446 /* TPTCPSecureSocket.h */,
+				A78539B709E48D9A005C3446 /* TPTCPSecureSocket.m */,
+			);
+			name = Connections;
+			sourceTree = "<group>";
+		};
+		A76BE04B05CF01A700FF0EA4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A76BE04705CF016600FF0EA4 /* Protocol.h */,
+				A7C9DF2B059F4B1300E67CB3 /* TPMessage.h */,
+				A7C9DF2C059F4B1300E67CB3 /* TPMessage.m */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		A7853BDC09E4960F005C3446 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				A7853BE209E4967C005C3446 /* TPAuthenticationManager.h */,
+				A7853BE109E4967C005C3446 /* TPAuthenticationManager.m */,
+				A7853BE309E4967C005C3446 /* TPAuthenticationRequest.h */,
+				A7853BE409E4967C005C3446 /* TPAuthenticationRequest.m */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		A78568B409215A7100301B93 /* Front End */ = {
+			isa = PBXGroup;
+			children = (
+				A7B799CB07B82E5500C717E7 /* Hot border */,
+				A79EDD4A0897D64500DC4A6A /* Bezel */,
+				A7DD0BDD083D5F7D00DD477C /* Status Item */,
+				A7EF8B0605AB6CA900E9BC56 /* TPBezierPath.h */,
+				A7EF8B0505AB6CA900E9BC56 /* TPBezierPath.m */,
+			);
+			name = "Front End";
+			sourceTree = "<group>";
+		};
+		A78568B509215A7E00301B93 /* Back End */ = {
+			isa = PBXGroup;
+			children = (
+				A700510507AD3BAB0086D029 /* TPHostsManager.h */,
+				A700510607AD3BAB0086D029 /* TPHostsManager.m */,
+				A744D58205FBE08E0011E56C /* TPApplication.h */,
+				A744D58105FBE08E0011E56C /* TPApplication.m */,
+				A736CF1F0923A4310008AB32 /* Utils */,
+				A7C9DF3A059F4B6300E67CB3 /* Network */,
+				A7C9DF39059F4B5700E67CB3 /* Remote Control */,
+			);
+			name = "Back End";
+			sourceTree = "<group>";
+		};
+		A78568B709215B0C00301B93 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A7C9DF27059F4B1300E67CB3 /* TPMainController.h */,
+				A7C9DF28059F4B1300E67CB3 /* TPMainController.m */,
+				A75752D105ADF9B900D78303 /* TPConnectionController.h */,
+				A75752D205ADF9B900D78303 /* TPConnectionController.m */,
+				A7C9DF29059F4B1300E67CB3 /* TPClientController.h */,
+				A7C9DF2A059F4B1300E67CB3 /* TPClientController.m */,
+				A7C9DF2D059F4B1300E67CB3 /* TPServerController.h */,
+				A7C9DF2E059F4B1300E67CB3 /* TPServerController.m */,
+				A7697D730DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.h */,
+				A7697D740DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A78569310921674500301B93 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				A78569320921675800301B93 /* TPTestsController.h */,
+				A78569330921675800301B93 /* TPTestsController.m */,
+				A7B08FA90DCA10A3008CAFF2 /* TPFakeHostsGenerator.h */,
+				A7B08FAA0DCA10A3008CAFF2 /* TPFakeHostsGenerator.m */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
+		A7856A000921719B00301B93 /* Remote Operations */ = {
+			isa = PBXGroup;
+			children = (
+				A7C9DEE9059F4AA100E67CB3 /* TPRemoteOperationsController.h */,
+				A7C9DEEA059F4AA100E67CB3 /* TPRemoteOperationsController.m */,
+			);
+			name = "Remote Operations";
+			sourceTree = "<group>";
+		};
+		A7856A01092171A500301B93 /* Event Taps */ = {
+			isa = PBXGroup;
+			children = (
+				A7856A26092171C300301B93 /* TPEventTapsController.h */,
+				A7A819510C60047D00DE5CD4 /* TPEventTapsController_Internal.h */,
+				A7856A27092171C300301B93 /* TPEventTapsController.m */,
+				A7A819490C60030700DE5CD4 /* TPDirectEventTapsController.h */,
+				A7A8194A0C60030700DE5CD4 /* TPDirectEventTapsController.m */,
+			);
+			name = "Event Taps";
+			sourceTree = "<group>";
+		};
+		A78C047E0E13287D00755C6D /* PTHotKeysLib */ = {
+			isa = PBXGroup;
+			children = (
+				A78C048B0E13287D00755C6D /* src */,
+				A78C047F0E13287D00755C6D /* res */,
+			);
+			path = PTHotKeysLib;
+			sourceTree = "<group>";
+		};
+		A78C047F0E13287D00755C6D /* res */ = {
+			isa = PBXGroup;
+			children = (
+				A79F8E94142AAAF700ED1D19 /* KeyCodes.plist */,
+				A78C048A0E13287D00755C6D /* PTKeyboardIcon.tiff */,
+				A77425610E1C41820059395D /* key.png */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		A78C048B0E13287D00755C6D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A78C048C0E13287D00755C6D /* PTHotKey.h */,
+				A78C048D0E13287D00755C6D /* PTHotKey.m */,
+				A78C048E0E13287D00755C6D /* PTHotKeyCenter.h */,
+				A78C048F0E13287D00755C6D /* PTHotKeyCenter.m */,
+				A78C04900E13287D00755C6D /* PTKeyBroadcaster.h */,
+				A78C04910E13287D00755C6D /* PTKeyBroadcaster.m */,
+				A78C04920E13287D00755C6D /* PTKeyCodeTranslator.h */,
+				A78C04930E13287D00755C6D /* PTKeyCodeTranslator.m */,
+				A78C04940E13287D00755C6D /* PTKeyCombo.h */,
+				A78C04950E13287D00755C6D /* PTKeyCombo.m */,
+				A78C04960E13287D00755C6D /* PTKeyComboPanel.h */,
+				A78C04970E13287D00755C6D /* PTKeyComboPanel.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A7944ACC07CE62F700EE66B6 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				A7E6ADA205EEAE2C001D7D35 /* TPLayoutView.h */,
+				A7E6ADA305EEAE2C001D7D35 /* TPLayoutView.m */,
+				A7BEF7730F8C286C00C54411 /* TPKeyComboView.h */,
+				A7BEF7740F8C286C00C54411 /* TPKeyComboView.m */,
+				A7A50B060F844F9900C5B878 /* TPOptionsController.h */,
+				A7A50B070F844F9900C5B878 /* TPOptionsController.m */,
+				A7D6388B0F213F6B000C5DB2 /* TPOptionsView.h */,
+				A7D6388C0F213F6B000C5DB2 /* TPOptionsView.m */,
+				A7D638FB0F21446A000C5DB2 /* TPAnimationManager.h */,
+				A7D638FC0F21446A000C5DB2 /* TPAnimationManager.m */,
+				A7E6ADE205EEB4AD001D7D35 /* Layout hosts */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		A79EDD4A0897D64500DC4A6A /* Bezel */ = {
+			isa = PBXGroup;
+			children = (
+				A79EDD4D0897D69700DC4A6A /* TPBezelController.h */,
+				A79EDD4E0897D69700DC4A6A /* TPBezelController.m */,
+				A7C9DEE5059F4AA100E67CB3 /* TPBezelView.h */,
+				A7C9DEE6059F4AA100E67CB3 /* TPBezelView.m */,
+				A7C9DEE7059F4AA100E67CB3 /* TPBezelWindow.h */,
+				A7C9DEE8059F4AA100E67CB3 /* TPBezelWindow.m */,
+			);
+			name = Bezel;
+			sourceTree = "<group>";
+		};
+		A7B799CB07B82E5500C717E7 /* Hot border */ = {
+			isa = PBXGroup;
+			children = (
+				A7C9DF1B059F4AF600E67CB3 /* TPHotBorder.h */,
+				A7C9DF1C059F4AF600E67CB3 /* TPHotBorder.m */,
+				A7B799E507B8304C00C717E7 /* TPHotBorderView.h */,
+				A7B799E607B8304C00C717E7 /* TPHotBorderView.m */,
+			);
+			name = "Hot border";
+			sourceTree = "<group>";
+		};
+		A7C9DECC059F4A4100E67CB3 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				F506C03C013D9D7901CA16C8 /* TPPreferencePane.h */,
+				F506C03D013D9D7901CA16C8 /* TPPreferencePane.m */,
+				A7E475950A14DD7900DCEA57 /* TPTableView.h */,
+				A7E475960A14DD7900DCEA57 /* TPTableView.m */,
+				A7D9BB2605C5CEB8003DD65C /* TPClosingWindow.h */,
+				A7D9BB2705C5CEB8003DD65C /* TPClosingWindow.m */,
+				A7B5932B05F0F42000F7CA57 /* TPVersionTextField.h */,
+				A7B5932C05F0F42000F7CA57 /* TPVersionTextField.m */,
+				A7389ECB08808A29000D0DCB /* TPLinkTextField.h */,
+				A7389ECC08808A29000D0DCB /* TPLinkTextField.m */,
+				A7944ACC07CE62F700EE66B6 /* Layout */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		A7C9DF39059F4B5700E67CB3 /* Remote Control */ = {
+			isa = PBXGroup;
+			children = (
+				A78569FC0921719100301B93 /* TPEventsController.h */,
+				A78569FD0921719100301B93 /* TPEventsController.m */,
+				A7856A000921719B00301B93 /* Remote Operations */,
+				A7856A01092171A500301B93 /* Event Taps */,
+			);
+			name = "Remote Control";
+			sourceTree = "<group>";
+		};
+		A7C9DF3A059F4B6300E67CB3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A700510907AD3C5C0086D029 /* TPBonjourController.h */,
+				A700510A07AD3C5C0086D029 /* TPBonjourController.m */,
+				A7853BDC09E4960F005C3446 /* Authentication */,
+				A76BE04A05CF019900FF0EA4 /* Connections */,
+				A76BE04B05CF01A700FF0EA4 /* Protocol */,
+				A745F91107C038A800B295FD /* Transfers */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		A7D173380F535F3200CC6946 /* Host animation */ = {
+			isa = PBXGroup;
+			children = (
+				A7D173340F535F0E00CC6946 /* TPHostAnimationController.h */,
+				A7D173350F535F0E00CC6946 /* TPHostAnimationController.m */,
+			);
+			name = "Host animation";
+			sourceTree = "<group>";
+		};
+		A7DD0BDD083D5F7D00DD477C /* Status Item */ = {
+			isa = PBXGroup;
+			children = (
+				A7DD0BDE083D5F9E00DD477C /* TPStatusItemController.h */,
+				A7DD0BDF083D5F9E00DD477C /* TPStatusItemController.m */,
+			);
+			name = "Status Item";
+			sourceTree = "<group>";
+		};
+		A7E6ADD805EEB2BA001D7D35 /* Hosts */ = {
+			isa = PBXGroup;
+			children = (
+				A7614BEC0FE850210043C401 /* TPScreen.h */,
+				A7614BED0FE850210043C401 /* TPScreen.m */,
+				A7C9DF15059F4AE900E67CB3 /* TPHost.h */,
+				A7C9DF16059F4AE900E67CB3 /* TPHost.m */,
+				A7E6ADCC05EEB223001D7D35 /* TPLocalHost.h */,
+				A7E6ADCD05EEB223001D7D35 /* TPLocalHost.m */,
+				A7E6ADD205EEB234001D7D35 /* TPRemoteHost.h */,
+				A7E6ADD305EEB234001D7D35 /* TPRemoteHost.m */,
+				A70248491533265000B9F965 /* desktop-pictures */,
+			);
+			name = Hosts;
+			sourceTree = "<group>";
+		};
+		A7E6ADE205EEB4AD001D7D35 /* Layout hosts */ = {
+			isa = PBXGroup;
+			children = (
+				A7B5934A05F17DFB00F7CA57 /* TPLayoutHostView.h */,
+				A7B5934B05F17DFB00F7CA57 /* TPLayoutHostView.m */,
+				A7C9DF1F059F4B0500E67CB3 /* TPLayoutRemoteHostView.h */,
+				A7C9DF20059F4B0500E67CB3 /* TPLayoutRemoteHostView.m */,
+				A7E6ADD905EEB47D001D7D35 /* TPLayoutLocalHostView.h */,
+				A7E6ADDA05EEB47D001D7D35 /* TPLayoutLocalHostView.m */,
+			);
+			name = "Layout hosts";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A7C9DEC4059F496500E67CB3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7C9DED1059F4A7400E67CB3 /* common.h in Headers */,
+				A7C9DF00059F4AA100E67CB3 /* TPBezelView.h in Headers */,
+				A7C9DF02059F4AA100E67CB3 /* TPBezelWindow.h in Headers */,
+				A7C9DF04059F4AA100E67CB3 /* TPRemoteOperationsController.h in Headers */,
+				A7C9DF17059F4AE900E67CB3 /* TPHost.h in Headers */,
+				A7C9DF1D059F4AF600E67CB3 /* TPHotBorder.h in Headers */,
+				A7C9DF2F059F4B1300E67CB3 /* TPMainController.h in Headers */,
+				A7C9DF31059F4B1300E67CB3 /* TPClientController.h in Headers */,
+				A7C9DF33059F4B1300E67CB3 /* TPMessage.h in Headers */,
+				A7C9DF35059F4B1300E67CB3 /* TPServerController.h in Headers */,
+				A7EF8B0805AB6CA900E9BC56 /* TPBezierPath.h in Headers */,
+				A75752B605ADE74000D78303 /* TPTCPSocket.h in Headers */,
+				A75752D305ADF9B900D78303 /* TPConnectionController.h in Headers */,
+				A76BE04905CF016600FF0EA4 /* Protocol.h in Headers */,
+				A7E6ADD005EEB223001D7D35 /* TPLocalHost.h in Headers */,
+				A7E6ADD605EEB234001D7D35 /* TPRemoteHost.h in Headers */,
+				A744D58405FBE08E0011E56C /* TPApplication.h in Headers */,
+				A72A1C5A07A464ED0012563F /* TPNetworkConnection.h in Headers */,
+				A700510707AD3BAB0086D029 /* TPHostsManager.h in Headers */,
+				A700510B07AD3C5C0086D029 /* TPBonjourController.h in Headers */,
+				A7B799E707B8304C00C717E7 /* TPHotBorderView.h in Headers */,
+				A745F8E207C00C5F00B295FD /* TPTransfer.h in Headers */,
+				A745F90F07C0389600B295FD /* TPPasteboardTransfer.h in Headers */,
+				A745F91F07C038E000B295FD /* TPFileTransfer.h in Headers */,
+				A777B8010832B65B00C4D824 /* TPHostSnapping.h in Headers */,
+				A7DD0BE2083D5F9E00DD477C /* TPStatusItemController.h in Headers */,
+				A79ED91B08959FAC00DC4A6A /* TPTransfersManager.h in Headers */,
+				A79EDD4F0897D69700DC4A6A /* TPBezelController.h in Headers */,
+				A793B81A08AACC3B0078CAA7 /* TPPreferencesManager.h in Headers */,
+				A78569340921675F00301B93 /* TPTestsController.h in Headers */,
+				A78569FE0921719100301B93 /* TPEventsController.h in Headers */,
+				A7856A28092171C300301B93 /* TPEventTapsController.h in Headers */,
+				A736CF220923A4420008AB32 /* TPUtils.h in Headers */,
+				A79D9D4009AEA25F00DCE620 /* TPConnectionsManager.h in Headers */,
+				A78539B809E48D9A005C3446 /* TPTCPSecureSocket.h in Headers */,
+				A7853BE609E4967C005C3446 /* TPAuthenticationManager.h in Headers */,
+				A7853BE709E4967C005C3446 /* TPAuthenticationRequest.h in Headers */,
+				A7642F4A09F6DF1F00789DC0 /* TPTransfer_Private.h in Headers */,
+				A71EA8C80A12688400805CC6 /* TPBackgroundImageTransfer.h in Headers */,
+				A7A8194E0C60042800DE5CD4 /* TPDirectEventTapsController.h in Headers */,
+				A7A819520C60047D00DE5CD4 /* TPEventTapsController_Internal.h in Headers */,
+				A7697D750DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.h in Headers */,
+				A7B08FAB0DCA10A3008CAFF2 /* TPFakeHostsGenerator.h in Headers */,
+				A78C04AA0E13287D00755C6D /* PTHotKey.h in Headers */,
+				A78C04AC0E13287D00755C6D /* PTHotKeyCenter.h in Headers */,
+				A78C04AE0E13287D00755C6D /* PTKeyBroadcaster.h in Headers */,
+				A78C04B00E13287D00755C6D /* PTKeyCodeTranslator.h in Headers */,
+				A78C04B20E13287D00755C6D /* PTKeyCombo.h in Headers */,
+				A78C04B40E13287D00755C6D /* PTKeyComboPanel.h in Headers */,
+				A7D173360F535F0E00CC6946 /* TPHostAnimationController.h in Headers */,
+				A7614BEE0FE850210043C401 /* TPScreen.h in Headers */,
+				A7609656107ED026008572E5 /* TPFileSerialization.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A7C9DEC8059F496500E67CB3 /* teleport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A729278308564D7C00518F7E /* Build configuration list for PBXNativeTarget "teleport" */;
+			buildPhases = (
+				A7C9DEC4059F496500E67CB3 /* Headers */,
+				A786E22C1A19DFA500E66B43 /* Update strings */,
+				A7C9DEC5059F496500E67CB3 /* Resources */,
+				A731475715CEE635000D7ED4 /* Copy frameworks */,
+				A7C9DEC6059F496500E67CB3 /* Sources */,
+				A7C9DEC7059F496500E67CB3 /* Frameworks */,
+				A71EA0750A10D5B400805CC6 /* Set revision number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = teleport;
+			productName = Daemon;
+			productReference = A70AE0D714674AD100A76119 /* teleport.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = A729278F08564D7C00518F7E /* Build configuration list for PBXProject "teleport" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				it,
+				Spanish,
+				Danish,
+				Czech,
+				Italian,
+				Base,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* teleport */;
+			productRefGroup = A70AE0D814674AD100A76119 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7C9DEC8059F496500E67CB3 /* teleport */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7C9DEC5059F496500E67CB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A743A23008B2B6CD006B9FB2 /* MainMenu.nib in Resources */,
+				A7EC1BD51A19E6CC00CDEC7B /* teleportPref.xib in Resources */,
+				A782102C05C0D10D00A555DC /* whitelogo.png in Resources */,
+				A746D70508B1733600CE2B89 /* Localizable.strings in Resources */,
+				A7E6351E083F7AD200BC143F /* menuicon.png in Resources */,
+				A7E635300840CAEF00BC143F /* menuicon-white.png in Resources */,
+				A7E635310840CAEF00BC143F /* menuicon-black.png in Resources */,
+				A7E61DA509F176340024712F /* teleport.icns in Resources */,
+				A7EC1BD61A19E82E00CDEC7B /* icon-about.png in Resources */,
+				A788AA7C09F5BFCA00570E96 /* Lock_White.tif in Resources */,
+				A7EC1BD81A19E83D00CDEC7B /* sharedscreen.tiff in Resources */,
+				A77812120CAF331300EEC97E /* halo.png in Resources */,
+				A7EC1BD91A19E84000CDEC7B /* sharedscreen-on.tiff in Resources */,
+				A7C4711C0FA903C300282EF2 /* switch-sound.wav in Resources */,
+				A7EC1BD71A19E83A00CDEC7B /* remove.tiff in Resources */,
+				A71221CD1159899E00DCD93B /* MultipleFiles.icns in Resources */,
+				A79F8E95142AAAF700ED1D19 /* KeyCodes.plist in Resources */,
+				A702485615332CD800B9F965 /* 10.2-Jaguar.jpg in Resources */,
+				A702485715332CD800B9F965 /* 10.3-Panther.jpg in Resources */,
+				A702485815332CD800B9F965 /* 10.4-Tiger.jpg in Resources */,
+				A702485915332CD800B9F965 /* 10.5-Leopard.jpg in Resources */,
+				A702485A15332CD800B9F965 /* 10.6-SnowLeopard.jpg in Resources */,
+				A702485B15332CD800B9F965 /* 10.7-Lion.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A71EA0750A10D5B400805CC6 /* Set revision number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set revision number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/perl -w";
+			shellScript = "# Xcode auto-versioning script for Subversion\n# by Axel Andersson, modified by Daniel Jalkut to add\n# \"--revision HEAD\" to the svn info line, which allows\n# the latest revision to always be used.\n\nuse strict;\n\ndie \"$0: Must be run from Xcode\" unless $ENV{\"BUILT_PRODUCTS_DIR\"};\n\nmy $REV = `git describe`;\nmy $INFO = \"$ENV{BUILT_PRODUCTS_DIR}/$ENV{WRAPPER_NAME}/Contents/Info.plist\";\n\nmy $version = $REV;\n\nopen(FH, \"$INFO\") or die \"$0: $INFO: $!\";\nmy $info = join(\"\", <FH>);\nclose(FH);\n\n$info =~ s/([\\t ]+<key>TPRevision<\\/key>\\n[\\t ]+<string>).*?(<\\/string>)/$1$version$2/;\n\nopen(FH, \">$INFO\") or die \"$0: $INFO: $!\";\nprint FH $info;\nclose(FH);";
+		};
+		A786E22C1A19DFA500E66B43 /* Update strings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update strings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Updating string files\"\ngenstrings -u -littleEndian -o English.lproj *.m";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7C9DEC6059F496500E67CB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7C9DF01059F4AA100E67CB3 /* TPBezelView.m in Sources */,
+				A7C9DF03059F4AA100E67CB3 /* TPBezelWindow.m in Sources */,
+				A7C9DF05059F4AA100E67CB3 /* TPRemoteOperationsController.m in Sources */,
+				A7C9DF18059F4AE900E67CB3 /* TPHost.m in Sources */,
+				A7C9DF1E059F4AF600E67CB3 /* TPHotBorder.m in Sources */,
+				A7C9DF30059F4B1300E67CB3 /* TPMainController.m in Sources */,
+				A7C9DF32059F4B1300E67CB3 /* TPClientController.m in Sources */,
+				A7C9DF34059F4B1300E67CB3 /* TPMessage.m in Sources */,
+				A7C9DF36059F4B1300E67CB3 /* TPServerController.m in Sources */,
+				A7C9DF5F059F4C2500E67CB3 /* main.m in Sources */,
+				A7EF8B0705AB6CA900E9BC56 /* TPBezierPath.m in Sources */,
+				A75752B705ADE74000D78303 /* TPTCPSocket.m in Sources */,
+				A75752D405ADF9B900D78303 /* TPConnectionController.m in Sources */,
+				A7E6ADD105EEB223001D7D35 /* TPLocalHost.m in Sources */,
+				A744D58305FBE08E0011E56C /* TPApplication.m in Sources */,
+				A72A1C5B07A464EE0012563F /* TPNetworkConnection.m in Sources */,
+				A700510807AD3BAB0086D029 /* TPHostsManager.m in Sources */,
+				A700510C07AD3C5C0086D029 /* TPBonjourController.m in Sources */,
+				A786E2351A19E09200E66B43 /* TPKeyComboView.m in Sources */,
+				A7B799E807B8304C00C717E7 /* TPHotBorderView.m in Sources */,
+				A745F8E307C00C5F00B295FD /* TPTransfer.m in Sources */,
+				A786E2371A19E09200E66B43 /* TPOptionsView.m in Sources */,
+				A745F91007C0389600B295FD /* TPPasteboardTransfer.m in Sources */,
+				A786E2361A19E09200E66B43 /* TPOptionsController.m in Sources */,
+				A786E2311A19E08100E66B43 /* TPClosingWindow.m in Sources */,
+				A745F92007C038E000B295FD /* TPFileTransfer.m in Sources */,
+				A777B8020832B65B00C4D824 /* TPHostSnapping.m in Sources */,
+				A786E22F1A19E06E00E66B43 /* TPPreferencePane.m in Sources */,
+				A7DD0BE3083D5F9E00DD477C /* TPStatusItemController.m in Sources */,
+				A79ED91C08959FAC00DC4A6A /* TPTransfersManager.m in Sources */,
+				A79EDD500897D69700DC4A6A /* TPBezelController.m in Sources */,
+				A715B6BA1AA191B200BC2EDE /* TPRemoteHost.m in Sources */,
+				A793B81B08AACC3B0078CAA7 /* TPPreferencesManager.m in Sources */,
+				A78569350921675F00301B93 /* TPTestsController.m in Sources */,
+				A786E2341A19E09200E66B43 /* TPLayoutView.m in Sources */,
+				A786E2391A19E09200E66B43 /* TPLayoutHostView.m in Sources */,
+				A786E23B1A19E09200E66B43 /* TPLayoutLocalHostView.m in Sources */,
+				A786E2301A19E07D00E66B43 /* TPTableView.m in Sources */,
+				A78569FF0921719100301B93 /* TPEventsController.m in Sources */,
+				A7856A29092171C300301B93 /* TPEventTapsController.m in Sources */,
+				A736CF230923A4420008AB32 /* TPUtils.m in Sources */,
+				A786E2381A19E09200E66B43 /* TPAnimationManager.m in Sources */,
+				A79D9D4109AEA25F00DCE620 /* TPConnectionsManager.m in Sources */,
+				A78539B909E48D9A005C3446 /* TPTCPSecureSocket.m in Sources */,
+				A7853BE509E4967C005C3446 /* TPAuthenticationManager.m in Sources */,
+				A7853BE809E4967C005C3446 /* TPAuthenticationRequest.m in Sources */,
+				A71EA8C90A12688400805CC6 /* TPBackgroundImageTransfer.m in Sources */,
+				A786E2321A19E08400E66B43 /* TPVersionTextField.m in Sources */,
+				A7A8194F0C60042900DE5CD4 /* TPDirectEventTapsController.m in Sources */,
+				A7697D760DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.m in Sources */,
+				A7B08FAC0DCA10A3008CAFF2 /* TPFakeHostsGenerator.m in Sources */,
+				A78C04AB0E13287D00755C6D /* PTHotKey.m in Sources */,
+				A78C04AD0E13287D00755C6D /* PTHotKeyCenter.m in Sources */,
+				A78C04AF0E13287D00755C6D /* PTKeyBroadcaster.m in Sources */,
+				A78C04B10E13287D00755C6D /* PTKeyCodeTranslator.m in Sources */,
+				A786E2331A19E08700E66B43 /* TPLinkTextField.m in Sources */,
+				A78C04B30E13287D00755C6D /* PTKeyCombo.m in Sources */,
+				A786E23A1A19E09200E66B43 /* TPLayoutRemoteHostView.m in Sources */,
+				A78C04B50E13287D00755C6D /* PTKeyComboPanel.m in Sources */,
+				A7D173370F535F0E00CC6946 /* TPHostAnimationController.m in Sources */,
+				A7614BEF0FE850210043C401 /* TPScreen.m in Sources */,
+				A7609657107ED026008572E5 /* TPFileSerialization.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A70901890CD00952006576A6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A746D70308B1733600CE2B89 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A79C91D406DCF86A0044D87C /* English */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A7F1E84D0CAB155000D18B0C /* teleportPref.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A786E22D1A19E00300E66B43 /* Base */,
+			);
+			name = teleportPref.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A729278408564D7C00518F7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = abyssoft;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Versions/A/Frameworks\"",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = teleport_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
+				PRODUCT_NAME = teleport;
+			};
+			name = Release;
+		};
+		A729278508564D7C00518F7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = abyssoft;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Versions/A/Frameworks\"",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = teleport_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
+				PRODUCT_NAME = teleport;
+			};
+			name = Debug;
+		};
+		A729279008564D7C00518F7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG_BUILD=0";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A729279108564D7C00518F7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG_BUILD=1";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A751657309314763008F278D /* Tests */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = abyssoft;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Versions/A/Frameworks\"",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = teleport_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
+				PRODUCT_NAME = teleport;
+			};
+			name = Tests;
+		};
+		A751657609314763008F278D /* Tests */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG_BUILD=1",
+					"RUN_TESTS=1",
+				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Tests;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A729278308564D7C00518F7E /* Build configuration list for PBXNativeTarget "teleport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A729278508564D7C00518F7E /* Debug */,
+				A729278408564D7C00518F7E /* Release */,
+				A751657309314763008F278D /* Tests */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A729278F08564D7C00518F7E /* Build configuration list for PBXProject "teleport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A729279108564D7C00518F7E /* Debug */,
+				A729279008564D7C00518F7E /* Release */,
+				A751657609314763008F278D /* Tests */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

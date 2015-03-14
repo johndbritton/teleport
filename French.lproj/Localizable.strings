@@ -1,0 +1,216 @@
+﻿/* No comment provided by engineer. */
+"%.1fG" = "%.1fGo";
+
+/* No comment provided by engineer. */
+"%.1fK" = "%.1fKo";
+
+/* No comment provided by engineer. */
+"%.1fM" = "%.1fMo";
+
+/* No comment provided by engineer. */
+"< 1K" = "< 1Ko";
+
+/* Title of the dialog that appears when dragging to a file that already exists in the Finder */
+"A file already exists with this name." = "Un fichier du même nom existe déjà.";
+
+/* Explanation text for the dialog that appears when dragging a file to a location where a file with the same name already exists. */
+"A file named \\U201C%@\\U201D already exists in \\U201C%@\\U201D. You can choose to use a unique name for the new file, replace the old file, or cancel the drop." = "Un fichier nommé “%1$@” existe déjà dans “%2$@”. Vous pouvez utiliser un nom unique pour le nouveau fichier, remplacer l'ancien fichier ou annuler la copie.";
+
+/* No comment provided by engineer. */
+"A new version of teleport is available!" = "Une nouvelle version de teleport est disponible !";
+
+/* No comment provided by engineer. */
+"Accept" = "Accepter";
+
+/* No comment provided by engineer. */
+"Accept and Reject Others" = "Accepter et rejeter les autres";
+
+/* Trust request dialog */
+"Asking host \\U201C%@\\U201D for trust" = "Demande d'authentification à l'hôte “%@”";
+
+/* Text in dialog about accessibility */
+"Assistive Device" = "Périphériques d'aide";
+
+/* No comment provided by engineer. */
+"Betatester!" = "Bétatesteur !";
+
+/* No comment provided by engineer. */
+"Build %@" = "Build %@";
+
+/* Generic cancel button in dialog */
+"Cancel" = "Annuler";
+
+/* Title in certificate selection panel */
+"Choose certificate" = "Choisir le certificat";
+
+/* No comment provided by engineer. */
+"Configure\\U2026" = "Configurer…";
+
+/* Title for connection failure */
+"Connection to \\U201C%@\\U201D failed." = "La connexion à “%@” a échoué.";
+
+/* No comment provided by engineer. */
+"controlled by %@" = "contrôlé par %@";
+
+/* No comment provided by engineer. */
+"controlling %@" = "contrôle %@";
+
+/* Button in dialog */
+"Deactivate teleport" = "Désactiver teleport";
+
+/* No comment provided by engineer. */
+"Delete pairing" = "Retirer";
+
+/* Button title */
+"Disable Encryption" = "Désactiver le chiffrement";
+
+/* Text in dialog about accessibility */
+"Disabled access for assistive devices" = "Accés pour les périphériques d'aide désactivé";
+
+/* No comment provided by engineer. */
+"Don't show again" = "Ne plus afficher";
+
+/* No comment provided by engineer. */
+"Drag & Drop files" = "Glisser-déposer des fichiers";
+
+/* Button title */
+"Enable" = "Activer";
+
+/* Text in dialog for certificate missing error */
+"Encryption requires a certificate" = "Le chiffrement a besoin d'un certificat";
+
+/* No comment provided by engineer. */
+"File not sent" = "Fichier non transmis";
+
+/* No comment provided by engineer. */
+"File sent (%@)" = "Fichier transmis (%@)";
+
+/* Title for control failure */
+"Host \\U201C%@\\U201D rejected control." = "L'hôte “%@” a rejeté le contrôle.";
+
+/* Reason for trust failure */
+"Host not accepting any more trusted hosts." = "L'hôte n'accepte plus d'autres authentifications.";
+
+/* Reason for control failure */
+"Host not controllable." = "L'hôte n'est pas controlable.";
+
+/* Reason for control failure */
+"Host not trusted." = "L'hôte n'est pas authentifié.";
+
+/* Explanation in dialog for certificate missing error */
+"In order to activate encryption, teleport needs a valid certificate, but couldn't find one in your Keychain.\nYou'll need to create a certificate and re-activate encryption. Note that the certificate algorithm and key size must match between the server and the clients.\n\nWould you like to launch Certificate Assistant to create a new self-signed certificate?\nRecommended settings: RSA 1024 bits, all others to default values." = "Pour activer le chiffrement, teleport a besoin d'un certificat valide, mais ne peut en trouver un dans votre trousseau d'accés.\nVous allez devoir créer un certificat et ré-activer le chiffrement. L'algorithme et la taille des clés du certificate du client et du serveur doivent correspondre.\n\nVoulez-vous lancer l'assistant de certificats pour créer un certificat auto-signé?\nRéglages recommandés: RSA 2048 bits, toutes les autres valeurs étant celles par défaut.";
+
+/* Button title */
+"Launch Assistant" = "Lancer l'assistant";
+
+/* No comment provided by engineer. */
+"No" = "Non";
+
+/* No comment provided by engineer. */
+"No shared Mac found on local network. Please check \\U201CShare this Mac\\U201D on the Macs you want to control." = "Aucun Mac partagé n'a été trouvé sur le réseau local. Veuillez cocher “Partager ce Mac” sur les Macs que vous souhaitez contrôler.";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"Pasteboard not sent" = "Presse-papier non transmis";
+
+/* No comment provided by engineer. */
+"Pasteboard sent (%@)" = "Presse-papier transmis (%@)";
+
+/* Button title */
+"Re-enable" = "Réactiver";
+
+/* No comment provided by engineer. */
+"Reject" = "Rejeter";
+
+/* Replace button to replace an existing file. */
+"Replace" = "Remplacer";
+
+/* No comment provided by engineer. */
+"Screen %d - %.0fx%.0f" = "Écran %1$d - %2$.0fx%3$.0f";
+
+/* No comment provided by engineer. */
+"Screen to share" = "Écran à partager";
+
+/* Informative text in certificate selection panel */
+"Select the certificate to be used for encryption. It must have the same encryption algorithm as the one used on the other Macs." = "Sélectionner le certificat à utiliser pour le chiffrement. Il doit utiliser le même algorithme de chiffrement que ceux utilisés sur vos autres Macs.";
+
+/* No comment provided by engineer. */
+"Share this Mac" = "Partager ce Mac";
+
+/* No comment provided by engineer. */
+"Synchronize pasteboard" = "Synchroniser le presse-papier";
+
+/* No comment provided by engineer. */
+"teleport %@ is now available.\n%@\n\nWould you like to download the new version now?" = "teleport %1$@ est maintenant disponible.\n%2$@\n\nVoulez-vous télécharger la nouvelle version maintenant?";
+
+/* No comment provided by engineer. */
+"teleport is up-to-date." = "teleport est à jour.";
+
+/* Explanation in dialog for accessibility */
+"The access for assistive devices has been disabled although teleport needs this to operate.\n\nWould you like to re-enable it now or deactivate teleport?" = "L'accés pour les périphériques d'aide a été désactivé mais teleport a besoin de cette option pour fonctionner.\n\nVoulez-vous la réactiver ou désactiver teleport ?";
+
+/* No comment provided by engineer. */
+"The computer you tried to control rejected your request. You should try on a computer you own." = "Le Mac que vous voulez contrôler a rejeté votre demande. Vous pouvez contrôler seulement les ordinateurs que vous possédez.";
+
+/* Title for trust failure */
+"The host \\U201C%@\\U201D rejected your trust request." = "L'hôte “%@” a rejeté votre demande d'authentification.";
+
+/* No comment provided by engineer. */
+"The host has probably removed this Mac from its trusted hosts list. Do you want to ask for trust again?" = "L'hôte a probablement retiré ce Mac de la liste des hôtes de confiance. Voulez-vous l'ajouter à nouveau ?";
+
+/* Invalid protocol error message */
+"The Mac you tried to control is using teleport protocol v%d, but you're using v%d." = "Le Mac que vous essayez de contrôler utilise le protocol v%1$d, alors que vous utilisez la version v%2$d.";
+
+/* No comment provided by engineer. */
+"The server may be down, or an encryption problem may have occured. If encryption is enabled, please check that the certificate algorithms match." = "Le serveur est peut-être hors ligne, un problème de chiffrement ou un problème de connexion est survenu. Si vous utilisez le chiffrement, veuillez vérifier que les algorithmes des deux certificats correspondent.";
+
+/* No comment provided by engineer. */
+"This will allow the demanding host to take control of your mouse and keyword. All keystrokes and transfers will be encrypted with this host.\nIf you didn't request the control, you should Reject it." = "Ceci autorisera l'hôte en question à prendre le contrôle de votre souris et clavier. Toutes les frappes et tous les transfers avec cet hôte seront chiffrés.\nSi vous n'avez pas demandé d'authentification, vous devriez rejeter cette requête.";
+
+/* No comment provided by engineer. */
+"This will allow the demanding host to take control of your mouse and keyword. Warning: the keystrokes and transfers will be sent clear on your network. You should enable encryption on both Macs to encrypt these.\nIf you didn't request the control, you should Reject it." = "Ceci autorisera l'hôte en question à prendre le contrôle de votre souris et clavier. Attention: les frappes et les transfers avec cet hôte seront transmis en clair sur le réseau. Pour plus de sûreté, vous devriez activer le chiffrement sur les deux Macs.\nSi vous n'avez pas demandé d'authentification, vous devriez rejeter cette requête.";
+
+/* teleport trust request title - certified version */
+"Trust request from certified host \\U201C%@\\U201D." = "Demande d'authentifcation de l'hôte certifié “%@”.";
+
+/* teleport trust request title - uncertified version */
+"Trust request from uncertified host \\U201C%@\\U201D." = "Demande d'authentifcation de l'hôte non certifié “%@”.";
+
+/* Unique button in dialog, to make a unique name of an existing filename */
+"Unique" = "Unique";
+
+/* Address of unknown trusted host */
+"unknown address" = "adresse inconnue";
+
+/* Name of unknown trusted host */
+"unknown name" = "nom inconnu";
+
+/* Name for unamed server */
+"unnamed" = "sans nom";
+
+/* Reason for trust failure */
+"User rejected your trust request." = "L'utilisateur a rejeté votre demande d'authentification.";
+
+/* Invalid protocol error title */
+"Wrong protocol version" = "Mauvaise version du protocole.";
+
+/* No comment provided by engineer. */
+"Yes" = "Oui";
+
+/* No comment provided by engineer. */
+"You have the most recent version of teleport." = "Vous avez la dernière version de teleport.";
+
+/* Explanation in dialog for accessibility */
+"You must enable access for assistive devices to activate teleport. You may need administrator privileges to do this.\n\nWould you like to enable this now?" = "Vous devez activer l'accés pour les périphériques d'aide pour utiliser teleport. Des priviléges administrateurs seront éventuellement requis.\n\nVoulez-vous l'activer maintenant ?";
+
+/* Trust request message */
+"You should now grant the trust on your other Mac." = "Vous devez maintenant accepter la demande sur l'autre Mac.";
+
+/* No comment provided by engineer. */
+"Your build (%d) is newer than the latest available (%d), so you must be a betatester. Congratulations!" = "Votre build (%1$d) est plus récente que la dernière disponible (%2$d), donc vous êtes surement un beta-testeur. Félicitations !";
+
+/* No comment provided by engineer. */
+"zero" = "zéro";
+

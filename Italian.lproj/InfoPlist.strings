@@ -1,0 +1,5 @@
+/* Localized versions of Info.plist keys */
+
+NSHumanReadableCopyright = "Copyright (c) 2003-2008, abyssoft.";
+CFBundleGetInfoString = "Versione 1.1";
+TPTranslationInfoString = "Versione italiana di Massimiliano Origgi";
