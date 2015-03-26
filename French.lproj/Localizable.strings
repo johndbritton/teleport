@@ -1,14 +1,14 @@
-﻿/* No comment provided by engineer. */
+/* No comment provided by engineer. */
 "%.1fG" = "%.1fGo";
 
 /* No comment provided by engineer. */
-"%.1fK" = "%.1fKo";
+"%.1fK" = "%.1fko";
 
 /* No comment provided by engineer. */
 "%.1fM" = "%.1fMo";
 
 /* No comment provided by engineer. */
-"< 1K" = "< 1Ko";
+"< 1K" = "< 1ko";
 
 /* Title of the dialog that appears when dragging to a file that already exists in the Finder */
 "A file already exists with this name." = "Un fichier du même nom existe déjà.";
@@ -65,7 +65,7 @@
 "Disable Encryption" = "Désactiver le chiffrement";
 
 /* Text in dialog about accessibility */
-"Disabled access for assistive devices" = "Accés pour les périphériques d'aide désactivé";
+"Disabled access for assistive devices" = "Accès pour les périphériques d'aide désactivé";
 
 /* No comment provided by engineer. */
 "Don't show again" = "Ne plus afficher";
@@ -92,13 +92,13 @@
 "Host not accepting any more trusted hosts." = "L'hôte n'accepte plus d'autres authentifications.";
 
 /* Reason for control failure */
-"Host not controllable." = "L'hôte n'est pas controlable.";
+"Host not controllable." = "L'hôte n'est pas contrôlable.";
 
 /* Reason for control failure */
 "Host not trusted." = "L'hôte n'est pas authentifié.";
 
 /* Explanation in dialog for certificate missing error */
-"In order to activate encryption, teleport needs a valid certificate, but couldn't find one in your Keychain.\nYou'll need to create a certificate and re-activate encryption. Note that the certificate algorithm and key size must match between the server and the clients.\n\nWould you like to launch Certificate Assistant to create a new self-signed certificate?\nRecommended settings: RSA 1024 bits, all others to default values." = "Pour activer le chiffrement, teleport a besoin d'un certificat valide, mais ne peut en trouver un dans votre trousseau d'accés.\nVous allez devoir créer un certificat et ré-activer le chiffrement. L'algorithme et la taille des clés du certificate du client et du serveur doivent correspondre.\n\nVoulez-vous lancer l'assistant de certificats pour créer un certificat auto-signé?\nRéglages recommandés: RSA 2048 bits, toutes les autres valeurs étant celles par défaut.";
+"In order to activate encryption, teleport needs a valid certificate, but couldn't find one in your Keychain.\nYou'll need to create a certificate and re-activate encryption. Note that the certificate algorithm and key size must match between the server and the clients.\n\nWould you like to launch Certificate Assistant to create a new self-signed certificate?\nRecommended settings: RSA 1024 bits, all others to default values." = "Pour activer le chiffrement, teleport a besoin d'un certificat valide, mais ne peut en trouver un dans votre trousseau d'accès.\nVous allez devoir créer un certificat et ré-activer le chiffrement. L'algorithme et la taille des clés du certificate du client et du serveur doivent correspondre.\n\nVoulez-vous lancer l'assistant de certificats pour créer un certificat auto-signé ?\nRéglages recommandés: RSA 2048 bits, toutes les autres valeurs étant celles par défaut.";
 
 /* Button title */
 "Launch Assistant" = "Lancer l'assistant";
@@ -149,7 +149,7 @@
 "teleport is up-to-date." = "teleport est à jour.";
 
 /* Explanation in dialog for accessibility */
-"The access for assistive devices has been disabled although teleport needs this to operate.\n\nWould you like to re-enable it now or deactivate teleport?" = "L'accés pour les périphériques d'aide a été désactivé mais teleport a besoin de cette option pour fonctionner.\n\nVoulez-vous la réactiver ou désactiver teleport ?";
+"The access for assistive devices has been disabled although teleport needs this to operate.\n\nWould you like to re-enable it now or deactivate teleport?" = "L'accès pour les périphériques d'aide a été désactivé mais teleport a besoin de cette option pour fonctionner.\n\nVoulez-vous la réactiver ou désactiver teleport ?";
 
 /* No comment provided by engineer. */
 "The computer you tried to control rejected your request. You should try on a computer you own." = "Le Mac que vous voulez contrôler a rejeté votre demande. Vous pouvez contrôler seulement les ordinateurs que vous possédez.";
@@ -203,7 +203,7 @@
 "You have the most recent version of teleport." = "Vous avez la dernière version de teleport.";
 
 /* Explanation in dialog for accessibility */
-"You must enable access for assistive devices to activate teleport. You may need administrator privileges to do this.\n\nWould you like to enable this now?" = "Vous devez activer l'accés pour les périphériques d'aide pour utiliser teleport. Des priviléges administrateurs seront éventuellement requis.\n\nVoulez-vous l'activer maintenant ?";
+"You must enable access for assistive devices to activate teleport. You may need administrator privileges to do this.\n\nWould you like to enable this now?" = "Vous devez activer l'accès pour les périphériques d'aide pour utiliser teleport. Des priviléges administrateurs seront éventuellement requis.\n\nVoulez-vous l'activer maintenant ?";
 
 /* Trust request message */
 "You should now grant the trust on your other Mac." = "Vous devez maintenant accepter la demande sur l'autre Mac.";
