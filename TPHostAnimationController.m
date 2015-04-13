@@ -132,8 +132,8 @@ static TPHostAnimationController* _controller = nil;
 	CGRect imageBounds = CGRectMake(0.0, 0.0, CGImageGetWidth(_haloImageRef), CGImageGetHeight(_haloImageRef));
 	id layers[FIRE_HALO_COUNT];
 	
-	id layerClass = NSClassFromString(@"CALayer");
-	id transactionClass = NSClassFromString(@"CATransaction");
+	id layerClass = [CALayer class];
+	id transactionClass = [CATransaction class];
 	
 	float xDirection = 0.0;
 	float yDirection = 0.0;
@@ -214,7 +214,7 @@ static TPHostAnimationController* _controller = nil;
 	[effectWindow orderFront:nil];
 	
 	[transactionClass begin];
-	[transactionClass setValue:[NSNumber numberWithFloat:FIRE_DURATION] forKey:@"animationDuration"];
+	[transactionClass setValue:@(FIRE_DURATION) forKey:@"animationDuration"];
 	
 	for(i=0; i<FIRE_HALO_COUNT; i++) {
 		id layer = layers[i];
@@ -236,6 +236,9 @@ static TPHostAnimationController* _controller = nil;
 - (void)_doneFireAnimation:(NSWindow*)effectWindow
 {
 	[effectWindow close];
+	
+	// This addresses https://github.com/abyssoft/teleport/issues/10
+	[_effectWindows removeObject:effectWindow];
 }
 
 
