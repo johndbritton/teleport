@@ -19,7 +19,7 @@
 	<key>CFBundleSignature</key>
 	<string>tlpt</string>
 	<key>CFBundleVersion</key>
-	<string>1.2</string>
+	<string>1.2.1</string>
 	<key>TPRevision</key>
 	<string>DEFINED_BY_GIT</string>
 	<key>NSMainNibFile</key>

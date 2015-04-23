@@ -127,19 +127,13 @@ static TPBonjourController * _defaultBonjourController = nil;
 								 TPRecordNameKey: [[TPLocalHost localHost] computerName],
 								 TPRecordProtocolVersionKey: [NSString stringWithInt:PROTOCOL_VERSION],
 								 TPRecordScreenSizesKey: [TPScreen stringFromScreens:screens],
-								 TPRecordCapabilitiesKey: [NSString stringWithInt:[[TPLocalHost localHost] capabilities]],
-								 TPRecordOSVersionKey: [NSString stringWithInt:[[TPLocalHost localHost] osVersion]],
-								 TPRecordHideIfNotPaired: ([[TPPreferencesManager sharedPreferencesManager] intForPref:TRUST_REQUEST_BEHAVIOR] == TRUST_REQUEST_REJECT) ? @"1" : @"0"};
+								  TPRecordCapabilitiesKey: [NSString stringWithInt:[[TPLocalHost localHost] capabilities]],
+								  TPRecordOSVersionKey: [NSString stringWithInt:[[TPLocalHost localHost] osVersion]],
+								  TPRecordHideIfNotPaired: ([[TPPreferencesManager sharedPreferencesManager] intForPref:TRUST_REQUEST_BEHAVIOR] == TRUST_REQUEST_REJECT) ? @"1" : @"0"};
 	
-	if([_publishService respondsToSelector:@selector(setTXTRecordData:)]) {
-		NSData * recordData = [NSNetService dataFromTXTRecordDictionary:recordDict];
-		if(![_publishService setTXTRecordData:recordData])
-			NSLog(@"Can't set TXT record data");
-	}
-	else {
-		NSString * info = [[self class] protocolSpecificInformationFromDictionary:recordDict];
-		[_publishService setProtocolSpecificInformation:info];
-	}
+	NSData * recordData = [NSNetService dataFromTXTRecordDictionary:recordDict];
+	if(![_publishService setTXTRecordData:recordData])
+		NSLog(@"Can't set TXT record data");
 }
 
 - (void)unpublish
@@ -274,15 +268,9 @@ static TPBonjourController * _defaultBonjourController = nil;
 	
 	DebugLog(@"did resolve service: %@", service);
 
-	if([service respondsToSelector:@selector(TXTRecordData)]) {
-		NSData * recordData = [service TXTRecordData];
-		if(recordData != nil)
-			recordDict = [NSNetService dictionaryFromTXTRecordData:recordData];
-	}
-	
-	if(recordDict == nil) {
-		NSString * info = [service protocolSpecificInformation];
-		recordDict = [[self class] dictionaryFromProtocolSpecificInformation:info];
+	NSData * recordData = [service TXTRecordData];
+	if(recordData != nil) {
+		recordDict = [NSNetService dictionaryFromTXTRecordData:recordData];
 	}
 	
 	if(recordDict == nil) {
