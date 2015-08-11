@@ -143,7 +143,6 @@ static TPLocalHost * _localHost = nil;
 	if (ret == noErr) {
 		MacVersion = atoi(str);
 	}
-	
 	return MacVersion;
 }
 
@@ -225,7 +224,6 @@ static TPLocalHost * _localHost = nil;
 		else {
 			backgroundImage = [self defaultBackgroundImage];
 		}
-
 		if(backgroundImage != nil)
 			[_backgroundImages addObject:backgroundImage];
 	}
@@ -259,7 +257,12 @@ static TPLocalHost * _localHost = nil;
 {
 	if([[NSWorkspace sharedWorkspace] respondsToSelector:@selector(desktopImageURLForScreen:)]) {
 		NSURL * desktopPictureURL = [[NSWorkspace sharedWorkspace] desktopImageURLForScreen:screen];
-		return [desktopPictureURL path];
+		
+		// Addresses issue https://github.com/abyssoft/teleport/issues/15
+		if(![[NSFileManager defaultManager] fileExistsAtPath:[desktopPictureURL absoluteString]]){
+			return nil;
+		} else
+			return [desktopPictureURL path];
 	}
 	else {
 		NSUserDefaults * userDefaults = [[NSUserDefaults alloc] init];
