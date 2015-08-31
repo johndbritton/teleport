@@ -181,7 +181,6 @@ NSString * TPHostOSVersionKey = @"osVersion";
 	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
 	[desktopPicture drawInRect:backgroundImageRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
 	[backgroundImage unlockFocus];
-	
 	return backgroundImage;
 }
 
@@ -208,16 +207,31 @@ NSString * TPHostOSVersionKey = @"osVersion";
 	}
 	else if(osVersion < TPHostOSVersion(8)) {
 		imageName = @"10.7-Lion";
+	} // Makes sure that a desktop picture will be available whether or not it is available locally
+	else if(osVersion < TPHostOSVersion(9)) {
+		imageName = @"10.8-MountainLion";
+	}
+	else if(osVersion < TPHostOSVersion(10)) {
+		imageName = @"10.9-Mavericks";
+	}
+	else if(osVersion < TPHostOSVersion(11)) {
+		imageName = @"10.10-Yosemite";
 	}
 	else {
-		NSImage * fullImage = [[NSImage alloc] initWithContentsOfFile:@"/System/Library/CoreServices/DefaultDesktop.jpg"];
+		// Make sure an image exists at this path as well
+		NSString *defaultDesktopImage = @"/System/Library/CoreServices/DefaultDesktop.jpg";
+
+		if(![[NSFileManager defaultManager] fileExistsAtPath:defaultDesktopImage]){
+			NSLog(@"Unable to set icon to default desktop image. Default does not exist at path: %@", defaultDesktopImage);
+		}
+		
+		NSImage * fullImage = [[NSImage alloc] initWithContentsOfFile:defaultDesktopImage];
 		image = [TPHost backgroundImageFromDesktopPicture:fullImage];
 	}
 	
 	if(image == nil) {
 		image = [NSImage imageNamed:imageName];
 	}
-	
 	return image;
 }
 

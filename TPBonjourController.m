@@ -120,6 +120,12 @@ static TPBonjourController * _defaultBonjourController = nil;
 
 - (void)updateTXTRecordOfPublishService
 {
+	/* First check if _publishService even exists */
+	// (This method can be called by a notification, even before _publishService has been initialized
+	// Adding this code prevents the "Can't set TXT record data" from appearing upon opening)
+	if(_publishService == nil)
+		return;
+	
 	NSArray * screens = [[TPLocalHost localHost] screens];
 
 	NSDictionary * recordDict = @{TPRecordTXTVersionKey: [NSString stringWithInt:TXT_VERSION],
