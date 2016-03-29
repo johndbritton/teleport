@@ -217,6 +217,9 @@ NSString * TPHostOSVersionKey = @"osVersion";
 	else if(osVersion < TPHostOSVersion(11)) {
 		imageName = @"10.10-Yosemite";
 	}
+	else if(osVersion < TPHostOSVersion(12)) {
+		imageName = @"10.11-ElCapitan";
+	}
 	else {
 		// Make sure an image exists at this path as well
 		NSString *defaultDesktopImage = @"/System/Library/CoreServices/DefaultDesktop.jpg";
