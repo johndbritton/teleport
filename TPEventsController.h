@@ -43,6 +43,7 @@
 - (void)stopPostingEvents;
 - (void)postEventWithEventData:(NSData*)eventData;
 
+- (void)warpMouseToCenter;
 - (void)warpMouseToPosition:(NSPoint)position;
 - (void)mouseDownAtPosition:(NSPoint)position;
 - (void)mouseUpAtPosition:(NSPoint)position;
