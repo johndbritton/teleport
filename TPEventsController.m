@@ -8,7 +8,6 @@
 
 #import "TPEventsController.h"
 
-#import "TPRemoteOperationsController.h"
 #import "TPDirectEventTapsController.h"
 #import "TPEventTapsController.h"
 #import "TPPreferencesManager.h"
@@ -22,10 +21,7 @@
 
 + (TPEventsController*)defaultController
 {
-	if([[TPLocalHost localHost] hasCapability:TPHostEventTapsCapability])
-		return [TPEventTapsController defaultController];
-	else
-		return [TPRemoteOperationsController defaultController];
+	return [TPEventTapsController defaultController];
 }
 
 + (TPEventsController*)eventsControllerForRemoteHost:(TPRemoteHost*)remoteHost
@@ -48,8 +44,7 @@
 		return [TPEventTapsController defaultController];
 	}
 	else {
-		DebugLog(@"Using TPRemoteOperationsController");
-		return [TPRemoteOperationsController defaultController];
+		return nil;
 	}
 }
 

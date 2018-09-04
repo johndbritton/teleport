@@ -33,43 +33,6 @@ NSString * TPDraggedPathsKey = @"TPDraggedPaths";
 NSString * TPDragImageKey = @"TPDragImage";
 NSString * TPDragImageLocationKey = @"TPDragImageLocation";
 
-typedef void* 	CoreDragRef;
-
-extern OSStatus CoreDragGetDragWindow(CoreDragRef drag, CGWindowID * wid);
-
-@interface NSDragDestination : NSObject
-{
-    NSWindow *_window; // non-retained window
-    void * trackingHandlerRef;
-    void * receiveHandlerRef;
-    NSString *_pasteboardName;
-    BOOL _finalSlide;
-    NSUInteger _lastDragDestinationOperation;
-    NSPoint _finalSlideLocation; // in screen coordinates
-    id _target; // retained pointer to last found target
-    CFRunLoopTimerRef _updateTimer;
-    CoreDragRef _drag;
-    NSMutableSet *_dragCompletionTargets;
-    CFRunLoopRef _runLoop;
-}
-
-@end
-
-@interface NSDragDestination (HackHack)
-
-@property (nonatomic, readonly) CoreDragRef _getDragRef;
-
-@end
-
-@implementation NSDragDestination (HackHack)
-
-- (CoreDragRef)_getDragRef
-{
-	return _drag;
-}
-
-@end
-
 @class TPClientController;
 
 @interface TPConnectionController (Internal)
@@ -247,49 +210,6 @@ static NSSound * _switchSound = nil;
 			NSArray * draggedPaths = [dragPasteboard propertyListForType:NSFilenamesPboardType];
 			NSImage * dragImage = [draggingInfo draggedImage];
 			NSPoint dragImageLocation = [draggingInfo draggedImageLocation];
-
-#if 0
-			if(dragImage == nil) {
-				CoreDragRef dragRef = NULL;
-				@try {
-					dragRef = [(NSDragDestination*)draggingInfo _getDragRef];
-				}
-				@catch (NSException * e) {
-					dragRef = NULL;
-				}
-				
-				if(dragRef != NULL) {
-					CGWindowID wid;
-					CoreDragGetDragWindow(dragRef, &wid);
-					
-					CGImageRef imageRef = CGWindowListCreateImage(CGRectZero, kCGWindowListOptionIncludingWindow, wid, kCGWindowImageDefault);
-					if(imageRef != NULL) {
-						NSBitmapImageRep * imageRep = [[NSBitmapImageRep alloc] initWithCGImage:imageRef];
-						CFRelease(imageRef);
-						
-						if(imageRep != nil) {
-							dragImage = [[NSImage alloc] initWithSize:[imageRep size]];
-							[dragImage addRepresentation:imageRep];
-							[imageRep release];
-							
-							[[dragImage TIFFRepresentation] writeToFile:@"/tmp/drag-image.tiff" atomically:YES];
-							
-							[dragImage autorelease];
-						}
-					}
-				}
-			}
-#endif
-			
-#if 0
-			// fallback on NSWorkspace
-			if(dragImage == nil) {
-				if([draggedPaths count] == 1) {
-					dragImage = [[NSWorkspace sharedWorkspace] iconForFile:[draggedPaths lastObject]];
-					dragImageLocation = NSZeroPoint;
-				}
-			}
-#endif
 			
 			if(dragImage != nil) {
 				infoDict[TPDragImageKey] = dragImage;

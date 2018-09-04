@@ -120,8 +120,6 @@
 		A7C9DF01059F4AA100E67CB3 /* TPBezelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DEE6059F4AA100E67CB3 /* TPBezelView.m */; };
 		A7C9DF02059F4AA100E67CB3 /* TPBezelWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DEE7059F4AA100E67CB3 /* TPBezelWindow.h */; };
 		A7C9DF03059F4AA100E67CB3 /* TPBezelWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DEE8059F4AA100E67CB3 /* TPBezelWindow.m */; };
-		A7C9DF04059F4AA100E67CB3 /* TPRemoteOperationsController.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DEE9059F4AA100E67CB3 /* TPRemoteOperationsController.h */; };
-		A7C9DF05059F4AA100E67CB3 /* TPRemoteOperationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DEEA059F4AA100E67CB3 /* TPRemoteOperationsController.m */; };
 		A7C9DF17059F4AE900E67CB3 /* TPHost.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DF15059F4AE900E67CB3 /* TPHost.h */; };
 		A7C9DF18059F4AE900E67CB3 /* TPHost.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9DF16059F4AE900E67CB3 /* TPHost.m */; };
 		A7C9DF1D059F4AF600E67CB3 /* TPHotBorder.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C9DF1B059F4AF600E67CB3 /* TPHotBorder.h */; };
@@ -292,8 +290,6 @@
 		A7C9DEE6059F4AA100E67CB3 /* TPBezelView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPBezelView.m; sourceTree = "<group>"; };
 		A7C9DEE7059F4AA100E67CB3 /* TPBezelWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPBezelWindow.h; sourceTree = "<group>"; };
 		A7C9DEE8059F4AA100E67CB3 /* TPBezelWindow.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPBezelWindow.m; sourceTree = "<group>"; };
-		A7C9DEE9059F4AA100E67CB3 /* TPRemoteOperationsController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPRemoteOperationsController.h; sourceTree = "<group>"; };
-		A7C9DEEA059F4AA100E67CB3 /* TPRemoteOperationsController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPRemoteOperationsController.m; sourceTree = "<group>"; };
 		A7C9DF15059F4AE900E67CB3 /* TPHost.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPHost.h; sourceTree = SOURCE_ROOT; };
 		A7C9DF16059F4AE900E67CB3 /* TPHost.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPHost.m; sourceTree = SOURCE_ROOT; };
 		A7C9DF1B059F4AF600E67CB3 /* TPHotBorder.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPHotBorder.h; sourceTree = "<group>"; };
@@ -607,15 +603,6 @@
 			name = Debug;
 			sourceTree = "<group>";
 		};
-		A7856A000921719B00301B93 /* Remote Operations */ = {
-			isa = PBXGroup;
-			children = (
-				A7C9DEE9059F4AA100E67CB3 /* TPRemoteOperationsController.h */,
-				A7C9DEEA059F4AA100E67CB3 /* TPRemoteOperationsController.m */,
-			);
-			name = "Remote Operations";
-			sourceTree = "<group>";
-		};
 		A7856A01092171A500301B93 /* Event Taps */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,7 +718,6 @@
 			children = (
 				A78569FC0921719100301B93 /* TPEventsController.h */,
 				A78569FD0921719100301B93 /* TPEventsController.m */,
-				A7856A000921719B00301B93 /* Remote Operations */,
 				A7856A01092171A500301B93 /* Event Taps */,
 			);
 			name = "Remote Control";
@@ -807,7 +793,6 @@
 				A7C9DED1059F4A7400E67CB3 /* common.h in Headers */,
 				A7C9DF00059F4AA100E67CB3 /* TPBezelView.h in Headers */,
 				A7C9DF02059F4AA100E67CB3 /* TPBezelWindow.h in Headers */,
-				A7C9DF04059F4AA100E67CB3 /* TPRemoteOperationsController.h in Headers */,
 				A7C9DF17059F4AE900E67CB3 /* TPHost.h in Headers */,
 				A7C9DF1D059F4AF600E67CB3 /* TPHotBorder.h in Headers */,
 				A7C9DF2F059F4B1300E67CB3 /* TPMainController.h in Headers */,
@@ -988,7 +973,6 @@
 			files = (
 				A7C9DF01059F4AA100E67CB3 /* TPBezelView.m in Sources */,
 				A7C9DF03059F4AA100E67CB3 /* TPBezelWindow.m in Sources */,
-				A7C9DF05059F4AA100E67CB3 /* TPRemoteOperationsController.m in Sources */,
 				A7C9DF18059F4AE900E67CB3 /* TPHost.m in Sources */,
 				A7C9DF1E059F4AF600E67CB3 /* TPHotBorder.m in Sources */,
 				A7C9DF30059F4B1300E67CB3 /* TPMainController.m in Sources */,
@@ -1085,7 +1069,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = abyssoft;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1104,7 +1088,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = abyssoft;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Versions/A/Frameworks\"",
@@ -1156,7 +1140,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = abyssoft;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Versions/A/Frameworks\"",
