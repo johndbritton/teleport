@@ -145,6 +145,15 @@
 	// overloaded
 }
 
+- (void)warpMouseToCenter
+{
+	NSArray * screens = [[TPLocalHost localHost] screens];
+	NSRect mainScreenRect = [screens[0] frame];
+
+	NSPoint centerPoint = NSMakePoint(NSMidX(mainScreenRect), NSMidY(mainScreenRect));
+	return [self warpMouseToPosition:centerPoint];
+}
+
 - (void)warpMouseToPosition:(NSPoint)position
 {
 	_currentMouseLocation = *(CGPoint*)&position;

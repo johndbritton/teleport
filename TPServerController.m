@@ -303,7 +303,7 @@ static TPServerController * _defaultServerController = nil;
 		_state = TPServerSharedState;
 		
 		if([[TPPreferencesManager sharedPreferencesManager] boolForPref:WRAP_ON_STOP_CONTROL])
-			[[self eventsController] warpMouseToPosition:NSMakePoint(16.0, 16.0)];
+			[[self eventsController] warpMouseToCenter];
 		
 		[[self eventsController] stopPostingEvents];
 		
