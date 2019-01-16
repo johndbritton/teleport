@@ -152,6 +152,13 @@
 		A7EC1BD91A19E84000CDEC7B /* sharedscreen-on.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A7BD4E860CF1D26B005B3BED /* sharedscreen-on.tiff */; };
 		A7EF8B0705AB6CA900E9BC56 /* TPBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8B0505AB6CA900E9BC56 /* TPBezierPath.m */; };
 		A7EF8B0805AB6CA900E9BC56 /* TPBezierPath.h in Headers */ = {isa = PBXBuildFile; fileRef = A7EF8B0605AB6CA900E9BC56 /* TPBezierPath.h */; };
+		DF308BB421EF799600C17AD6 /* 10.12-Sierra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF308BAD21EF799500C17AD6 /* 10.12-Sierra.jpg */; };
+		DF308BB521EF799600C17AD6 /* 10.10-Yosemite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF308BAE21EF799500C17AD6 /* 10.10-Yosemite.jpg */; };
+		DF308BB621EF799600C17AD6 /* 10.9-Mavericks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF308BAF21EF799500C17AD6 /* 10.9-Mavericks.jpg */; };
+		DF308BB721EF799600C17AD6 /* 10.11-ElCapitan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF308BB021EF799500C17AD6 /* 10.11-ElCapitan.jpg */; };
+		DF308BB821EF799600C17AD6 /* 10.14-Mojave.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF308BB121EF799500C17AD6 /* 10.14-Mojave.jpg */; };
+		DF308BB921EF799600C17AD6 /* 10.13-HighSierra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF308BB221EF799600C17AD6 /* 10.13-HighSierra.jpg */; };
+		DF308BBA21EF799600C17AD6 /* 10.8-MountainLion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF308BB321EF799600C17AD6 /* 10.8-MountainLion.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -334,6 +341,13 @@
 		A7E6ADDA05EEB47D001D7D35 /* TPLayoutLocalHostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLayoutLocalHostView.m; sourceTree = "<group>"; };
 		A7EF8B0505AB6CA900E9BC56 /* TPBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPBezierPath.m; sourceTree = "<group>"; };
 		A7EF8B0605AB6CA900E9BC56 /* TPBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPBezierPath.h; sourceTree = "<group>"; };
+		DF308BAD21EF799500C17AD6 /* 10.12-Sierra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.12-Sierra.jpg"; sourceTree = "<group>"; };
+		DF308BAE21EF799500C17AD6 /* 10.10-Yosemite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.10-Yosemite.jpg"; sourceTree = "<group>"; };
+		DF308BAF21EF799500C17AD6 /* 10.9-Mavericks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.9-Mavericks.jpg"; sourceTree = "<group>"; };
+		DF308BB021EF799500C17AD6 /* 10.11-ElCapitan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.11-ElCapitan.jpg"; sourceTree = "<group>"; };
+		DF308BB121EF799500C17AD6 /* 10.14-Mojave.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.14-Mojave.jpg"; sourceTree = "<group>"; };
+		DF308BB221EF799600C17AD6 /* 10.13-HighSierra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.13-HighSierra.jpg"; sourceTree = "<group>"; };
+		DF308BB321EF799600C17AD6 /* 10.8-MountainLion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.8-MountainLion.jpg"; sourceTree = "<group>"; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		F506C03C013D9D7901CA16C8 /* TPPreferencePane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPreferencePane.h; sourceTree = "<group>"; };
 		F506C03D013D9D7901CA16C8 /* TPPreferencePane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPreferencePane.m; sourceTree = "<group>"; };
@@ -464,6 +478,13 @@
 		A70248491533265000B9F965 /* desktop-pictures */ = {
 			isa = PBXGroup;
 			children = (
+				DF308BB321EF799600C17AD6 /* 10.8-MountainLion.jpg */,
+				DF308BAF21EF799500C17AD6 /* 10.9-Mavericks.jpg */,
+				DF308BAE21EF799500C17AD6 /* 10.10-Yosemite.jpg */,
+				DF308BB021EF799500C17AD6 /* 10.11-ElCapitan.jpg */,
+				DF308BAD21EF799500C17AD6 /* 10.12-Sierra.jpg */,
+				DF308BB221EF799600C17AD6 /* 10.13-HighSierra.jpg */,
+				DF308BB121EF799500C17AD6 /* 10.14-Mojave.jpg */,
 				A702484A1533265000B9F965 /* 10.2-Jaguar.jpg */,
 				A702484B1533265000B9F965 /* 10.3-Panther.jpg */,
 				A702484C1533265000B9F965 /* 10.4-Tiger.jpg */,
@@ -910,6 +931,7 @@
 				A743A23008B2B6CD006B9FB2 /* MainMenu.nib in Resources */,
 				A7EC1BD51A19E6CC00CDEC7B /* teleportPref.xib in Resources */,
 				A782102C05C0D10D00A555DC /* whitelogo.png in Resources */,
+				DF308BBA21EF799600C17AD6 /* 10.8-MountainLion.jpg in Resources */,
 				A746D70508B1733600CE2B89 /* Localizable.strings in Resources */,
 				A7E6351E083F7AD200BC143F /* menuicon.png in Resources */,
 				A7E635300840CAEF00BC143F /* menuicon-white.png in Resources */,
@@ -917,16 +939,22 @@
 				A7E61DA509F176340024712F /* teleport.icns in Resources */,
 				A7EC1BD61A19E82E00CDEC7B /* icon-about.png in Resources */,
 				A788AA7C09F5BFCA00570E96 /* Lock_White.tif in Resources */,
+				DF308BB721EF799600C17AD6 /* 10.11-ElCapitan.jpg in Resources */,
 				A7EC1BD81A19E83D00CDEC7B /* sharedscreen.tiff in Resources */,
+				DF308BB621EF799600C17AD6 /* 10.9-Mavericks.jpg in Resources */,
 				A77812120CAF331300EEC97E /* halo.png in Resources */,
 				A7EC1BD91A19E84000CDEC7B /* sharedscreen-on.tiff in Resources */,
+				DF308BB921EF799600C17AD6 /* 10.13-HighSierra.jpg in Resources */,
 				A7C4711C0FA903C300282EF2 /* switch-sound.wav in Resources */,
 				A7EC1BD71A19E83A00CDEC7B /* remove.tiff in Resources */,
 				A71221CD1159899E00DCD93B /* MultipleFiles.icns in Resources */,
+				DF308BB821EF799600C17AD6 /* 10.14-Mojave.jpg in Resources */,
 				A79F8E95142AAAF700ED1D19 /* KeyCodes.plist in Resources */,
 				A702485615332CD800B9F965 /* 10.2-Jaguar.jpg in Resources */,
+				DF308BB521EF799600C17AD6 /* 10.10-Yosemite.jpg in Resources */,
 				A702485715332CD800B9F965 /* 10.3-Panther.jpg in Resources */,
 				A702485815332CD800B9F965 /* 10.4-Tiger.jpg in Resources */,
+				DF308BB421EF799600C17AD6 /* 10.12-Sierra.jpg in Resources */,
 				A702485915332CD800B9F965 /* 10.5-Leopard.jpg in Resources */,
 				A702485A15332CD800B9F965 /* 10.6-SnowLeopard.jpg in Resources */,
 				A702485B15332CD800B9F965 /* 10.7-Lion.jpg in Resources */,
