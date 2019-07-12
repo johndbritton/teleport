@@ -220,10 +220,24 @@ NSString * TPHostOSVersionKey = @"osVersion";
 	else if(osVersion < TPHostOSVersion(12)) {
 		imageName = @"10.11-ElCapitan";
 	}
+	else if(osVersion < TPHostOSVersion(13)) {
+		imageName = @"10.12-Sierra";
+	}
+	else if(osVersion < TPHostOSVersion(14)) {
+		imageName = @"10.13-HighSierra";
+	}
+	else if(osVersion < TPHostOSVersion(15)) {
+		imageName = @"10.14-Mojave";
+	}
 	else {
 		// Make sure an image exists at this path as well
 		NSString *defaultDesktopImage = @"/System/Library/CoreServices/DefaultDesktop.jpg";
 
+		if(![[NSFileManager defaultManager] fileExistsAtPath:defaultDesktopImage]){
+			 // The file name is different in some systems (e.g. Mojave)
+			 defaultDesktopImage = @"/System/Library/CoreServices/DefaultBackground.jpg";
+		}
+		
 		if(![[NSFileManager defaultManager] fileExistsAtPath:defaultDesktopImage]){
 			NSLog(@"Unable to set icon to default desktop image. Default does not exist at path: %@", defaultDesktopImage);
 		}
