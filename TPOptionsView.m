@@ -50,7 +50,7 @@
 //	CGContextScaleCTM(ctx, 1.0, -1.0);
 
 //	NSBezierPath * path = [NSBezierPath bezierPathWithRect:[self bounds]];
-	[NSBezierPath drawRect:[self bounds] withGradientFrom:[NSColor colorWithCalibratedWhite:0.9 alpha:1.0] to:[NSColor colorWithCalibratedWhite:0.95 alpha:1.0]];
+	[NSBezierPath drawRect:[self bounds] withGradientFrom:[NSColor underPageBackgroundColor] to:[NSColor windowBackgroundColor]];
 	
 //	
 //	CGContextSetGrayFillColor(ctx, 0.9, 0.85);
