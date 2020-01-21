@@ -13,8 +13,8 @@
 
 - (void)keyDown:(NSEvent*)event
 {
-	if(_delegate && [_delegate respondsToSelector:@selector(tableView:handleKeyDown:)]) {
-		if([_delegate tableView:self handleKeyDown:event])
+	if(self.delegate && [self.delegate respondsToSelector:@selector(tableView:handleKeyDown:)]) {
+		if([(id)self.delegate tableView:self handleKeyDown:event])
 			return;
 	}
 	

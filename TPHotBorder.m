@@ -284,7 +284,7 @@ static NSString * TPHotBorderDraggingInfoKey = @"TPHotBorderDraggingInfo";
 		}
 	}
 	
-	float delay = [_delegate hotBorderSwitchDelay:self];
+	float delay = [(id)self.delegate hotBorderSwitchDelay:self];
 	if(delay > 0.0) {
 		NSMutableDictionary * fireDict = [NSMutableDictionary dictionary];
 		

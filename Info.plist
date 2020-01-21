@@ -2,11 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -16,7 +11,7 @@
 	<key>CFBundleIconFile</key>
 	<string>teleport.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.abyssoft.teleport</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -25,8 +20,11 @@
 	<string>tlpt</string>
 	<key>CFBundleVersion</key>
 	<string>1.2.2</string>
-	<key>TPRevision</key>
-	<string>DEFINED_BY_GIT</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -35,5 +33,7 @@
 	<string>1</string>
 	<key>SUFeedURL</key>
 	<string>http://www.abyssoft.com/software/teleport/versions.xml</string>
+	<key>TPRevision</key>
+	<string>DEFINED_BY_GIT</string>
 </dict>
 </plist>
