@@ -15,3 +15,12 @@
 #### **Do you intend to add a new feature or change an existing one?**
 
 * Open a [Draft Pull Request](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) early and include a description of your intended changes in the body.
+
+
+#### **Just looking to help out?**
+
+* Take a look through issues labeled [`help-wanted`](https://github.com/abyssoft/teleport/labels/help-wanted) for good places to start.
+
+* You can also take a look at open issues labeled [`bug`](https://github.com/abyssoft/teleport/labels/bug) or [`feature`](https://github.com/abyssoft/teleport/labels/feature).
+
+* More documentation is always welcome, send a pull request to the `docs` directory.
