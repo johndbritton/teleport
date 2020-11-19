@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52ACC2342565FD4E00345EBE /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71E0B901AB4210E00911ACB /* Sparkle.framework */; };
+		52ACC2352565FD4E00345EBE /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A71E0B901AB4210E00911ACB /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A700510707AD3BAB0086D029 /* TPHostsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A700510507AD3BAB0086D029 /* TPHostsManager.h */; };
 		A700510807AD3BAB0086D029 /* TPHostsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A700510607AD3BAB0086D029 /* TPHostsManager.m */; };
 		A700510B07AD3C5C0086D029 /* TPBonjourController.h in Headers */ = {isa = PBXBuildFile; fileRef = A700510907AD3C5C0086D029 /* TPBonjourController.h */; };
@@ -20,8 +22,6 @@
 		A703972A0F609EAA006B8621 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A76426760E11BD9F00F60EA1 /* QuartzCore.framework */; };
 		A71221CD1159899E00DCD93B /* MultipleFiles.icns in Resources */ = {isa = PBXBuildFile; fileRef = A71221CC1159899E00DCD93B /* MultipleFiles.icns */; };
 		A715B6BA1AA191B200BC2EDE /* TPRemoteHost.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6ADD305EEB234001D7D35 /* TPRemoteHost.m */; };
-		A71E0B911AB4210E00911ACB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71E0B901AB4210E00911ACB /* Sparkle.framework */; };
-		A71E0B921AB4213800911ACB /* Sparkle.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = A71E0B901AB4210E00911ACB /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A71EA8C80A12688400805CC6 /* TPBackgroundImageTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = A71EA8C60A12688400805CC6 /* TPBackgroundImageTransfer.h */; };
 		A71EA8C90A12688400805CC6 /* TPBackgroundImageTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = A71EA8C70A12688400805CC6 /* TPBackgroundImageTransfer.m */; };
 		A72A1C5A07A464ED0012563F /* TPNetworkConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = A760369C05A0826D00D20845 /* TPNetworkConnection.h */; };
@@ -162,15 +162,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A731475715CEE635000D7ED4 /* Copy frameworks */ = {
+		52ACC2362565FD4E00345EBE /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A71E0B921AB4213800911ACB /* Sparkle.framework in Copy frameworks */,
+				52ACC2352565FD4E00345EBE /* Sparkle.framework in Embed Frameworks */,
 			);
-			name = "Copy frameworks";
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -179,6 +179,7 @@
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		52ACC2312565FAB500345EBE /* teleport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teleport.entitlements; sourceTree = "<group>"; };
 		A700510507AD3BAB0086D029 /* TPHostsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHostsManager.h; sourceTree = "<group>"; };
 		A700510607AD3BAB0086D029 /* TPHostsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHostsManager.m; sourceTree = "<group>"; };
 		A700510907AD3C5C0086D029 /* TPBonjourController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBonjourController.h; sourceTree = "<group>"; };
@@ -362,7 +363,7 @@
 				A7C9DF61059F4C5100E67CB3 /* Cocoa.framework in Frameworks */,
 				A786DB3208BE71C400BF1E8B /* Security.framework in Frameworks */,
 				A75ED6CC09A3FDCF00AFDD7D /* Carbon.framework in Frameworks */,
-				A71E0B911AB4210E00911ACB /* Sparkle.framework in Frameworks */,
+				52ACC2342565FD4E00345EBE /* Sparkle.framework in Frameworks */,
 				A7BB55E10A1BD00E007044EA /* IOKit.framework in Frameworks */,
 				A78FD1AB0CB31B99006AC28C /* SecurityFoundation.framework in Frameworks */,
 				A7697D710DB25C8C0037F0A5 /* SystemConfiguration.framework in Frameworks */,
@@ -376,6 +377,7 @@
 		089C166AFE841209C02AAC07 /* teleport */ = {
 			isa = PBXGroup;
 			children = (
+				52ACC2312565FAB500345EBE /* teleport.entitlements */,
 				08FB77AFFE84173DC02AAC07 /* Sources */,
 				32DBCFA10370C40200C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -875,10 +877,10 @@
 				A7C9DEC4059F496500E67CB3 /* Headers */,
 				A786E22C1A19DFA500E66B43 /* Update strings */,
 				A7C9DEC5059F496500E67CB3 /* Resources */,
-				A731475715CEE635000D7ED4 /* Copy frameworks */,
 				A7C9DEC6059F496500E67CB3 /* Sources */,
 				A7C9DEC7059F496500E67CB3 /* Frameworks */,
 				A71EA0750A10D5B400805CC6 /* Set revision number */,
+				52ACC2362565FD4E00345EBE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1096,9 +1098,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = teleport.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Versions/A/Frameworks\"",
 					"$(SRCROOT)",
@@ -1106,6 +1111,7 @@
 				);
 				GCC_PREFIX_HEADER = teleport_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abyssoft.teleport;
 				PRODUCT_NAME = teleport;
@@ -1116,8 +1122,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = teleport.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Versions/A/Frameworks\"",
 					"$(SRCROOT)",
@@ -1125,6 +1134,7 @@
 				);
 				GCC_PREFIX_HEADER = teleport_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abyssoft.teleport;
 				PRODUCT_NAME = teleport;
@@ -1220,8 +1230,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = teleport.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Versions/A/Frameworks\"",
 					"$(SRCROOT)",
@@ -1229,6 +1242,7 @@
 				);
 				GCC_PREFIX_HEADER = teleport_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abyssoft.teleport;
 				PRODUCT_NAME = teleport;
