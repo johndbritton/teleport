@@ -9,6 +9,20 @@ Use one keyboard and pointing device to control multiple Macs.
 * __Server__ - Allow another Mac to control the system's keyboard and pointing device.
 * __Pasteboard Synchronization__ - Copy and paste across Macs.
 
+### Installation
+
+#### Manual
+
+1. Download the [latest release](https://github.com/abyssoft/teleport/releases/latest).
+2. Unzip the archive.
+3. Drag `Teleport.app` to `/Applications`.
+
+#### Homebrew
+
+```bash
+brew cask install abyssoft-teleport
+```
+
 ### Project status
 
 Teleport is a legacy project that was once closed source. After the software was discontinued, the original author made the source available to the public and passionate users have been making things work on an ad-hoc basis.
