@@ -23,4 +23,4 @@
 
 * You can also take a look at open issues labeled [`bug`](https://github.com/abyssoft/teleport/labels/bug) or [`feature`](https://github.com/abyssoft/teleport/labels/feature).
 
-* More documentation is always welcome, send a pull request to the `docs` directory.
+* More documentation is always welcome, send a pull request to the [`docs`](docs) directory.
