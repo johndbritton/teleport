@@ -24,7 +24,7 @@ NSColor * _visibleColor = nil;
 	if(self == [TPHotBorderView class]) {
 		_highlightColor = [NSColor redColor];
 		_visibleColor = [NSColor blueColor];
-		_transparentColor = [NSColor clearColor];
+		_transparentColor = nil;
 	}
 }
 
