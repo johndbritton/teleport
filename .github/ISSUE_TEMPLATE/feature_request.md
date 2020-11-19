@@ -1,10 +1,10 @@
 ---
-name: New issue for Feature Suggestion
+name: New issue for Feature Request
 about: Share your idea or suggestion for a new feature for Teleport.
 labels: "feature-request"
 ---
 
-# Feature suggestion
+# Feature request
 
 <!-- Please fill these sections with the relevant information: -->
 
