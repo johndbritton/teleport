@@ -32,7 +32,7 @@
 	<key>NSUIElement</key>
 	<string>1</string>
 	<key>SUFeedURL</key>
-	<string>http://www.abyssoft.com/software/teleport/versions.xml</string>
+	<string>https://invalid.invalid</string>
 	<key>TPRevision</key>
 	<string>DEFINED_BY_GIT</string>
 </dict>

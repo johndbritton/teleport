@@ -40,7 +40,7 @@ typedef CGError CGSError;
 extern CGSError	CPSGetFrontProcess( CPSProcessSerNum *pPSN);
 extern CGSError CPSSetFrontProcess( const CPSProcessSerNum *pPSN);
 
-#define VERSION_CHECK_URL @"http://www.abyssoft.com/software/teleport/version.plist"
+#define VERSION_CHECK_URL @""
 
 static TPMainController * _mainController = nil;
 
