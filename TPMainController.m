@@ -40,7 +40,7 @@ typedef CGError CGSError;
 extern CGSError	CPSGetFrontProcess( CPSProcessSerNum *pPSN);
 extern CGSError CPSSetFrontProcess( const CPSProcessSerNum *pPSN);
 
-#define VERSION_CHECK_URL @""
+#define VERSION_CHECK_URL @"https://invalid.invalid"
 
 static TPMainController * _mainController = nil;
 
