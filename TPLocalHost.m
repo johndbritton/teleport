@@ -557,6 +557,9 @@ static TPLocalHost * _localHost = nil;
 		IORegistryEntrySetCFProperty(entry, CFSTR("IORequestIdle"), kCFBooleanFalse);
 		IOObjectRelease(entry);
 	}
+
+	// The previous code doesn't appear to work on Big Sur, but explicitly declaring user activity does. This should be cleaned up.
+	IOPMAssertionDeclareUserActivity(CFSTR("teleport waking screen"), kIOPMUserActiveLocal, &assertionID);
 }
 
 
