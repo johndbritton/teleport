@@ -14,4 +14,4 @@ jobs:
             --url https://api.github.com/repos/${{ github.repository }}/pages/builds \
             --header "Authorization: Bearer $TOKEN"
         env:
-         TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         TOKEN: ${{ secrets.PAGES_BUILD }}
