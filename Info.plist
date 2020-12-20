@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SUPublicEDKey</key>
+	<string>Mwd0NnDSn+FuwblRNQpLkpHpRNNnNx7Efk6Kz2xHc0A=</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -32,7 +34,7 @@
 	<key>NSUIElement</key>
 	<string>1</string>
 	<key>SUFeedURL</key>
-	<string>https://invalid.invalid</string>
+	<string>https://johndbritton.com/teleport/appcast/stable.xml</string>
 	<key>TPRevision</key>
 	<string>DEFINED_BY_GIT</string>
 </dict>
