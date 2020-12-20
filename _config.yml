@@ -1,7 +1,8 @@
 title: Teleport
 description: >-
   A Virtual KVM for macOS
-baseurl: "/teleport"
-url: "https://johndbritton.com"
+baseurl: '/teleport'
+url: 'https://johndbritton.com'
 plugins:
-  - "jekyll-github-metadata"
+  - 'jekyll-github-metadata'
+  - 'jekyll-redirect-from'
