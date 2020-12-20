@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		52ACC2342565FD4E00345EBE /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71E0B901AB4210E00911ACB /* Sparkle.framework */; };
 		52ACC2352565FD4E00345EBE /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A71E0B901AB4210E00911ACB /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		801E5F8D258FA48000157D1C /* login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801E5F8C258FA48000157D1C /* login.framework */; };
 		A700510707AD3BAB0086D029 /* TPHostsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A700510507AD3BAB0086D029 /* TPHostsManager.h */; };
 		A700510807AD3BAB0086D029 /* TPHostsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A700510607AD3BAB0086D029 /* TPHostsManager.m */; };
 		A700510B07AD3C5C0086D029 /* TPBonjourController.h in Headers */ = {isa = PBXBuildFile; fileRef = A700510907AD3C5C0086D029 /* TPBonjourController.h */; };
@@ -180,6 +181,7 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		52ACC2312565FAB500345EBE /* teleport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teleport.entitlements; sourceTree = "<group>"; };
+		801E5F8C258FA48000157D1C /* login.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = login.framework; path = /System/Library/PrivateFrameworks/login.framework; sourceTree = "<group>"; };
 		A700510507AD3BAB0086D029 /* TPHostsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPHostsManager.h; sourceTree = "<group>"; };
 		A700510607AD3BAB0086D029 /* TPHostsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHostsManager.m; sourceTree = "<group>"; };
 		A700510907AD3C5C0086D029 /* TPBonjourController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBonjourController.h; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				A75ED6CC09A3FDCF00AFDD7D /* Carbon.framework in Frameworks */,
 				52ACC2342565FD4E00345EBE /* Sparkle.framework in Frameworks */,
 				A7BB55E10A1BD00E007044EA /* IOKit.framework in Frameworks */,
+				801E5F8D258FA48000157D1C /* login.framework in Frameworks */,
 				A78FD1AB0CB31B99006AC28C /* SecurityFoundation.framework in Frameworks */,
 				A7697D710DB25C8C0037F0A5 /* SystemConfiguration.framework in Frameworks */,
 				A703972A0F609EAA006B8621 /* QuartzCore.framework in Frameworks */,
@@ -383,6 +386,7 @@
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				A70AE0D814674AD100A76119 /* Products */,
+				801E5F8B258FA48000157D1C /* Frameworks */,
 			);
 			name = teleport;
 			sourceTree = "<group>";
@@ -475,6 +479,14 @@
 				A7C9DF8B059F4EA700E67CB3 /* teleport_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		801E5F8B258FA48000157D1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				801E5F8C258FA48000157D1C /* login.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A70248491533265000B9F965 /* desktop-pictures */ = {
@@ -1115,6 +1127,8 @@
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abyssoft.teleport;
 				PRODUCT_NAME = teleport;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited) $(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
 			};
 			name = Release;
 		};
@@ -1138,6 +1152,8 @@
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abyssoft.teleport;
 				PRODUCT_NAME = teleport;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited) $(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
 			};
 			name = Debug;
 		};
@@ -1246,6 +1262,8 @@
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abyssoft.teleport;
 				PRODUCT_NAME = teleport;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited) $(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
 			};
 			name = Tests;
 		};
