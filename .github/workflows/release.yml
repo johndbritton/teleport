@@ -1,0 +1,17 @@
+name: Release
+
+on:
+  release:
+  workflow_dispatch:
+
+jobs:
+  update_appcast:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Pages Build
+        run: |
+          curl --fail --request POST \
+            --url https://api.github.com/repos/${{ github.repository }}/pages/builds \
+            --header "Authorization: Bearer $TOKEN"
+        env:
+         TOKEN: ${{ secrets.GITHUB_TOKEN }}
