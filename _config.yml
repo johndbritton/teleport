@@ -6,3 +6,5 @@ url: 'https://johndbritton.com'
 plugins:
   - 'jekyll-github-metadata'
   - 'jekyll-redirect-from'
+redirect_from:
+  json: false
