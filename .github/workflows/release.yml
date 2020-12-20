@@ -6,6 +6,7 @@ on:
 
 jobs:
   update_appcast:
+    name: Update Appcast
     runs-on: ubuntu-latest
     steps:
       - name: GitHub Pages Build
@@ -14,4 +15,4 @@ jobs:
             --url https://api.github.com/repos/${{ github.repository }}/pages/builds \
             --header "Authorization: Bearer $TOKEN"
         env:
-         TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         TOKEN: ${{ secrets.PAGES_BUILD }}
