@@ -204,6 +204,11 @@ static TPMainController * _mainController = nil;
 	TPClientController * clientController = [TPClientController defaultController];
 	if([clientController isControlling])
 		[clientController stopControl];
+	if ([clientController currentConnection] != nil && [[TPPreferencesManager sharedPreferencesManager] boolForPref:SYNC_LOCK_STATUS]) {
+		DebugLog(@"locking screens");
+		TPMessage *message = [TPMessage messageWithType:TPControlLockType];
+		[[clientController currentConnection] sendMessage:message];
+	}
 }
 
 - (void)screensDidSleep:(NSNotification*)notification

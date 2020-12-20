@@ -344,6 +344,23 @@ static TPServerController * _defaultServerController = nil;
 			DebugLog(@"received wake msg");
 			[[TPLocalHost localHost] wakeUpScreen];
 			break;
+		case TPControlLockType:
+			DebugLog(@"received lock msg");
+			/* Trigger a lock via control-command-q, the default lock command. There's no public API so doing this is a lousy workaround that will break for anyone who remaps this command or in other languages where the command is different. */
+			if ([[TPPreferencesManager sharedPreferencesManager] boolForPref:SYNC_LOCK_STATUS]) {
+				CGEventSourceRef src = CGEventSourceCreate(kCGEventSourceStateHIDSystemState);
+				CGEventRef qDown = CGEventCreateKeyboardEvent(src, 12, true);
+				CGEventRef qUp = CGEventCreateKeyboardEvent(src, 12, false);
+				CGEventSetFlags(qDown, kCGEventFlagMaskControl | kCGEventFlagMaskCommand);
+				CGEventSetFlags(qUp, kCGEventFlagMaskControl | kCGEventFlagMaskCommand);
+				CGEventPost(kCGHIDEventTap, qDown);
+				CGEventPost(kCGHIDEventTap, qUp);
+				CFRelease(qDown);
+				CFRelease(qUp);
+				CFRelease(src);
+			}
+			break;
+
 		case TPControlRequestMsgType:
 		{
 			[self requestedStartControlByHost:[connection connectedHost] onConnection:connection withInfoDict:[message infoDict]];

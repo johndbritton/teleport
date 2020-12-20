@@ -125,6 +125,7 @@ static TPPreferencesManager * _sharedPreferencesManager = nil;
 		_userDefaultsController = [[NSUserDefaultsController alloc] initWithDefaults:defaults initialValues:nil];
 		
 		[_userDefaultsController setInitialValues:@{SHARE_PASTEBOARD: @YES,
+												   SYNC_LOCK_STATUS: @NO,
 												   ALLOW_CONTROL: @NO,
 												   REQUIRE_KEY: @NO,
 												   DELAYED_SWITCH: @NO,
