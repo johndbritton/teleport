@@ -6,6 +6,7 @@ on:
 
 jobs:
   update_appcast:
+    name: Update Appcast
     runs-on: ubuntu-latest
     steps:
       - name: GitHub Pages Build
