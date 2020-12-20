@@ -31,6 +31,7 @@
 - (void)setSharedScreenIndex:(unsigned)screenIndex;
 - (unsigned)sharedScreenIndex;
 - (void)wakeUpScreen;
+- (void)sleepScreen;
 
 - (NSImage*)backgroundImageForScreen:(NSScreen*)screen;
 

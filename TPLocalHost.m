@@ -557,6 +557,22 @@ static TPLocalHost * _localHost = nil;
 		IORegistryEntrySetCFProperty(entry, CFSTR("IORequestIdle"), kCFBooleanFalse);
 		IOObjectRelease(entry);
 	}
+
+	// The previous code doesn't appear to work on Big Sur, but explicitly declaring user activity does. This should be cleaned up.
+	success = IOPMAssertionDeclareUserActivity(CFSTR("teleport waking screen"), kIOPMUserActiveLocal, &assertionID);
+	if(success == kIOReturnSuccess) {
+		IOPMAssertionRelease(assertionID);
+	}
+}
+
+- (void)sleepScreen {
+	/* This doesn't work on Big Sur */
+	io_registry_entry_t entry = IORegistryEntryFromPath(kIOMasterPortDefault,
+														"IOService:/IOResources/IODisplayWrangler");
+	if (entry != MACH_PORT_NULL) {
+		IORegistryEntrySetCFProperty(entry, CFSTR("IORequestIdle"), kCFBooleanTrue);
+		IOObjectRelease(entry);
+	}
 }
 
 

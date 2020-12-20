@@ -336,6 +336,14 @@ static TPServerController * _defaultServerController = nil;
 #endif
 
 	switch(type) {
+		case TPControlSleepType:
+			DebugLog(@"received sleep msg");
+			[[TPLocalHost localHost] sleepScreen];
+			break;
+		case TPControlWakeType:
+			DebugLog(@"received wake msg");
+			[[TPLocalHost localHost] wakeUpScreen];
+			break;
 		case TPControlRequestMsgType:
 		{
 			[self requestedStartControlByHost:[connection connectedHost] onConnection:connection withInfoDict:[message infoDict]];

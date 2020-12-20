@@ -100,7 +100,10 @@ static TPMainController * _mainController = nil;
 	[[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(sessionDidBecomeActive:) name:NSWorkspaceSessionDidBecomeActiveNotification object:nil];
 	[[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(computerWillSleep:) name:NSWorkspaceWillSleepNotification object:nil];
 	[[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(computerDidWake:) name:NSWorkspaceDidWakeNotification object:nil];
-	
+	[[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(screensDidSleep:) name:NSWorkspaceScreensDidSleepNotification object:nil];
+	[[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(screensDidWake:) name:NSWorkspaceScreensDidWakeNotification object:nil];
+	[self _setupTimer];
+
 	/* Waken controllers */
 	[TPPreferencesManager sharedPreferencesManager];
 	[TPClientController defaultController];
@@ -203,6 +206,23 @@ static TPMainController * _mainController = nil;
 		[clientController stopControl];
 }
 
+- (void)screensDidSleep:(NSNotification*)notification
+{
+	DebugLog(@"sleeping screens");
+	[self _invalidateTimer];
+	TPClientController * clientController = [TPClientController defaultController];
+	TPMessage *message = [TPMessage messageWithType:TPControlSleepType];
+	if ([clientController currentConnection] != nil) {
+		[[clientController currentConnection] sendMessage:message];
+	}
+}
+
+- (void)screensDidWake:(NSNotification*)notification
+{
+	DebugLog(@"waking screens");
+	[self _setupTimer];
+	[self _sendWakeEvent];
+}
 - (void)sessionDidResignActive:(NSNotification*)notification
 {
 	TPClientController * clientController = [TPClientController defaultController];
@@ -273,6 +293,32 @@ static TPMainController * _mainController = nil;
 
 #pragma mark -
 #pragma mark Misc
+
+- (void)_setupTimer {
+	if (_wakeTimer == nil) {
+		DebugLog(@"Setting up timer");
+		_wakeTimer = [NSTimer scheduledTimerWithTimeInterval:50.0f target:self selector:@selector(_triggerTimer:) userInfo:nil repeats:YES];
+		_wakeTimer.tolerance = 8.0f;
+	}
+}
+
+- (void)_invalidateTimer {
+	DebugLog(@"invalidating timer");
+	[_wakeTimer invalidate];
+	_wakeTimer = nil;
+}
+- (void)_triggerTimer:(NSTimer *) timer {
+	DebugLog(@"keeping screens awake");
+	[self _sendWakeEvent];
+}
+
+- (void)_sendWakeEvent {
+	TPClientController * clientController = [TPClientController defaultController];
+	TPMessage *message = [TPMessage messageWithType:TPControlWakeType];
+	if ([clientController currentConnection] != nil) {
+		[[clientController currentConnection] sendMessage:message];
+	}
+}
 
 - (void)_checkAccessibility
 {

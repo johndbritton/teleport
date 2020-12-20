@@ -17,6 +17,8 @@ typedef NS_ENUM(NSInteger, TPMsgType) {
 	TPControlSuccessMsgType,
 	TPControlFailureMsgType,
 	TPControlStopMsgType,
+	TPControlWakeType,
+	TPControlSleepType,
 	
 	/* Events */
 	TPEventMsgType,

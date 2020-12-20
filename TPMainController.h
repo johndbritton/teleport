@@ -23,6 +23,7 @@ typedef struct CPSProcessSerNum	CPSProcessSerNum;
 {
 	CPSProcessSerNum _frontProcessNum;
 	TPNetworkConfigurationWatcher * _networkConfigurationWatcher;
+	NSTimer * _wakeTimer;
 }
 
 + (TPMainController*)sharedController;
