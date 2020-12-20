@@ -346,10 +346,8 @@ static TPServerController * _defaultServerController = nil;
 			break;
 		case TPControlLockType:
 			DebugLog(@"received lock msg");
-			/* Trigger a lock via control-command-q, the default lock command. There's no public API so doing this is a lousy workaround that will break for anyone who remaps this command or in other languages where the command is different. */
 			if ([[TPPreferencesManager sharedPreferencesManager] boolForPref:SYNC_LOCK_STATUS]) {
-				// Forward declare this function. It is a part of login.framework, which is a private framework we link against specifically to get locking semantics.
-				// Since it's private this can change, but this is the best we can do.
+				/* Forward declare this function. It is a part of login.framework, which is a private framework we link against specifically to get locking semantics. Since it's private this can change, but this is the best we can do. */
 				extern int SACLockScreenImmediate ( void );
 				SACLockScreenImmediate();
 			}

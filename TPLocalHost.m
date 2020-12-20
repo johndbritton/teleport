@@ -558,7 +558,7 @@ static TPLocalHost * _localHost = nil;
 		IOObjectRelease(entry);
 	}
 
-	// The previous code doesn't appear to work on Big Sur, but explicitly declaring user activity does. This should be cleaned up.
+	/* The previous code doesn't appear to work on Big Sur with an M1 mac, but explicitly declaring user activity does. This should be cleaned up. */
 	success = IOPMAssertionDeclareUserActivity(CFSTR("teleport waking screen"), kIOPMUserActiveLocal, &assertionID);
 	if(success == kIOReturnSuccess) {
 		IOPMAssertionRelease(assertionID);
@@ -566,7 +566,7 @@ static TPLocalHost * _localHost = nil;
 }
 
 - (void)sleepScreen {
-	/* This doesn't work on Big Sur */
+	/* This doesn't work on Big Sur with an M1 mac */
 	io_registry_entry_t entry = IORegistryEntryFromPath(kIOMasterPortDefault,
 														"IOService:/IOResources/IODisplayWrangler");
 	if (entry != MACH_PORT_NULL) {
