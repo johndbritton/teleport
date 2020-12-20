@@ -34,7 +34,7 @@
 	<key>NSUIElement</key>
 	<string>1</string>
 	<key>SUFeedURL</key>
-	<string>https://invalid.invalid</string>
+	<string>https://johndbritton.com/teleport/appcast/stable.xml</string>
 	<key>TPRevision</key>
 	<string>DEFINED_BY_GIT</string>
 </dict>
