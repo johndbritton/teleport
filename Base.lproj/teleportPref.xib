@@ -253,7 +253,7 @@
                             <binding destination="297" name="value" keyPath="selection.prefs.allowControl" id="320"/>
                         </connections>
                     </button>
-                    <button toolTip="Check to allow your teleport client to control this Mac." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKL-Yu-Ajf">
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKL-Yu-Ajf">
                         <rect key="frame" x="149" y="457" width="172" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Synchronize pasteboard" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="oMa-Yn-jsJ">
@@ -275,7 +275,7 @@
                             <action selector="showAboutSheet:" target="-2" id="173"/>
                         </connections>
                     </button>
-                    <button toolTip="Check to allow your teleport client to control this Mac." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qWU-od-4Bx">
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qWU-od-4Bx">
                         <rect key="frame" x="337" y="457" width="127" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Drag &amp; Drop files" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="gJd-XI-beT">
@@ -286,7 +286,7 @@
                             <binding destination="297" name="value" keyPath="selection.prefs.copyFiles" id="AuQ-14-ADJ"/>
                         </connections>
                     </button>
-                    <button toolTip="Check to allow your teleport client to control this Mac." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BMe-9j-Hyy">
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BMe-9j-Hyy">
                         <rect key="frame" x="480" y="457" width="127" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Sync lock status" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="fIc-dm-HxP">
