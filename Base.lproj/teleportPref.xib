@@ -25,7 +25,7 @@
         <window title="teleport" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="12" userLabel="PrefPane">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="517" y="450" width="800" height="493"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <value key="minSize" type="size" width="600" height="400"/>
             <view key="contentView" id="6">
                 <rect key="frame" x="0.0" y="0.0" width="800" height="493"/>
@@ -305,7 +305,7 @@
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="194" y="375" width="295" height="307"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <value key="minSize" type="size" width="213" height="107"/>
             <view key="contentView" id="162">
                 <rect key="frame" x="0.0" y="0.0" width="295" height="307"/>
@@ -334,42 +334,41 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="168">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="168" userLabel="About">
                         <rect key="frame" x="12" y="43" width="274" height="39"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="100168">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="100168" userLabel="About">
                             <font key="font" metaFont="system" size="10"/>
-                            <string key="title">© 2003-2015 abyssoft
+                            <string key="title">A Virtual KVM for macOS. Maintained by John Britton.
 Based on an idea by Dave Sag and Jeremy Quinn.
 Special thanks to Manu02, Julien and Paul.</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="64" translatesAutoresizingMaskIntoConstraints="NO" id="291" customClass="TPLinkTextField">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="64" translatesAutoresizingMaskIntoConstraints="NO" id="291" userLabel="➤ Website" customClass="TPLinkTextField">
                         <rect key="frame" x="12" y="8" width="68" height="17"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                        <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" title="➤ website" placeholderString="http://teleport.abyssoft.com" id="100291">
+                        <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" title="➤ Website" placeholderString="https://johndbritton.com/teleport" id="100291" userLabel="➤ Website">
                             <font key="font" metaFont="message" size="11"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="65" translatesAutoresizingMaskIntoConstraints="NO" id="292" customClass="TPLinkTextField">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="65" translatesAutoresizingMaskIntoConstraints="NO" id="292" userLabel="➤ Support" customClass="TPLinkTextField">
                         <rect key="frame" x="119" y="8" width="69" height="17"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="➤ forums" placeholderString="http://www.abyssoft.com/software/teleport/forums/" id="100292">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="➤ Support" placeholderString="https://github.com/johndbritton/teleport/issues/new/choose" id="100292" userLabel="➤ Support">
                             <font key="font" metaFont="message" size="11"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="63" translatesAutoresizingMaskIntoConstraints="NO" id="293" customClass="TPLinkTextField">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="63" translatesAutoresizingMaskIntoConstraints="NO" id="293" userLabel="➤ License" customClass="TPLinkTextField">
                         <rect key="frame" x="228" y="8" width="67" height="17"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="➤ donate" id="100293">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="➤ License" placeholderString="https://github.com/johndbritton/teleport/blob/main/LICENSE" id="100293" userLabel="➤ License">
                             <font key="font" metaFont="message" size="11"/>
-                            <string key="placeholderString">https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=jul%40mac%2ecom&amp;item_name=teleport&amp;no_shipping=0&amp;no_note=0&amp;tax=0&amp;currency_code=USD&amp;charset=UTF%2d8&amp;charset=UTF%2d8</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -673,7 +672,7 @@ Special thanks to Manu02, Julien and Paul.</string>
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="324" width="377" height="187"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" id="300449">
                 <rect key="frame" x="0.0" y="0.0" width="377" height="187"/>
                 <autoresizingMask key="autoresizingMask"/>
