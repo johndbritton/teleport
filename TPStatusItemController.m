@@ -76,6 +76,12 @@ static TPStatusItemController * _defaultController = nil;
 		[dragDropFilesMenuItem bind:@"state" toObject:[TPPreferencesManager sharedPreferencesManager] withKeyPath:COPY_FILES options:nil];
 		[menu addItem:dragDropFilesMenuItem];
 
+		NSMenuItem * syncLockStatusMenuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Sync lock status", nil) action:@selector(switchMenuItem:) keyEquivalent:@""];
+		[syncLockStatusMenuItem setTarget:self];
+		[syncLockStatusMenuItem setRepresentedObject:SYNC_LOCK_STATUS];
+		[syncLockStatusMenuItem bind:@"state" toObject:[TPPreferencesManager sharedPreferencesManager] withKeyPath:SYNC_LOCK_STATUS options:nil];
+		[menu addItem:syncLockStatusMenuItem];
+
 		[menu addItem:[NSMenuItem separatorItem]];
 		
 		NSMenuItem * openPrefPanelMenuItem = [menu addItemWithTitle:NSLocalizedString(@"Configure\\U2026", nil) action:@selector(openTeleportPanel) keyEquivalent:@""];

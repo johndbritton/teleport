@@ -336,6 +336,23 @@ static TPServerController * _defaultServerController = nil;
 #endif
 
 	switch(type) {
+		case TPControlSleepType:
+			DebugLog(@"received sleep msg");
+			[[TPLocalHost localHost] sleepScreen];
+			break;
+		case TPControlWakeType:
+			DebugLog(@"received wake msg");
+			[[TPLocalHost localHost] wakeUpScreen];
+			break;
+		case TPControlLockType:
+			DebugLog(@"received lock msg");
+			if ([[TPPreferencesManager sharedPreferencesManager] boolForPref:SYNC_LOCK_STATUS]) {
+				/* Forward declare this function. It is a part of login.framework, which is a private framework we link against specifically to get locking semantics. Since it's private this can change, but this is the best we can do. */
+				extern int SACLockScreenImmediate ( void );
+				SACLockScreenImmediate();
+			}
+			break;
+
 		case TPControlRequestMsgType:
 		{
 			[self requestedStartControlByHost:[connection connectedHost] onConnection:connection withInfoDict:[message infoDict]];

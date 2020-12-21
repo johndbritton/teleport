@@ -1,6 +1,6 @@
 /* teleport protocol definitions */
 
-#define PROTOCOL_VERSION 18
+#define PROTOCOL_VERSION 19
 
 typedef NS_ENUM(NSInteger, TPMsgType) {
 	TPIdentificationMsgType,
@@ -17,6 +17,9 @@ typedef NS_ENUM(NSInteger, TPMsgType) {
 	TPControlSuccessMsgType,
 	TPControlFailureMsgType,
 	TPControlStopMsgType,
+	TPControlWakeType,
+	TPControlSleepType,
+	TPControlLockType,
 	
 	/* Events */
 	TPEventMsgType,

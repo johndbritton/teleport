@@ -11,6 +11,7 @@
 #define CURRENT_PREFS_VERSION 7
 #define PREFS_VERSION @"prefsVersion"
 #define SHARE_PASTEBOARD @"sharePasteboard"
+#define SYNC_LOCK_STATUS @"syncLockStatus"
 #define ALLOW_CONTROL @"allowControl"
 #define REQUIRE_KEY @"requireKey"
 #define DELAYED_SWITCH @"delayedSwitch"
