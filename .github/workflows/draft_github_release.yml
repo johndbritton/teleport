@@ -1,4 +1,4 @@
-name: Draft Release
+name: Draft GitHub Release
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   fastlane:
-    name: Fastlane
+    name: 'Fastlane: Draft GitHub Release'
     runs-on: macOS-latest
     steps:
       - name: Import Certificates
@@ -32,5 +32,6 @@ jobs:
           CERT_KEYCHAIN_PATH: '/Users/runner/Library/Keychains/signing_temp.keychain-db'
           CERT_KEYCHAIN_PASSWORD: ${{ steps.import-certificates.output.keychain-password }}"
           GYM_EXPORT_TEAM_ID: ${{ secrets.BUILD_APPLE_TEAM_ID }}
+          FL_GITHUB_RELEASE_API_TOKEN: ${{ secrets.BUILD_GITHUB_RELEASE_API_TOKEN }}
         with:
-          lane: draft_release
+          lane: draft_github_release
