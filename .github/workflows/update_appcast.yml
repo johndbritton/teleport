@@ -1,4 +1,4 @@
-name: Release
+name: Update Appcast
 
 on:
   release:
@@ -6,7 +6,8 @@ on:
 
 jobs:
   update_appcast:
-    name: Update Appcast
+    name: Request GitHub Pages Build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: GitHub Pages Build

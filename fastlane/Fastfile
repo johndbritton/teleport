@@ -1,0 +1,55 @@
+fastlane_require 'dotenv'
+
+before_all do
+  Dotenv.load('.env')
+end
+
+lane :build_and_sign do
+  update_code_signing_settings(
+    code_sign_identity: 'Developer ID Application',
+    use_automatic_signing: false,
+    path: 'teleport.xcodeproj'
+  )
+  get_certificates(
+    generate_apple_certs: false,
+    platform: 'macos',
+    type: 'developer_id_application'
+  )
+  get_provisioning_profile(
+    app_identifier: 'com.abyssoft.teleport',
+    platform: 'macos',
+    developer_id: true
+  )
+  build_mac_app(
+    export_method: 'developer-id',
+    output_directory: 'build',
+    scheme: 'teleport',
+    skip_package_pkg: true
+  )
+end
+
+lane :notarize_build do
+  build_and_sign
+  notarize(
+    package: './build/teleport.app'
+  )
+end
+
+lane :draft_github_release do
+  tag = ENV['GITHUB_REF'].split('/').last
+  UI.user_error!("Invalid tag string") && next unless tag =~ /^v\d+\.\d+\.\d+(-\w+\d*)?$/
+  notarize_build
+  zip(
+    path: './build/teleport.app',
+    output_path: "./build/teleport-#{tag}.zip"
+  )
+  set_github_release(
+    is_draft: true,
+    repository_name: 'johndbritton/teleport',
+    name: "Teleport #{tag}",
+    tag_name: tag,
+    upload_assets: "./build/teleport-#{tag}.zip",
+    description: 'TODO: add sparkele signature here',
+    is_prerelease: tag.include?('-')
+  )
+end
