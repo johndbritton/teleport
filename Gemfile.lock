@@ -34,6 +34,7 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
+    ed25519 (1.2.4)
     emoji_regex (3.2.1)
     excon (0.78.1)
     faraday (1.1.0)
@@ -175,6 +176,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
+  ed25519
   fastlane
 
 BUNDLED WITH
