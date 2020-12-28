@@ -1,18 +1,36 @@
 name: Release
 
 on:
-  release:
+  push:
+    tags:
+      - v**
   workflow_dispatch:
 
 jobs:
-  update_appcast:
-    name: Update Appcast
-    runs-on: ubuntu-latest
+  build:
+    name: Build
+    runs-on: macOS-latest
     steps:
-      - name: GitHub Pages Build
-        run: |
-          curl --fail --request POST \
-            --url https://api.github.com/repos/${{ github.repository }}/pages/builds \
-            --header "Authorization: Bearer $TOKEN"
+      - name: Import Certificates
+        id: import-certificates
+        uses: apple-actions/import-codesign-certs@v1
+        with:
+          p12-file-base64: ${{ secrets.BUILD_APPLE_CERTIFICATE_P12_BASE64 }}
+          p12-password: ${{ secrets.BUILD_APPLE_CERTIFICATE_P12_PASSWORD }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+      - uses: maierj/fastlane-action@v2.0.0
         env:
-         TOKEN: ${{ secrets.PAGES_BUILD }}
+          FASTLANE_USER: ${{ secrets.BUILD_APPLE_USERNAME }}
+          FASTLANE_PASSWORD: ${{ secrets.BUILD_APPLE_PASSWORD}}
+          FASTLANE_SESSION: ${{ secrets.BUILD_APPLE_SESSION}}
+          FASTLANE_TEAM_NAME: ${{ secrets.BUILD_APPLE_TEAM_NAME }}
+          FASTLANE_TEAM_ID: ${{ secrets.BUILD_APPLE_TEAM_ID }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.BUILD_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+          CERT_USERNAME: ${{ secrets.BUILD_APPLE_USERNAME }}
+          CERT_TEAM_ID: ${{ secrets.BUILD_APPLE_TEAM_ID }}
+          CERT_KEYCHAIN_PATH: '/Users/runner/Library/Keychains/signing_temp.keychain-db'
+          CERT_KEYCHAIN_PASSWORD: ${{ steps.import-certificates.output.keychain-password }}"
+          GYM_EXPORT_TEAM_ID: ${{ secrets.BUILD_APPLE_TEAM_ID }}
+        with:
+          lane: build_and_sign

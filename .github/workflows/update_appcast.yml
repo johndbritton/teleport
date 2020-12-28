@@ -1,0 +1,19 @@
+name: Update Appcast
+
+on:
+  release:
+  workflow_dispatch:
+
+jobs:
+  update_appcast:
+    name: Request GitHub Pages Build
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Pages Build
+        run: |
+          curl --fail --request POST \
+            --url https://api.github.com/repos/${{ github.repository }}/pages/builds \
+            --header "Authorization: Bearer $TOKEN"
+        env:
+         TOKEN: ${{ secrets.PAGES_BUILD }}
