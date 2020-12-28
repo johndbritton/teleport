@@ -30,3 +30,7 @@ lane :build_and_sign do
     package: './build/teleport.app'
   )
 end
+
+lane :draft_release do
+  build_and_sign
+end

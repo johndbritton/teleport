@@ -1,14 +1,13 @@
-name: Release
+name: Draft Release
 
 on:
   push:
     tags:
       - v**
-  workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
+  fastlane:
+    name: Fastlane
     runs-on: macOS-latest
     steps:
       - name: Import Certificates
@@ -20,6 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
       - uses: maierj/fastlane-action@v2.0.0
+        name: Draft Release
         env:
           FASTLANE_USER: ${{ secrets.BUILD_APPLE_USERNAME }}
           FASTLANE_PASSWORD: ${{ secrets.BUILD_APPLE_PASSWORD}}
@@ -33,4 +33,4 @@ jobs:
           CERT_KEYCHAIN_PASSWORD: ${{ steps.import-certificates.output.keychain-password }}"
           GYM_EXPORT_TEAM_ID: ${{ secrets.BUILD_APPLE_TEAM_ID }}
         with:
-          lane: build_and_sign
+          lane: draft_release
