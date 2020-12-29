@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SUPublicEDKey</key>
-	<string>Mwd0NnDSn+FuwblRNQpLkpHpRNNnNx7Efk6Kz2xHc0A=</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -21,7 +19,7 @@
 	<key>CFBundleSignature</key>
 	<string>tlpt</string>
 	<key>CFBundleVersion</key>
-	<string>1.3.1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -35,6 +33,8 @@
 	<string>1</string>
 	<key>SUFeedURL</key>
 	<string>https://johndbritton.com/teleport/appcast/stable.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>s5BTUHd1O+3Obgjm5PmxNB82s87Lgr/1MLbFhV152UE=</string>
 	<key>TPRevision</key>
 	<string>DEFINED_BY_GIT</string>
 </dict>
