@@ -1,4 +1,5 @@
 fastlane_require 'dotenv'
+fastlane_require 'ed25519'
 
 before_all do
   Dotenv.load('.env')
@@ -38,18 +39,22 @@ end
 lane :draft_github_release do
   tag = ENV['GITHUB_REF'].split('/').last
   UI.user_error!("Invalid tag string") && next unless tag =~ /^v\d+\.\d+\.\d+(-\w+\d*)?$/
+  sparkle_signing_key = Ed25519::SigningKey.new(Base64.decode64(ENV['SPARKLE_SIGNING_KEY_BASE64']))
   notarize_build
   zip(
     path: './build/teleport.app',
     output_path: "./build/teleport-#{tag}.zip"
   )
+  sparkle_signature = File.open(File.expand_path("../build/teleport-#{tag}.zip"), "rb") do |file|
+    Base64.encode64(sparkle_signing_key.sign(file.read)).chomp
+  end
   set_github_release(
     is_draft: true,
     repository_name: 'johndbritton/teleport',
     name: "Teleport #{tag}",
     tag_name: tag,
     upload_assets: "./build/teleport-#{tag}.zip",
-    description: 'TODO: add sparkele signature here',
+    description: "<!--#{sparkle_signature}-->",
     is_prerelease: tag.include?('-')
   )
 end
