@@ -20,7 +20,7 @@ Use one keyboard and pointing device to control multiple Macs.
 #### Homebrew
 
 ```bash
-brew cask install abyssoft-teleport
+brew install --cask abyssoft-teleport
 ```
 
 ### Project status
