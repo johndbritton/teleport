@@ -43,7 +43,8 @@ lane :draft_github_release do
   notarize_build
   zip(
     path: './build/teleport.app',
-    output_path: "./build/teleport-#{tag}.zip"
+    output_path: "./build/teleport-#{tag}.zip",
+    symlinks: true
   )
   sparkle_signature = File.open(File.expand_path("../build/teleport-#{tag}.zip"), "rb") do |file|
     Base64.encode64(sparkle_signing_key.sign(file.read)).chomp
