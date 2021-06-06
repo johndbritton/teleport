@@ -274,8 +274,9 @@ static TPConnectionsManager * _connectionsManager = nil;
 	NSString * remoteAddress = [tcpSocket remoteAddress];
 	TPRemoteHost * remoteHost = [[TPHostsManager defaultManager] hostWithAddress:remoteAddress];
 	if(remoteHost == nil) {
-		NSLog(@"could not determine which host has IP %@, will use encrypted connection by default", remoteAddress);
-		return YES; // encrypted by default
+		BOOL encryptionActive = [[TPPreferencesManager sharedPreferencesManager] boolForPref:ENABLED_ENCRYPTION];
+		NSLog(@"could not determine which host has IP %@, will%s use encryption as it is configured so locally", remoteAddress, encryptionActive ? "" : " NOT");
+		return encryptionActive; // encrypted by default, if encryption is enabled locally
 	}
 	else {
 		return [[TPLocalHost localHost] pairWithHost:remoteHost hasCapability:TPHostEncryptionCapability];
