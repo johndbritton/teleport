@@ -217,7 +217,7 @@ static TPMainController * _mainController = nil;
 	[self _invalidateTimer];
 	TPClientController * clientController = [TPClientController defaultController];
 	TPMessage *message = [TPMessage messageWithType:TPControlSleepType];
-	if ([clientController currentConnection] != nil) {
+	if ([clientController currentConnection] != nil && [[TPPreferencesManager sharedPreferencesManager] boolForPref:SYNC_SLEEP_STATUS]) {
 		[[clientController currentConnection] sendMessage:message];
 	}
 }
