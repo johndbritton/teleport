@@ -338,7 +338,9 @@ static TPServerController * _defaultServerController = nil;
 	switch(type) {
 		case TPControlSleepType:
 			DebugLog(@"received sleep msg");
+			if ([[TPPreferencesManager sharedPreferencesManager] boolForPref:SYNC_SLEEP_STATUS]) {
 			[[TPLocalHost localHost] sleepScreen];
+			}
 			break;
 		case TPControlWakeType:
 			DebugLog(@"received wake msg");

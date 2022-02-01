@@ -297,6 +297,17 @@
                             <binding destination="297" name="value" keyPath="selection.prefs.syncLockStatus" id="Nv7-V2-bSN"/>
                         </connections>
                     </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KHF-53-IwL">
+                        <rect key="frame" x="613" y="457" width="133" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Sync sleep status" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="GXj-JD-8n2">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="297" name="value" keyPath="selection.prefs.syncSleepStatus" id="3a4-83-9Fl"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="588" y="515.5"/>

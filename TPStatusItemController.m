@@ -81,6 +81,12 @@ static TPStatusItemController * _defaultController = nil;
 		[syncLockStatusMenuItem setRepresentedObject:SYNC_LOCK_STATUS];
 		[syncLockStatusMenuItem bind:@"state" toObject:[TPPreferencesManager sharedPreferencesManager] withKeyPath:SYNC_LOCK_STATUS options:nil];
 		[menu addItem:syncLockStatusMenuItem];
+		
+		NSMenuItem * syncSleepStatusMenuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Sync sleep status", nil) action:@selector(switchMenuItem:) keyEquivalent:@""];
+		[syncSleepStatusMenuItem setTarget:self];
+		[syncSleepStatusMenuItem setRepresentedObject:SYNC_SLEEP_STATUS];
+		[syncSleepStatusMenuItem bind:@"state" toObject:[TPPreferencesManager sharedPreferencesManager] withKeyPath:SYNC_SLEEP_STATUS options:nil];
+		[menu addItem:syncSleepStatusMenuItem];
 
 		[menu addItem:[NSMenuItem separatorItem]];
 		
