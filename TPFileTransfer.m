@@ -352,9 +352,13 @@ NSString * TPFileTransferDragImageLocationKey = @"TPFileTransferDragImageLocatio
 		if(destPath == nil) continue;
 		
 		NSString * tempPath = [tempDestinationPath stringByAppendingPathComponent:filename];
+		NSError * error = nil;
 		DebugLog(@"move %@ to %@", tempPath, destPath);
-		[[NSFileManager defaultManager] removeItemAtPath:destPath error:NULL]; // remove placeholder
-		[[NSFileManager defaultManager] moveItemAtPath:tempPath toPath:destPath error:NULL];
+		if(![[NSFileManager defaultManager] removeItemAtPath:destPath error:&error]) // remove placeholder
+			NSLog(@"Can't remove placeholder at %@: %@", destPath, error);
+		error = nil;
+		if(![[NSFileManager defaultManager] moveItemAtPath:tempPath toPath:destPath error:&error])
+			NSLog(@"Can't move transferred file from %@ to %@: %@", tempPath, destPath, error);
 	}
 	
 	[[NSFileManager defaultManager] removeItemAtPath:tempDestinationPath error:NULL]; // remove temp folder
@@ -419,7 +423,11 @@ NSString * TPFileTransferDragImageLocationKey = @"TPFileTransferDragImageLocatio
 			
 			DebugLog(@"create placeholder at: %@", path);
 			
-			[[NSFileManager defaultManager] createFileAtPath:path contents:[NSData data] attributes:nil];
+			if(![[NSFileManager defaultManager] createFileAtPath:path contents:[NSData data] attributes:nil]) {
+				NSLog(@"Can't create placeholder at %@", path);
+				[_destinationPaths removeObjectForKey:filename];
+				continue;
+			}
 			
 			NSImage * tempImage = [[NSImage alloc] initWithSize:NSMakeSize(128, 128)];
 			NSImage * haloImage = [NSImage imageNamed:@"halo.png"];
@@ -496,6 +504,11 @@ NSString * TPFileTransferDragImageLocationKey = @"TPFileTransferDragImageLocatio
 	DebugLog(@"file transfer completed");
 	[_unarchiver close];
 	_unarchiver = nil;
+	if(_destinationPaths == nil || [_destinationPaths count] == 0) {
+		NSLog(@"File transfer completed without a valid destination");
+		[self _receiverDataTransferAborted];
+		return;
+	}
 	[self _completeTransferIfPossible];
 	[super _receiverDataTransferCompleted];
 }

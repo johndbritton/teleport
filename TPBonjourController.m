@@ -75,8 +75,8 @@ static TPBonjourController * _defaultBonjourController = nil;
 		[info appendFormat:@"%@=%@\x01", key, value];
 	}
 
-	[info replaceCharactersInRange:NSMakeRange([info length]-1, 1) withString:@""]; // remove last \n
-	
+	if([info length] > 0)
+		[info replaceCharactersInRange:NSMakeRange([info length]-1, 1) withString:@""]; // remove last \n
 	return info;
 }
 
@@ -139,7 +139,7 @@ static TPBonjourController * _defaultBonjourController = nil;
 	
 	NSData * recordData = [NSNetService dataFromTXTRecordDictionary:recordDict];
 	if(![_publishService setTXTRecordData:recordData])
-		NSLog(@"Can't set TXT record data");
+		NSLog(@"Can't set TXT record data: %@", recordDict);
 }
 
 - (void)unpublish
@@ -157,7 +157,7 @@ static TPBonjourController * _defaultBonjourController = nil;
 
 - (void)netService:(NSNetService *)service didNotPublish:(NSDictionary *)errorDict
 {
-	//	  DebugLog(@"didNotPublish");
+	NSLog(@"Bonjour publish failed: %@", errorDict);
 }
 
 - (void)netServiceDidStop:(NSNetService *)service
@@ -295,8 +295,12 @@ static TPBonjourController * _defaultBonjourController = nil;
 		NSArray * addresses = [service addresses];
 		DebugLog(@"addresses: %@", addresses);
 
-		if([addresses count] == 0)
+		if([addresses count] == 0) {
+			NSLog(@"Invalid host: no resolved addresses for %@", service);
+			[service stop];
+			[_services removeObject:service];
 			return;
+		}
 		
 		//NSArray * localAddresses = [[NSHost currentHost] addresses];
 		NSString * ipAddressString = nil;
@@ -379,6 +383,9 @@ static TPBonjourController * _defaultBonjourController = nil;
 
 - (void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict
 {
+	NSLog(@"Bonjour resolve failed: %@", errorDict);
+	[service stop];
+	[_services removeObject:service];
 }
 
 - (void)netService:(NSNetService *)sender didUpdateTXTRecordData:(NSData *)data

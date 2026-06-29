@@ -26,20 +26,7 @@
 
 + (TPEventsController*)eventsControllerForRemoteHost:(TPRemoteHost*)remoteHost
 {
-	if([[TPLocalHost localHost] pairWithHost:remoteHost hasCapability:TPHostDirectEventTapsCapability]) {
-		SInt32 localMajorVersion = [[TPLocalHost localHost] osVersion] & 0xFFF0;
-		SInt32 remoteMajorVersion = [remoteHost osVersion] & 0xFFF0;
-		// only allow direct event taps between same major OS versions
-		if(localMajorVersion == remoteMajorVersion) {
-			DebugLog(@"Using TPDirectEventTapsController");
-			return [TPDirectEventTapsController defaultController];
-		}
-		else {
-			DebugLog(@"Using TPEventTapsController");
-			return [TPEventTapsController defaultController];
-		}
-	}
-	else if([[TPLocalHost localHost] pairWithHost:remoteHost hasCapability:TPHostEventTapsCapability]) {
+	if([[TPLocalHost localHost] pairWithHost:remoteHost hasCapability:TPHostEventTapsCapability]) {
 		DebugLog(@"Using TPEventTapsController");
 		return [TPEventTapsController defaultController];
 	}

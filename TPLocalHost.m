@@ -346,7 +346,8 @@ static TPLocalHost * _localHost = nil;
 		case TPHostEventTapsCapability:
 			return ([self osVersion] >= TPHostOSVersion(4)) && [self isAccessibilityAPIEnabled];
 		case TPHostDirectEventTapsCapability:
-			return ([self osVersion] >= TPHostOSVersion(5)) && [self isAccessibilityAPIEnabled] && ![[TPPreferencesManager sharedPreferencesManager] boolForPref:TIGER_BEHAVIOR];
+			// ponytail: direct CGEvent data is opaque; re-enable only after proving cross-arch/modern macOS compatibility.
+			return NO;
 		default:
 			return NO;
 	}

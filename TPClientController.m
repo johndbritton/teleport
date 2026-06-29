@@ -458,19 +458,21 @@ static TPClientController * _defaultClientController = nil;
 - (void)requestedStopControlWithInfoDict:(NSDictionary*)infoDict
 {
 	TPRemoteHost * controlledHost = [[self currentConnection] connectedHost];
+	TPEventsController * eventsController = [self eventsController];
+	TPHotBorder * hotBorder = _hotBorders[[controlledHost identifier]];
 
 	[[self currentConnection] sendMessage:[TPMessage messageWithType:TPControlStopMsgType]];
-	
-	TPEventsController * eventsController = [self eventsController];
-	
 	[self stopControlWithDisconnect:DISCONNECT_WHEN_STOP_CONTROL];
 	
 	/* Warp the mouse cursor to the exiting point */
-	NSPoint mousePosition = [infoDict[TPMousePositionKey] pointValue];
-	TPHotBorder * hotBorder = _hotBorders[[controlledHost identifier]];
-	mousePosition = [hotBorder screenPointFromLocalPoint:mousePosition flipped:YES];
-	
-	if([hotBorder state] != TPHotBorderInactiveState) {
+	NSValue * mousePositionValue = infoDict[TPMousePositionKey];
+	NSPoint mousePosition;
+	if(mousePositionValue != nil && hotBorder != nil)
+		mousePosition = [hotBorder screenPointFromLocalPoint:[mousePositionValue pointValue] flipped:YES];
+	else
+		mousePosition = [NSEvent mouseLocation];
+
+	if(hotBorder != nil && [hotBorder state] != TPHotBorderInactiveState) {
 		[hotBorder deactivate];
 		[eventsController warpMouseToPosition:mousePosition];
 		[hotBorder delayedActivate];
@@ -479,7 +481,7 @@ static TPClientController * _defaultClientController = nil;
 		[eventsController warpMouseToPosition:mousePosition];
 	}
 	
-	[[self eventsController] cleanupGettingEvents];
+	[eventsController cleanupGettingEvents];
 }
 
 - (void)stopControl
@@ -496,7 +498,9 @@ static TPClientController * _defaultClientController = nil;
 	
 	if(_state == TPClientControllingState) {
 		/* Deactivate events recorder */
-		[[self eventsController] stopGettingEvents];
+		TPEventsController * eventsController = [self eventsController];
+		[eventsController stopGettingEvents];
+		[eventsController cleanupGettingEvents];
 		
 		/* Deactivate bezel */
 		[[TPBezelController defaultController] hideBezel];
@@ -571,8 +575,8 @@ void TPSleepCallback(void * refCon, io_service_t service, natural_t messageType,
 	
 	switch(messageType) {
 		case kIOMessageCanSystemSleep:
-			DebugLog(@"Preventing sleep");
-			IOCancelPowerChange(sleepService, (long)messageArgument);
+			DebugLog(@"Allowing idle sleep");
+			IOAllowPowerChange(sleepService, (long)messageArgument);
 			break;
 		case kIOMessageSystemWillSleep:
 			IOAllowPowerChange(sleepService, (long)messageArgument);

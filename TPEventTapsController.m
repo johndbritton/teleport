@@ -13,6 +13,7 @@
 #import "TPMainController.h"
 
 #include <Carbon/Carbon.h>
+#include <ApplicationServices/ApplicationServices.h>
 
 #define DEBUG_EVENTTAP 0
 #define MAX_STRING 20
@@ -21,6 +22,13 @@ void CGSSetConnectionProperty(int, int, CFStringRef, CFBooleanRef);
 int _CGSDefaultConnection();
 
 static TPEventTapsController * _eventTapsController = nil;
+
+static BOOL TPEventTapAccessGranted(void)
+{
+	if(&AXIsProcessTrusted != NULL)
+		return AXIsProcessTrusted();
+	return YES;
+}
 
 static const char * eventTypeName[] =
 {
@@ -132,7 +140,13 @@ static CGEventRef eventCallback(CGEventTapProxy proxy, CGEventType type, CGEvent
 									  eventCallback,
 									  (__bridge void *)(self));
 		if(_eventPort == NULL) {
-			NSLog(@"Can't create event port");
+			if(!TPEventTapAccessGranted())
+				NSLog(@"Can't create event port: Accessibility permission is disabled for teleport");
+			else if(IsSecureEventInputEnabled())
+				NSLog(@"Can't create event port: secure keyboard input is enabled by another application");
+			else
+				NSLog(@"Can't create event port");
+			CGDisplayShowCursor(kCGDirectMainDisplay);
 			return;
 		}
 		
@@ -170,6 +184,7 @@ static CGEventRef eventCallback(CGEventTapProxy proxy, CGEventType type, CGEvent
 		CGEventTapEnable(_eventPort, false);
 	}
 	
+	CGDisplayShowCursor(kCGDirectMainDisplay);
 	[(TPMainController*)[NSApp delegate] leaveFrontmost];
 }
 
