@@ -20,7 +20,7 @@
 #define MAX_STRING 20
 
 void CGSSetConnectionProperty(int, int, CFStringRef, CFBooleanRef);
-int _CGSDefaultConnection();
+int _CGSDefaultConnection(void);
 
 static TPEventTapsController * _eventTapsController = nil;
 

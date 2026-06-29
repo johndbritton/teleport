@@ -184,7 +184,16 @@ static NSImage * _unpairImage = nil;
 
 - (void)showOptionsPanel:(id)sender
 {
-	[self mouseExited:nil];
+	NSEvent *dummyEvent = [NSEvent mouseEventWithType:NSMouseMoved
+												location:NSZeroPoint
+										   modifierFlags:0
+											   timestamp:0
+											windowNumber:0
+												 context:nil
+											 eventNumber:0
+											  clickCount:0
+												pressure:0];
+	[self mouseExited:dummyEvent];
 	
 	NSRect frame = [sender bounds];
 	frame = [sender convertRect:frame toView:nil];
