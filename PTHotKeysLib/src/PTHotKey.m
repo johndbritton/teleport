@@ -103,7 +103,10 @@ static int HotKeyID = 0;
 
 - (void)invoke
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 	[mTarget performSelector: mAction withObject: self];
+#pragma clang diagnostic pop
 }
 
 @end

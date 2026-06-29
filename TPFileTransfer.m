@@ -277,6 +277,9 @@ NSString * TPFileTransferDragImageLocationKey = @"TPFileTransferDragImageLocatio
 	}
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 #if LEGACY_BUILD
 - (unsigned int)draggingSourceOperationMaskForLocal:(BOOL)isLocal
 #else
@@ -300,6 +303,8 @@ NSString * TPFileTransferDragImageLocationKey = @"TPFileTransferDragImageLocatio
 		[self _dragEndedAtPath:nil];
 	}
 }
+
+#pragma clang diagnostic pop
 
 - (NSString*)_filePathFromDestinationPath:(NSString*)destinationPath andFileName:(NSString*)fileName
 {

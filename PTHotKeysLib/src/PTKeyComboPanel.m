@@ -110,11 +110,14 @@ static PTKeyComboPanel* _sharedKeyComboPanel = nil;
 	[sheet orderOut: nil];
 	[self close];
 	
-	if( delegate )
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+	if( delegate && [delegate respondsToSelector: @selector( hotKeySheetDidEndWithReturnCode: )] )
 	{
 		NSNumber* returnObj = @(returnCode);
 		[delegate performSelector: @selector( hotKeySheetDidEndWithReturnCode: ) withObject: returnObj];
 	}
+#pragma clang diagnostic pop
 }
 
 - (void)runSheeetForModalWindow: (NSWindow*)wind target: (id)obj

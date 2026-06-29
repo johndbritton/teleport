@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface NSObject (TPAnimationManagerDelegate)
 
@@ -14,7 +15,7 @@
 
 @end
 
-@interface TPAnimationManager : NSObject
+@interface TPAnimationManager : NSObject <CAAnimationDelegate>
 {
 	id _delegate;
 	int _step;
