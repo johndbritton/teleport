@@ -65,10 +65,12 @@ static TPConnectionsManager * _connectionsManager = nil;
 	
 	BOOL enableEncryption = [[TPLocalHost localHost] pairWithHost:remoteHost hasCapability:TPHostEncryptionCapability];
 	[_socket setEnableEncryption:enableEncryption];
-	[_socket connectToHost:[remoteHost address] onPort:[remoteHost port]];
-	[_socket setNoDelay:YES];
-
-	return self;
+	if([_socket connectToHost:[remoteHost address] onPort:[remoteHost port]]) {
+		[_socket setNoDelay:YES];
+		return self;
+	}
+	[_socket close];
+	return nil;
 }
 
 
@@ -181,15 +183,24 @@ static TPConnectionsManager * _connectionsManager = nil;
 }
 
 
-- (void)connectToHost:(TPRemoteHost*)host withDelegate:(id)delegate infoDict:(NSDictionary*)infoDict
+- (BOOL)connectToHost:(TPRemoteHost*)host withDelegate:(id)delegate infoDict:(NSDictionary*)infoDict
 {
 	PRINT_ME;
 	
 	_TPSocketConnection * connection = _pendingConnections[[host identifier]];
 	if(connection == nil) {
 		connection = [[_TPSocketConnection alloc] initWithConnectionToHost:host delegate:delegate infoDict:infoDict];
-		_pendingConnections[[host identifier]] = connection;
+		if (connection) {
+			_pendingConnections[[host identifier]] = connection;
+			DebugLog(@"connectToHost: %@, add to pendingConnections", [host identifier]);
+		} else {
+			DebugLog(@"connectToHost: %@, failed immediately", [host identifier]);
+			return NO;
+		}
+	} else {
+		DebugLog(@"connectToHost: %@, pending...", [host identifier]);
 	}
+	return YES;
 }
 
 - (BOOL)startListeningWithDelegate:(id)delegate onPort:(int*)port
@@ -221,10 +232,11 @@ static TPConnectionsManager * _connectionsManager = nil;
 	id delegate = [socketConnection delegate];
 	TPRemoteHost * host = [socketConnection host];
 	
-	if(delegate && [delegate respondsToSelector:@selector(connectionToServerFailed:infoDict:)])
-		[delegate connectionToServerFailed:host infoDict:[socketConnection infoDict]];
-	
-	[_pendingConnections removeObjectForKey:[host identifier]];
+	if([_pendingConnections valueForKey:[host identifier]]) {
+		if(delegate && [delegate respondsToSelector:@selector(connectionToServerFailed:infoDict:)])
+			[delegate connectionToServerFailed:host infoDict:[socketConnection infoDict]];
+		[_pendingConnections removeObjectForKey:[host identifier]];
+	}
 }
 
 - (void)_socketConnection:(_TPSocketConnection*)socketConnection succeededWithNetworkConnection:(TPNetworkConnection*)networkConnection
@@ -232,10 +244,12 @@ static TPConnectionsManager * _connectionsManager = nil;
 	id delegate = [socketConnection delegate];
 	TPRemoteHost * host = [socketConnection host];
 	
-	if(delegate && [delegate respondsToSelector:@selector(connectionToServerSucceeded:infoDict:)])
-		[delegate connectionToServerSucceeded:networkConnection infoDict:[socketConnection infoDict]];
-	
-	[_pendingConnections removeObjectForKey:[host identifier]];
+	if([_pendingConnections valueForKey:[host identifier]]) {
+		if(delegate && [delegate respondsToSelector:@selector(connectionToServerSucceeded:infoDict:)])
+			[delegate connectionToServerSucceeded:networkConnection infoDict:[socketConnection infoDict]];
+		
+		[_pendingConnections removeObjectForKey:[host identifier]];
+	}
 }
 
 

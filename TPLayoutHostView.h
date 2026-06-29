@@ -19,8 +19,8 @@
 #define FORDRAW_ORIGIN(x) (x)
 #define FORDRAW_SIZE(x) (x)
 #endif
-#define MIN_SCALE 0.01
-#define MAX_SCALE 0.2
+#define MIN_SCALE 0.1
+#define MAX_SCALE 0.1
 
 typedef NS_ENUM(NSInteger, TPDrawMode) {NORMAL_MODE, DISABLED_MODE, SELECTED_MODE} ;
 

@@ -7,6 +7,10 @@
 //
 
 #import "TPNetworkConfigurationWatcher.h"
+#import "TPServerController.h"
+#import "TPClientController.h"
+#import "TPNetworkConnection.h"
+#import "TPRemoteHost.h"
 
 static void _networkChangeCallBack(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info);
 
@@ -110,8 +114,42 @@ static void _networkChangeCallBack(SCDynamicStoreRef store, CFArrayRef changedKe
 	@autoreleasepool {
 		TPNetworkConfigurationWatcher * self = (__bridge TPNetworkConfigurationWatcher*)info;
 		
-		[self _networkChanged];
-	
+		BOOL isControlledAsServer = [[TPServerController defaultController] isControlled];
+		NSString *serverInterfaceName = [[[TPServerController defaultController] currentConnection] networkInterfaceName];
+		
+		BOOL isControllingAsClient = [[TPClientController defaultController] isControlling];
+		NSString *clientInterfaceName = [[[TPClientController defaultController] currentConnection] networkInterfaceName];
+		
+		DebugLog(@"Network changed: server(%@, %d); client(%@, %d)", serverInterfaceName, isControlledAsServer, clientInterfaceName, isControllingAsClient);
+
+		serverInterfaceName = isControlledAsServer ? serverInterfaceName : nil;
+		clientInterfaceName = isControllingAsClient ? clientInterfaceName : nil;
+		
+		// Connections in use
+		if (serverInterfaceName || clientInterfaceName) {
+			for (CFIndex i = 0; i < CFArrayGetCount(changedKeys); i++) {
+				CFStringRef key = CFArrayGetValueAtIndex(changedKeys, i);
+				CFPropertyListRef value = SCDynamicStoreCopyValue(store, key);
+
+				DebugLog(@"Changed key: %@, value: %@", key, value);
+
+				if (value) {
+					CFRelease(value);
+				} else {
+					// No value for this inf, should be disconnected.
+					NSString *keyStr = (__bridge NSString*)key;
+					if ((serverInterfaceName && [keyStr hasPrefix:[NSString stringWithFormat:@"State:/Network/Interface/%@", serverInterfaceName]]) ||
+						(clientInterfaceName && [keyStr hasPrefix:[NSString stringWithFormat:@"State:/Network/Interface/%@", clientInterfaceName]]) ) {
+						// Only notify changes when the corresponding network interface is down.
+						[self _networkChanged];
+						return;
+					}
+				}
+				
+			}
+		} else {
+			[self _networkChanged];
+		}
 	}
 }
 

@@ -22,7 +22,7 @@
 
 + (TPConnectionsManager*)manager;
 
-- (void)connectToHost:(TPRemoteHost*)host withDelegate:(id)delegate infoDict:(NSDictionary*)infoDict;
+- (BOOL)connectToHost:(TPRemoteHost*)host withDelegate:(id)delegate infoDict:(NSDictionary*)infoDict;
 
 - (BOOL)startListeningWithDelegate:(id)delegate onPort:(int*)port;
 - (void)stopListening;

@@ -14,6 +14,9 @@
 
 #import "TPRemoteHost.h"
 #import "TPLocalHost.h"
+#import "TPServerController.h"
+#import "TPHotBorder.h"
+#import "TPScreenLockWatcher.h"
 
 #define THREADED_EVENT_POSTING 0
 
@@ -217,6 +220,20 @@
 	_currentMouseLocation = relativePoint;
 	_currentMouseLocation.x += NSMinX(screenFrame);
 	_currentMouseLocation.y += (NSHeight(mainScreenRect) - NSMaxY(screenFrame));
+
+	// When locked, HotBorder will never receiver mouseEnter events.
+	// Work around to make it possible to move back to the client.
+	if ([TPScreenLockWatcher isLocked]) {
+		TPHotBorder *border = [[TPServerController defaultController] currentHotBorder];
+		if (screen == [border screen]) {
+			// _currentMouseLocation is relative to the left-top corner of the main screen.
+			// while borderRect is relative to the left-bottom corner of the main screen.
+			CGPoint mouseLocationInvertY = CGPointMake(_currentMouseLocation.x, NSHeight(mainScreenRect) - _currentMouseLocation.y);
+			if (CGRectContainsPoint(border.frame, mouseLocationInvertY)) {
+				[[TPServerController defaultController] stopControl];
+			}
+		}
+	}
 }
 
 - (BOOL)event:(NSEvent*)event hasRequiredKeyIfNeeded:(BOOL)needed withTag:(NSEventType)tag

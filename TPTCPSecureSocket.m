@@ -339,7 +339,9 @@ OSStatus _TPTCPSecureSocketWrite(SSLConnectionRef connection, const void *data, 
 
 		CFDataAppendBytes(_encryptedDataRef, CFDataGetBytePtr(data), CFDataGetLength(data));
 		
-		//		DebugLog(@"%p receivedData(%d) state=%d", self, CFDataGetLength(data), sessionState);
+#if DEBUG_SOCKET
+		DebugLog(@"%p receivedData(%d) state=%d", self, CFDataGetLength(data), sessionState);
+#endif
 		
 		switch(sessionState) {
 			case kSSLIdle:

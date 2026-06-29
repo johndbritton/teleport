@@ -65,6 +65,7 @@ NSString * TPDragImageLocationKey = @"TPDragImageLocation";
 {
 	if(_currentConnection != networkConnection) {
 		[[TPTransfersManager manager] abortAllTransferRequests];
+		[_currentConnection disconnect];
 		
 		_currentConnection = networkConnection;
 		[_currentConnection setDelegate:self];

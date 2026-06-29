@@ -23,7 +23,7 @@
 - (void)saveHosts;
 
 /* Authentication requests - client side */
-- (void)requestAuthenticationOnHost:(TPRemoteHost*)host;
+- (BOOL)requestAuthenticationOnHost:(TPRemoteHost*)host;
 - (void)abortAuthenticationRequest;
 
 /* Authentication answer - server side */

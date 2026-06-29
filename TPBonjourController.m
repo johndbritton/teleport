@@ -37,6 +37,48 @@ static NSString * TPRecordHideIfNotPaired = @"hide";
 
 static TPBonjourController * _defaultBonjourController = nil;
 
+static void pingRemoteAsync(NSString *host) {
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		DebugLog(@"ping -c 100 %@", host);
+		NSTask *task = [[NSTask alloc] init];
+		task.launchPath = @"/sbin/ping";
+		task.arguments = @[@"-c", @"100", host];
+		
+		NSPipe *pipe = [NSPipe pipe];
+		task.standardOutput = pipe;
+		task.standardError = pipe;
+		
+		NSFileHandle *outputHandle = pipe.fileHandleForReading;
+		
+		task.terminationHandler = ^(NSTask *finishedTask) {
+			DebugLog(@"ping to %@ - done.", host);
+		};
+		
+		outputHandle.readabilityHandler = ^(NSFileHandle *handle) {
+			NSData *data = [handle availableData];
+			if (data.length == 0) {
+				outputHandle.readabilityHandler = nil;
+				return;
+			}
+			
+			NSString *output = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+			NSArray *lines = [output componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+			for (NSString *line in lines) {
+				if (line.length > 0) {
+					NSLog(@"%@", line);
+					if ([line containsString:@"bytes from"]) {
+						NSLog(@"ping successfully to %@.", host);
+						[task terminate];
+					}
+				}
+			}
+		};
+		
+		[task launch];
+		DebugLog(@"ping to %@ - start.", host);
+	});
+}
+
 @implementation TPBonjourController
 
 + (TPBonjourController*)defaultController
@@ -152,17 +194,36 @@ static TPBonjourController * _defaultBonjourController = nil;
 
 - (void)netServiceWillPublish:(NSNetService *)service
 {
-	//DebugLog(@"willPublish");
+	DebugLog(@"netServiceWillPublish: %@", service);
+}
+
+- (void)netServiceWillResolve:(NSNetService *)service {
+	DebugLog(@"netServiceWillResolve: %@", service);
 }
 
 - (void)netService:(NSNetService *)service didNotPublish:(NSDictionary *)errorDict
 {
-	NSLog(@"Bonjour publish failed: %@", errorDict);
+	NSLog(@"Bonjour publish failed: %@, %@", service, errorDict);
+}
+
+- (void)retryResolve:(NSNetService *)service {
+	if (service.port == -1) {
+		for (NSNetService *_service in _services) {
+			if (_service.hostName == service.hostName) {
+				if([service respondsToSelector:@selector(resolveWithTimeout:)])
+					[service resolveWithTimeout:RESOLVE_TIMEOUT];
+				else
+					[service resolve];
+				return;
+			}
+		}
+	}
 }
 
 - (void)netServiceDidStop:(NSNetService *)service
 {
-	//DebugLog(@"stop");
+	DebugLog(@"netServiceDidStop: %@", service);
+	[self retryResolve:service];
 }
 
 
@@ -183,6 +244,14 @@ static TPBonjourController * _defaultBonjourController = nil;
 - (void)stopBrowsing
 {
 	[_browseService stop];
+	for (NSNetServiceBrowser *_browser in [_browsers allValues]) {
+		[_browser stop];
+	}
+	[_browsers removeAllObjects];
+	for (NSNetService *_service in _services) {
+		[_service stop];
+	}
+	[_services removeAllObjects];
 }
 
 - (void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)browser
@@ -217,6 +286,7 @@ static TPBonjourController * _defaultBonjourController = nil;
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didRemoveDomain:(NSString *)domainString moreComing:(BOOL)moreComing
 {
+	PRINT_ME
 	NSNetServiceBrowser *browser = [_browsers objectForKey:domainString];
 	
 	if (browser != nil) {
@@ -297,8 +367,6 @@ static TPBonjourController * _defaultBonjourController = nil;
 
 		if([addresses count] == 0) {
 			NSLog(@"Invalid host: no resolved addresses for %@", service);
-			[service stop];
-			[_services removeObject:service];
 			return;
 		}
 		
@@ -353,6 +421,7 @@ static TPBonjourController * _defaultBonjourController = nil;
 			
 			if(![remoteHost isEqual:[TPLocalHost localHost]]) {
 				[[TPHostsManager defaultManager] addBonjourHost:remoteHost];
+				pingRemoteAsync(ipAddressString);
 			}
 			else {
 #if SHOW_LOCALHOST	
@@ -383,9 +452,8 @@ static TPBonjourController * _defaultBonjourController = nil;
 
 - (void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict
 {
-	NSLog(@"Bonjour resolve failed: %@", errorDict);
-	[service stop];
-	[_services removeObject:service];
+	NSLog(@"Bonjour resolve failed for service %@: %@", service, errorDict);
+	[self retryResolve:service];
 }
 
 - (void)netService:(NSNetService *)sender didUpdateTXTRecordData:(NSData *)data
@@ -399,11 +467,14 @@ static TPBonjourController * _defaultBonjourController = nil;
 	
 	if([identifier isEqualToString:previousIdentifier]) {
 		TPRemoteHost * host = [[TPHostsManager defaultManager] hostWithIdentifier:identifier];
+		DebugLog(@"netService: sameId=%@, host=%@", identifier, host);
 		if(host != nil) {
 			[self _updateHost:host withRecordDict:recordDict];
 		}
 	}
 	else {
+		DebugLog(@"netService: newId=%@, prevId=%@", identifier, previousIdentifier);
+
 		TPRemoteHost * remoteHost = [[TPHostsManager defaultManager] hostWithIdentifier:previousIdentifier];
 
 		if(remoteHost != nil) {

@@ -171,13 +171,9 @@ static TPTransfersManager * _transfersManager = nil;
 
 - (void)_processNextTransferRequestIfPossible
 {
-	DebugLog(@"processing next transfer request in %@", _transferRequests);
-			 
 	if([_transferRequests count] < 1 || _requestInProcess)
 		return;
-	
-	DebugLog(@"process now");
-	
+
 	_requestInProcess = YES;
 	
 	NSDictionary * transferRequest = _transferRequests[0];

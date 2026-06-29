@@ -31,6 +31,8 @@
 - (instancetype) initWithSocket:(TPTCPSocket*)socket NS_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly, strong) TPTCPSocket *socket;
 
+@property (nonatomic, readonly, strong) NSString *networkInterfaceName;
+
 @property (nonatomic, readonly, strong) TPTransfersManager *transfersManager;
 
 @property (nonatomic, strong) TPRemoteHost *connectedHost;

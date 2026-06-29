@@ -391,9 +391,9 @@ NSString * TPRemoteHostCustomOptionsKey = @"customOptions";
 - (NSRect)hostRect
 {
 	NSArray * screens = [self screens];
-	if([screens count] > 0) {
+	if([screens count] > 0 && _sharedScreenIndex < [screens count]) {
 		NSRect hostRect;
-		NSScreen * screen = [self screens][_sharedScreenIndex];
+		NSScreen * screen = screens[_sharedScreenIndex];
 		hostRect = [screen frame];
 		hostRect.origin = _sharedScreenPosition;
 		return hostRect;

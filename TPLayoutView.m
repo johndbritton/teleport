@@ -40,7 +40,9 @@ NSRect TPScaledRect(NSRect rect, float scale)
 	return scaledRect;
 }
 
-@implementation TPLayoutView
+@implementation TPLayoutView {
+	BOOL animateContent;
+}
 
 - (instancetype)initWithFrame:(NSRect)frame
 {
@@ -49,6 +51,8 @@ NSRect TPScaledRect(NSRect rect, float scale)
 		_scaleFactor = DEFAULT_SCALE;
 		
 		self.wantsLayer = YES;
+		self.clipsToBounds = YES;
+		animateContent = NO;
 		
 		_localHostView = [[TPLayoutLocalHostView alloc] initWithHost:[TPLocalHost localHost] layoutView:self];
 		[self addSubview:_localHostView];
@@ -155,7 +159,7 @@ NSRect TPScaledRect(NSRect rect, float scale)
 	NSRect localHostRect = [_localHostView totalFrame];
 	
 	NSSize maxHostSize = NSZeroSize;
-	NSSize maxOnlineHostSize = NSZeroSize;
+	NSSize maxSharedHostSize = NSZeroSize;
 	NSEnumerator * hostViewsEnum = [_remoteHostsViews objectEnumerator];
 	TPLayoutRemoteHostView * hostView;
 	
@@ -165,17 +169,17 @@ NSRect TPScaledRect(NSRect rect, float scale)
 		maxHostSize.width = MAX(maxHostSize.width, NSWidth(hostRect));
 		maxHostSize.height = MAX(maxHostSize.height, NSHeight(hostRect));
 		
-		if([host isInState:TPHostOnlineState|TPHostPeeredState]) {
-			maxOnlineHostSize.width = MAX(maxOnlineHostSize.width, NSWidth(hostRect));
-			maxOnlineHostSize.height = MAX(maxOnlineHostSize.height, NSHeight(hostRect));
+		if(![host isInState:TPHostPeeredState]) {
+			maxSharedHostSize.width = MAX(maxSharedHostSize.width, NSWidth(hostRect));
+			maxSharedHostSize.height = MAX(maxSharedHostSize.height, NSHeight(hostRect));
 		}
 	}
 	
 	if(!NSEqualSizes(maxHostSize, NSZeroSize)) {
-		float scaleFactorV = ((NSHeight(bounds) - BOTTOM_MARGIN) - 4*HOST_MARGIN - LINE_THICKNESS)/(3*maxHostSize.height + NSHeight(localHostRect));
-		float scaleFactorH = (NSWidth(bounds) - 2*HOST_MARGIN)/(2*maxHostSize.width + NSWidth(localHostRect));
+		float scaleFactorV = ((NSHeight(bounds) - BOTTOM_MARGIN) - 4 * HOST_MARGIN - LINE_THICKNESS) / (3 * maxHostSize.height + NSHeight(localHostRect));
+		float scaleFactorH = (NSWidth(bounds) - 2 * HOST_MARGIN) / (2 * maxHostSize.width + NSWidth(localHostRect));
 		
-		_scaleFactor = MIN(scaleFactorH, scaleFactorV);
+		_scaleFactor = MIN(MAX(MIN(scaleFactorH, scaleFactorV), MIN_SCALE), MAX_SCALE);
 	}
 	else {
 		_scaleFactor = DEFAULT_SCALE;
@@ -183,8 +187,8 @@ NSRect TPScaledRect(NSRect rect, float scale)
 	
 	//NSLog(@"scaleFactor: %f", _scaleFactor);
 	
-	if(!NSEqualSizes(maxOnlineHostSize, NSZeroSize)) {
-		_layoutHeight = round(NSHeight(bounds) - (maxOnlineHostSize.height*_scaleFactor + 2*HOST_MARGIN));
+	if(!NSEqualSizes(maxSharedHostSize, NSZeroSize)) {
+		_layoutHeight = round(NSHeight(bounds) - (maxSharedHostSize.height * _scaleFactor + 2 * HOST_MARGIN));
 	}
 	else {
 		_layoutHeight = NSHeight(bounds);
@@ -212,7 +216,7 @@ NSRect TPScaledRect(NSRect rect, float scale)
 			width += (floor(hostRect.size.width*_scaleFactor) + HOST_MARGIN);
 		}
 		
-		float proportion = NSWidth(fullFrame)/width;
+		float proportion = NSWidth(fullFrame) / width;
 		
 		if(proportion < 1.0) {
 			NSRect scrollerFrame = NSMakeRect(LINE_THICKNESS, _layoutHeight - [NSScroller scrollerWidth], NSWidth(fullFrame) - 2*LINE_THICKNESS, [NSScroller scrollerWidth]);
@@ -224,7 +228,7 @@ NSRect TPScaledRect(NSRect rect, float scale)
 				[_scroller setAction:@selector(scroll:)];
 			}
 			
-			[_scroller setFloatValue:_scrollerDeltaX/(NSWidth(fullFrame) - width) knobProportion:proportion];
+			[_scroller setFloatValue:_scrollerDeltaX / (NSWidth(fullFrame) - width) knobProportion:proportion];
 			[_scroller setFrame:scrollerFrame];
 			[_scroller setEnabled:YES];
 			[_scroller setHidden:NO];
@@ -244,24 +248,29 @@ NSRect TPScaledRect(NSRect rect, float scale)
 	NSRect localHostRect = [_localHostView totalFrame];
 	localHostRect = TPScaledRect(localHostRect, _scaleFactor);
 		
-	NSPoint origin = NSMakePoint(floor((NSWidth(bounds) - NSWidth(localHostRect))/2.0),
-								 floor((_layoutHeight + BOTTOM_MARGIN - NSHeight(localHostRect))/2.0));
+	NSPoint origin = NSMakePoint(floor((NSWidth(bounds) - NSWidth(localHostRect)) / 2.0),
+								 floor((_layoutHeight + BOTTOM_MARGIN - NSHeight(localHostRect)) / 2.0));
 
 	[_localHostView updateLayoutWithScaleFactor:_scaleFactor];
 	[_localHostView setFrameOrigin:origin];
+	
+	NSMutableArray<NSView*> *contentViews = [[NSMutableArray alloc] init];
+	[contentViews addObject:_localHostView];
+	CGRect contentFrame = _localHostView.frame;
 
 	// Remote hosts
 	NSEnumerator * hostViewsEnum = [_remoteHostsViews objectEnumerator];
 	TPLayoutRemoteHostView * hostView;
 	
 	//float hostOrigin = _layoutHeight + HOST_MARGIN;
-	NSPoint sharedHostPoint = NSMakePoint(HOST_MARGIN+_scrollerDeltaX, _layoutHeight + HOST_MARGIN);
+	NSPoint sharedHostPoint = NSMakePoint(HOST_MARGIN + _scrollerDeltaX, _layoutHeight + HOST_MARGIN);
 	
 	while((hostView = [hostViewsEnum nextObject])) {
 		TPRemoteHost * host = (TPRemoteHost*)[hostView host];
 		NSRect totalFrame = [hostView totalFrame];		
 		NSRect frame;
 		TPSide side = TPUndefSide;
+		BOOL isInContentView = NO;
 		if([host isInState:TPHostPeeredState]) {
 			NSRect localScreenFrame = [_localHostView screenFrameAtIndex:0];
 			//NSLog(@"localHostView: %@, localScreenFrame: %@",localHostView,NSStringFromRect(localScreenFrame));
@@ -279,6 +288,9 @@ NSRect TPScaledRect(NSRect rect, float scale)
 			NSRect representedRect = [host adjustedHostRect];
 			NSRect parentRect = [[host localScreen] frame];
 			TPGluedRect(NULL, &side, parentRect, representedRect, TPUndefSide);
+			
+			[contentViews addObject:hostView];
+			isInContentView = YES;
 		}
 		else {
 			frame = TPScaledRect(totalFrame, _scaleFactor);
@@ -316,9 +328,28 @@ NSRect TPScaledRect(NSRect rect, float scale)
 		
 		[hostView updateLayoutWithScaleFactor:_scaleFactor];
 		[hostView setFrameOrigin:frame.origin];
+		if (isInContentView) {
+			contentFrame = CGRectUnion(contentFrame, hostView.frame);
+		}
 	}
 	
+	// Adjust content views
+	CGFloat offsetX = floor((NSWidth(bounds) - NSWidth(contentFrame)) / 2.0 - NSMinX(contentFrame));
+	CGFloat offsetY = floor((_layoutHeight - NSHeight(contentFrame)) / 2.0 - NSMinY(contentFrame));
+	for (NSView *view in contentViews) {
+		if (animateContent) {
+			[NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
+				context.duration = 0.1;
+				context.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 
+				[[view animator] setFrame:CGRectOffset(view.frame, offsetX, offsetY)];
+			} completionHandler:nil];
+		} else {
+			[view setFrame:CGRectOffset(view.frame, offsetX, offsetY)];
+		}
+	}
+	animateContent = NO;
+	
 	[CATransaction begin];
 	[CATransaction setValue:@YES forKey:kCATransactionDisableActions];
 	
@@ -332,7 +363,7 @@ NSRect TPScaledRect(NSRect rect, float scale)
 			_separationLine.backgroundColor = grayColor;
 			CFRelease(grayColor);
 		}
-		_separationLine.frame = CGRectMake(LINE_MARGIN, _layoutHeight, NSWidth(bounds) - 2*LINE_MARGIN, LINE_THICKNESS);
+		_separationLine.frame = CGRectMake(LINE_MARGIN, _layoutHeight, NSWidth(bounds) - 2 * LINE_MARGIN, LINE_THICKNESS);
 	}
 	else if(_separationLine != nil) {
 		[_separationLine removeFromSuperlayer];
@@ -538,6 +569,8 @@ NSRect TPScaledRect(NSRect rect, float scale)
 	
 	[indicator close];
 	
+	// Always animate paired hosts to center after dragging.
+	animateContent = YES;
 	if(snapped) {
 		//[[TPHostAnimationController controller] showAppearanceAnimationForHost:host];
 		[hostView pairToScreenIndex:nearestScreenIndex atPosition:hostPosition ofSide:minSide];

@@ -7,12 +7,14 @@
  *
  */
 
+#import <TPPreferencesManager.h>
+
 /* Debug */
 #define DEBUG_GENERAL 0
 #define DEBUG_TRANSFERS 0
 
 #define DebugLog(logString, args...) \
-if([[NSUserDefaults standardUserDefaults] boolForKey:@"enableLogging"]) \
+if([[TPPreferencesManager sharedPreferencesManager] boolForPref:ENABLE_DEBUG_LOG]) \
 NSLog(logString , ##args)
 
 /* Macros */

@@ -314,7 +314,7 @@ static NSString * TPHotBorderDraggingInfoKey = @"TPHotBorderDraggingInfo";
 
 - (void)mouseEntered:(NSEvent *)event
 {
-	DebugLog(@"mouseEntered %@", [[NSPasteboard pasteboardWithName:NSDragPboard] types]);
+	DebugLog(@"mouseEntered");
 	
 	[self _discardFireAttempt];
 	

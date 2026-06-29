@@ -235,15 +235,18 @@ static TPClientController * _defaultClientController = nil;
 	TPRemoteHost * remoteHost = [[TPHostsManager defaultManager] hostWithIdentifier:[hotBorder identifier]];
 	
 	if([remoteHost hostState] == TPHostPeeredOnlineState) {
+
 #if DEBUG_BUILD
 		BOOL isLocalHost = [remoteHost isEqual:[TPLocalHost localHost]];
-		
 		if(!isLocalHost) {
-			[self requestStartControlOnHost:remoteHost atLocation:location withDraggingInfo:draggingInfo];
-		}
-#else
-		[self requestStartControlOnHost:remoteHost atLocation:location withDraggingInfo:draggingInfo];	
 #endif
+			if(![self requestStartControlOnHost:remoteHost atLocation:location withDraggingInfo:draggingInfo]) {
+				[hotBorder activate];
+			}
+#if DEBUG_BUILD
+		}
+#endif
+
 		
 		return [super hotBorder:hotBorder firedAtLocation:location withDraggingInfo:draggingInfo];
 	}
@@ -292,12 +295,12 @@ static TPClientController * _defaultClientController = nil;
 #pragma mark -
 #pragma mark Start control
 
-- (void)requestStartControlOnHost:(TPRemoteHost*)remoteHost atLocation:(NSPoint)location withDraggingInfo:(id <NSDraggingInfo>)draggingInfo
+- (BOOL)requestStartControlOnHost:(TPRemoteHost*)remoteHost atLocation:(NSPoint)location withDraggingInfo:(id <NSDraggingInfo>)draggingInfo
 {
-	DebugLog(@"request start control on %@", remoteHost);
+	DebugLog(@"request start control on %@, _state=%ld", remoteHost, _state);
 	
 	if(remoteHost == nil || [remoteHost hostState] != TPHostPeeredOnlineState || _state != TPClientIdleState)
-		return;
+		return NO;
 	
 	NSMutableDictionary * infoDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
 									  [NSValue valueWithPoint:location], TPMousePositionKey,
@@ -317,6 +320,7 @@ static TPClientController * _defaultClientController = nil;
 		if([currentConnection isValidForHost:remoteHost]) {
 			[self sendStartControlRequestForConnection:currentConnection withInfoDict:infoDict];
 			shouldConnect = NO;
+			return YES;
 		}
 		else {
 			[self setCurrentConnection:nil];
@@ -324,9 +328,12 @@ static TPClientController * _defaultClientController = nil;
 	}
 	
 	if(shouldConnect) {
-		_state = TPClientConnectingState;
-		[[TPConnectionsManager manager] connectToHost:remoteHost withDelegate:self infoDict:infoDict];
+		if([[TPConnectionsManager manager] connectToHost:remoteHost withDelegate:self infoDict:infoDict]) {
+			_state = TPClientConnectingState;
+			return YES;
+		}
 	}
+	return NO;
 }
 
 - (void)sendStartControlRequestForConnection:(TPNetworkConnection*)connection withInfoDict:(NSDictionary*)infoDict
@@ -629,13 +636,15 @@ void TPSleepCallback(void * refCon, io_service_t service, natural_t messageType,
 
 - (void)connectionToServerFailed:(TPRemoteHost*)host infoDict:(NSDictionary*)infoDict
 {
-	NSString * msgTitle = [NSString stringWithFormat:NSLocalizedString(@"Connection to \\U201C%@\\U201D failed.", @"Title for connection failure"), [host computerName]];
-	NSAlert * alert = [NSAlert alertWithMessageText:msgTitle defaultButton:NSLocalizedString(@"OK", nil) alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"The server may be down, or an encryption problem may have occured. If encryption is enabled, please check that the certificate algorithms match.", nil)];
-	[(TPMainController*)[NSApp delegate] presentAlert:alert];
-	
-	[self updateTriggersAndShowVisualHint:NO];
-	
-	_state = TPClientIdleState;
+	if (_state == TPClientConnectingState) {
+		NSString * msgTitle = [NSString stringWithFormat:NSLocalizedString(@"Connection to \\U201C%@\\U201D failed.", @"Title for connection failure"), [host computerName]];
+		NSAlert * alert = [NSAlert alertWithMessageText:msgTitle defaultButton:NSLocalizedString(@"OK", nil) alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"The server may be down, or an encryption problem may have occured. If encryption is enabled, please check that the certificate algorithms match.", nil)];
+		[(TPMainController*)[NSApp delegate] presentAlert:alert];
+		
+		[self updateTriggersAndShowVisualHint:NO];
+		
+		_state = TPClientIdleState;
+	}
 }
 
 - (void)connection:(TPNetworkConnection*)connection receivedMessage:(TPMessage*)message

@@ -99,9 +99,9 @@ static BOOL TPCertificateEqual(SecCertificateRef cert1Ref, SecCertificateRef cer
 #pragma mark -
 #pragma mark Authentication requests - client side
 
-- (void)requestAuthenticationOnHost:(TPRemoteHost*)host
+- (BOOL)requestAuthenticationOnHost:(TPRemoteHost*)host
 {
-	[[TPConnectionsManager manager] connectToHost:host withDelegate:self infoDict:nil];
+	return [[TPConnectionsManager manager] connectToHost:host withDelegate:self infoDict:nil];
 }
 
 - (void)connectionToServerSucceeded:(TPNetworkConnection*)connection infoDict:(NSDictionary*)infoDict

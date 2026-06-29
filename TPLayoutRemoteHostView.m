@@ -409,8 +409,11 @@ static NSImage * _unpairImage = nil;
 	DebugLog(@"pairing %@ to screen index %d with shared screen index %d position %@", host, screenIndex, _draggingScreenIndex, NSStringFromPoint(snappedPosition));
 	
 	if([host isInState:TPHostSharedState]) {
-		[host setHostState:TPHostPeeringState];
-		[[TPAuthenticationManager defaultManager] requestAuthenticationOnHost:host];
+		if([[TPAuthenticationManager defaultManager] requestAuthenticationOnHost:host]) {
+			[host setHostState:TPHostPeeringState];
+		} else {
+			DebugLog(@"Request auth on host %@ failed immediately.", host);
+		}
 	}
 }
 

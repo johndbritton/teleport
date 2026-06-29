@@ -105,9 +105,11 @@
 	
 	NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
 	[paragraphStyle setAlignment:NSCenterTextAlignment];
+	[paragraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
 	//	[paragraphStyle setLineSpacing:-20.0];
 	
-	NSDictionary * attributes = @{NSFontAttributeName: [NSFont boldSystemFontOfSize:[NSFont systemFontSize]],
+	CGFloat fontSize = MIN([NSFont systemFontSize], rect.size.height / 4);
+	NSDictionary * attributes = @{NSFontAttributeName: [NSFont boldSystemFontOfSize:fontSize],
 								 NSShadowAttributeName: shadow,
 								 NSForegroundColorAttributeName: fontColor,
 								 NSParagraphStyleAttributeName: paragraphStyle};
@@ -128,8 +130,30 @@
 	
 	NSRect usedRect = [layoutManager usedRectForTextContainer:textContainer];
 	
-	[layoutManager drawGlyphsForGlyphRange:glyphRange atPoint:NSMakePoint(1.0, roundf((NSHeight(rect) - NSHeight(usedRect))/2.0) - 4.0)];
+	CGFloat hostNameY = roundf((NSHeight(rect) - NSHeight(usedRect)) / 2.0) - 8.0;
+	[layoutManager drawGlyphsForGlyphRange:glyphRange atPoint:NSMakePoint(1.0, hostNameY)];
 	
+	NSString *ipAddress = [[_hostView host] address];
+	NSDictionary * ipAttributes = @{
+		NSFontAttributeName: [NSFont systemFontOfSize:fontSize * 0.7],
+		NSShadowAttributeName: shadow,
+		NSForegroundColorAttributeName: fontColor,
+		NSParagraphStyleAttributeName: paragraphStyle
+	};
+
+	NSAttributedString * ipString = [[NSAttributedString alloc] initWithString:ipAddress attributes:ipAttributes];
+	// IP address layout
+	NSLayoutManager *ipLayout = [[NSLayoutManager alloc] init];
+	NSTextContainer *ipContainer = [[NSTextContainer alloc] initWithContainerSize:rect.size];
+	NSTextStorage *ipStorage = [[NSTextStorage alloc] initWithAttributedString:ipString];
+	[ipLayout addTextContainer:ipContainer];
+	[ipStorage addLayoutManager:ipLayout];
+
+	NSRange ipGlyphRange = [ipLayout glyphRangeForTextContainer:ipContainer];
+	NSRect ipUsedRect = [ipLayout usedRectForTextContainer:ipContainer];
+
+	CGFloat ipY = hostNameY + NSHeight(usedRect) + 2.0; // draw just below host name
+	[ipLayout drawGlyphsForGlyphRange:ipGlyphRange atPoint:NSMakePoint(1.0, ipY)];
 	
 	[image unlockFocus];
 	[[NSGraphicsContext currentContext] saveGraphicsState];

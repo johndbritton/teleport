@@ -153,6 +153,8 @@
 		A7EC1BD91A19E84000CDEC7B /* sharedscreen-on.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A7BD4E860CF1D26B005B3BED /* sharedscreen-on.tiff */; };
 		A7EF8B0705AB6CA900E9BC56 /* TPBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8B0505AB6CA900E9BC56 /* TPBezierPath.m */; };
 		A7EF8B0805AB6CA900E9BC56 /* TPBezierPath.h in Headers */ = {isa = PBXBuildFile; fileRef = A7EF8B0605AB6CA900E9BC56 /* TPBezierPath.h */; };
+		B2CB75FB2E0AC0590033FB60 /* TPScreenLockWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B2CB75F92E0AC0590033FB60 /* TPScreenLockWatcher.h */; };
+		B2CB75FC2E0AC0590033FB60 /* TPScreenLockWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CB75FA2E0AC0590033FB60 /* TPScreenLockWatcher.m */; };
 		DF308BB421EF799600C17AD6 /* 10.12-Sierra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF308BAD21EF799500C17AD6 /* 10.12-Sierra.jpg */; };
 		DF308BB521EF799600C17AD6 /* 10.10-Yosemite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF308BAE21EF799500C17AD6 /* 10.10-Yosemite.jpg */; };
 		DF308BB621EF799600C17AD6 /* 10.9-Mavericks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF308BAF21EF799500C17AD6 /* 10.9-Mavericks.jpg */; };
@@ -344,6 +346,8 @@
 		A7E6ADDA05EEB47D001D7D35 /* TPLayoutLocalHostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLayoutLocalHostView.m; sourceTree = "<group>"; };
 		A7EF8B0505AB6CA900E9BC56 /* TPBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TPBezierPath.m; sourceTree = "<group>"; };
 		A7EF8B0605AB6CA900E9BC56 /* TPBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TPBezierPath.h; sourceTree = "<group>"; };
+		B2CB75F92E0AC0590033FB60 /* TPScreenLockWatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPScreenLockWatcher.h; sourceTree = "<group>"; };
+		B2CB75FA2E0AC0590033FB60 /* TPScreenLockWatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPScreenLockWatcher.m; sourceTree = "<group>"; };
 		DF308BAD21EF799500C17AD6 /* 10.12-Sierra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.12-Sierra.jpg"; sourceTree = "<group>"; };
 		DF308BAE21EF799500C17AD6 /* 10.10-Yosemite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.10-Yosemite.jpg"; sourceTree = "<group>"; };
 		DF308BAF21EF799500C17AD6 /* 10.9-Mavericks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "10.9-Mavericks.jpg"; sourceTree = "<group>"; };
@@ -623,6 +627,8 @@
 				A7C9DF2E059F4B1300E67CB3 /* TPServerController.m */,
 				A7697D730DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.h */,
 				A7697D740DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.m */,
+				B2CB75F92E0AC0590033FB60 /* TPScreenLockWatcher.h */,
+				B2CB75FA2E0AC0590033FB60 /* TPScreenLockWatcher.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -831,6 +837,7 @@
 				A7C9DF17059F4AE900E67CB3 /* TPHost.h in Headers */,
 				A7C9DF1D059F4AF600E67CB3 /* TPHotBorder.h in Headers */,
 				A7C9DF2F059F4B1300E67CB3 /* TPMainController.h in Headers */,
+				B2CB75FB2E0AC0590033FB60 /* TPScreenLockWatcher.h in Headers */,
 				A7C9DF31059F4B1300E67CB3 /* TPClientController.h in Headers */,
 				A7C9DF33059F4B1300E67CB3 /* TPMessage.h in Headers */,
 				A7C9DF35059F4B1300E67CB3 /* TPServerController.h in Headers */,
@@ -891,9 +898,9 @@
 				A7C9DEC5059F496500E67CB3 /* Resources */,
 				A7C9DEC6059F496500E67CB3 /* Sources */,
 				A7C9DEC7059F496500E67CB3 /* Frameworks */,
-				A71EA0750A10D5B400805CC6 /* Set revision number */,
 				52ACC2362565FD4E00345EBE /* Embed Frameworks */,
 				5203E59525987BE4009A23E6 /* Sign Sparkle.framework */,
+				A71EA0750A10D5B400805CC6 /* Set revision number */,
 			);
 			buildRules = (
 			);
@@ -999,7 +1006,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "LOCATION=\"${BUILT_PRODUCTS_DIR}\"/\"${FRAMEWORKS_FOLDER_PATH}\"\n\n# By default, use the configured code signing identity for the project/target\nIDENTITY=\"${CODE_SIGN_IDENTITY}\"\nif [ \"$IDENTITY\" == \"\" ]\nthen\n  # If a code signing identity is not specified, use ad hoc signing\n  IDENTITY=\"-\"\nfi\ncodesign --verbose --force --deep -o runtime --sign \"$IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A/Resources/AutoUpdate.app\"\ncodesign --verbose --force -o runtime --sign \"$IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A\"\n";
+			shellScript = "LOCATION=\"${BUILT_PRODUCTS_DIR}\"/\"${FRAMEWORKS_FOLDER_PATH}\"\n\n# By default, use the configured code signing identity for the project/target\n# Choose the first certificate to avoid ambiguous issue \nIDENTITY=$(security find-identity -v -p codesigning | grep \"${CODE_SIGN_IDENTITY}\" | head -n 1 | awk '{print $2}')\nif [ \"$IDENTITY\" == \"\" ]\nthen\n  # If a code signing identity is not specified, use ad hoc signing\n  IDENTITY=\"-\"\nfi\n\ncodesign --verbose --force --deep -o runtime --sign \"$IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A/Resources/AutoUpdate.app\"\ncodesign --verbose --force -o runtime --sign \"$IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A\"\n";
 		};
 		A71EA0750A10D5B400805CC6 /* Set revision number */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1087,6 +1094,7 @@
 				A7697D760DB25CCE0037F0A5 /* TPNetworkConfigurationWatcher.m in Sources */,
 				A7B08FAC0DCA10A3008CAFF2 /* TPFakeHostsGenerator.m in Sources */,
 				A78C04AB0E13287D00755C6D /* PTHotKey.m in Sources */,
+				B2CB75FC2E0AC0590033FB60 /* TPScreenLockWatcher.m in Sources */,
 				A78C04AD0E13287D00755C6D /* PTHotKeyCenter.m in Sources */,
 				A78C04AF0E13287D00755C6D /* PTKeyBroadcaster.m in Sources */,
 				A78C04B10E13287D00755C6D /* PTKeyCodeTranslator.m in Sources */,
@@ -1151,6 +1159,7 @@
 				GCC_PREFIX_HEADER = teleport_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abyssoft.teleport;
 				PRODUCT_NAME = teleport;
@@ -1179,6 +1188,7 @@
 				GCC_PREFIX_HEADER = teleport_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abyssoft.teleport;
 				PRODUCT_NAME = teleport;
@@ -1292,6 +1302,7 @@
 				GCC_PREFIX_HEADER = teleport_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abyssoft.teleport;
 				PRODUCT_NAME = teleport;

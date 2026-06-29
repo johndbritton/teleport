@@ -16,6 +16,51 @@
 #import "TPTCPSecureSocket.h"
 #import "TPMessage.h"
 
+#import <ifaddrs.h>
+#import <arpa/inet.h>
+#import <net/if.h>
+
+static NSString *interfaceNameForIPAddress(NSString *ipAddress) {
+	struct ifaddrs *ifaddr, *ifa;
+	char host[NI_MAXHOST];
+
+	if (getifaddrs(&ifaddr) == -1) {
+		perror("getifaddrs");
+		return nil;
+	}
+
+	NSString *foundInterface = nil;
+
+	for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
+		if (!ifa->ifa_addr)
+			continue;
+
+		int family = ifa->ifa_addr->sa_family;
+		void *addr = NULL;
+
+		if (family == AF_INET) {
+			// IPv4
+			addr = &((struct sockaddr_in *)ifa->ifa_addr)->sin_addr;
+		} else if (family == AF_INET6) {
+			// IPv6
+			struct sockaddr_in6 *sin6 = (struct sockaddr_in6 *)ifa->ifa_addr;
+			if (IN6_IS_ADDR_LINKLOCAL(&sin6->sin6_addr)) continue; // Skip link-local
+			addr = &sin6->sin6_addr;
+		} else {
+			continue;
+		}
+
+		inet_ntop(family, addr, host, sizeof(host));
+		if (ipAddress && strcmp(host, ipAddress.UTF8String) == 0) {
+			foundInterface = [NSString stringWithUTF8String:ifa->ifa_name];
+			break;
+		}
+	}
+
+	freeifaddrs(ifaddr);
+	return foundInterface;
+}
+
 @interface TPNetworkConnection (Internal)
 
 @property (nonatomic, readonly) BOOL _sendPendingMessages;
@@ -30,6 +75,8 @@
 	
 	_socket = socket;
 	[_socket setDelegate:self];
+	
+	_networkInterfaceName = interfaceNameForIPAddress([_socket localAddress]);
 	
 	_connectedHost = nil;
 	_capabilities = [[TPLocalHost localHost] capabilities];

@@ -43,6 +43,7 @@
 #define DISCONNECT_ON_NETWORK_CONFIG_CHANGE @"disconnectOnNetworkConfigChange"
 #define WRAP_ON_STOP_CONTROL @"wrapOnStopControl"
 #define PLAY_SWITCH_SOUND @"playSwitchSound"
+#define ENABLE_DEBUG_LOG @"enableLogging"
 #define SWITCH_SOUND_PATH @"switchSoundPath"
 #define APPLICATIONS_DISABLING_TELEPORT @"appIdentifiersDisablingTeleport"
 #define SYNC_MODIFIERS @"syncModifiers"

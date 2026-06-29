@@ -11,6 +11,7 @@
 
 #import "TPPreferencesManager.h"
 #import "TPMainController.h"
+#import "TPClientController.h"
 
 #include <Carbon/Carbon.h>
 #include <ApplicationServices/ApplicationServices.h>
@@ -53,6 +54,25 @@ static const char * eventTypeName[] =
 
 @implementation TPEventTapsController
 
+static void setCursorVisibility(BOOL visible) {
+	static CGError error;
+	if (visible) {
+		error = CGDisplayShowCursor(kCGDirectMainDisplay);
+	} else {
+		error = CGDisplayHideCursor(kCGDirectMainDisplay);
+	}
+	DebugLog(@"setCursorVisibility: %@ -> %@", @(visible), @(error));
+
+	if (error != kCGErrorSuccess) {
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)),
+					   dispatch_get_main_queue(), ^{
+			if (error != kCGErrorSuccess) {
+				setCursorVisibility(visible);
+			}
+		});
+	}
+}
+
 + (TPEventsController*)defaultController
 {
 	if(_eventTapsController == nil)
@@ -68,11 +88,17 @@ static CGEventRef eventCallback(CGEventTapProxy proxy, CGEventType type, CGEvent
 	NSLog(@"Callback: %@", [TPEventTapsController _eventNameFromType:type]);
 #endif
 
-	if(type == kCGEventTapDisabledByTimeout) {
-		[self _startGettingsEvents];
-	}
-	else {
-		[self _sendEventToListener:(__bridge id)event];
+	if(![[TPClientController defaultController] isControlling]) {
+		[self stopGettingEvents];
+		NSLog(@"eventCallback, _stopGettingEvents when not controlling. type=%d", type);
+	} else {
+		if(type >= kCGEventTapDisabledByTimeout) {
+			[self _startGettingsEvents];
+			NSLog(@"eventCallback, _startGettingsEvents again on type=%d", type);
+		}
+		else {
+			[self _sendEventToListener:(__bridge id)event];
+		}
 	}
 	
 	return NULL;
@@ -107,7 +133,7 @@ static CGEventRef eventCallback(CGEventTapProxy proxy, CGEventType type, CGEvent
 	CGSSetConnectionProperty(_CGSDefaultConnection(), _CGSDefaultConnection(), propertyString, kCFBooleanTrue);
 	CFRelease(propertyString);
 	
-	CGDisplayHideCursor(kCGDirectMainDisplay);
+	setCursorVisibility(NO);
 	
 	if(_eventPort == NULL) {
 		CFRunLoopRef runLoop = CFRunLoopGetCurrent();
@@ -173,14 +199,14 @@ static CGEventRef eventCallback(CGEventTapProxy proxy, CGEventType type, CGEvent
 
 - (void)_startGettingsEvents
 {
-	if(_eventPort != NULL) {
+	if(_eventPort != NULL && !CGEventTapIsEnabled(_eventPort)) {
 		CGEventTapEnable(_eventPort, true);
 	}
 }
 
 - (void)_stopGettingEvents
 {
-	if(_eventPort != NULL) {
+	if(_eventPort != NULL && CGEventTapIsEnabled(_eventPort)) {
 		CGEventTapEnable(_eventPort, false);
 	}
 	
@@ -192,7 +218,7 @@ static CGEventRef eventCallback(CGEventTapProxy proxy, CGEventType type, CGEvent
 {
 	[super cleanupGettingEvents];
 		
-	CGDisplayShowCursor(kCGDirectMainDisplay);
+	setCursorVisibility(YES);
 }
 
 

@@ -292,24 +292,31 @@ static void _cfsocketCallback(CFSocketRef inCFSocketRef, CFSocketCallBackType in
 	
 	/* Connect */
 	CFDataRef addr = CFDataCreate(kCFAllocatorDefault, (void*)&address, sizeof(struct sockaddr_in));
-	if(CFSocketConnectToAddress(_cfSocket, addr, CONNECTION_TIMEOUT) != kCFSocketSuccess) {
+	CFSocketError socketError = CFSocketConnectToAddress(_cfSocket, addr, CONNECTION_TIMEOUT);
+	if (socketError != kCFSocketSuccess) {
+		if(socketError == kCFSocketError) {
+			int err = errno;
+			DebugLog(@"Connection failed with errno: %d (%s)", err, strerror(err));
+		} else if (socketError == kCFSocketTimeout) {
+			DebugLog(@"Connection timeout.");
+		}
+
 		if(addr != NULL) {
 			CFRelease(addr);
 		}
-		DebugLog(@"error connecting");
+		[self _close:NO];
 		return NO;
 	}
-	
+
 	if(addr != NULL) {
 		CFRelease(addr);
 	}
-	
+
 #if DEBUG_SOCKET
 	DebugLog(@"%@ connecting to host %@ port %d", self, host, port);
 #endif
-	
 	_socketState = TPSocketConnectingState;
-	
+
 	return YES;
 }
 
@@ -372,7 +379,6 @@ static void _cfsocketCallback(CFSocketRef inCFSocketRef, CFSocketCallBackType in
 - (void)dealloc
 {
 	[self close];
-	DebugLog(@"socket %@ dealloc", self);
 }
 
 - (NSString*)_stringAddressFromCFData:(CFDataRef)dataRef
@@ -504,9 +510,11 @@ static void _cfsocketCallback(CFSocketRef inCFSocketRef, CFSocketCallBackType in
 - (void)_close:(BOOL)dropped
 {
 	_socketState = TPSocketDisconnectedState;
-	
+
+#if DEBUG_SOCKET
 	DebugLog(@"socket %@ %@", self, dropped?@"dropped":@"closed");
-	
+#endif
+
 	if(_sourceRef != NULL) {
 		[self _setRunLoop:NULL];
 	}
@@ -571,9 +579,11 @@ static void _cfsocketCallback(CFSocketRef inCFSocketRef, CFSocketCallBackType in
 		return;
 	
 	[self _close:YES];
-	
-	if([_delegate respondsToSelector:@selector(tcpSocketConnectionClosed:)])
-		[_delegate tcpSocketConnectionClosed:self];
+
+	// keep a strong reference to prevent delegate(i.e. connection) from dealloc immediately.
+	id delegate = _delegate;
+	if([delegate respondsToSelector:@selector(tcpSocketConnectionClosed:)])
+		[delegate tcpSocketConnectionClosed:self];
 }
 
 @end

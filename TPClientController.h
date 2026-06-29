@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, TPClientState) {
 
 - (void)updateTriggersAndShowVisualHint:(BOOL)showVisualHint;
 
-- (void)requestStartControlOnHost:(TPRemoteHost*)remoteHost atLocation:(NSPoint)location withDraggingInfo:(id <NSDraggingInfo>)draggingInfo;
+- (BOOL)requestStartControlOnHost:(TPRemoteHost*)remoteHost atLocation:(NSPoint)location withDraggingInfo:(id <NSDraggingInfo>)draggingInfo;
 - (void)sendStartControlRequestForConnection:(TPNetworkConnection*)connection withInfoDict:(NSDictionary*)infoDict;
 - (void)startControl;
 

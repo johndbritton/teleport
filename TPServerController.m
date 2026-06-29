@@ -294,7 +294,7 @@ static TPServerController * _defaultServerController = nil;
 - (void)stopControlWithDisconnect:(BOOL)disconnect
 {
 #if DEBUG_GENERAL
-	DebugLog(@"server: stopPlaying");
+	DebugLog(@"server: stopPlaying: %d", disconnect);
 #endif
 
 	[super stopControlWithDisconnect:disconnect];
@@ -308,6 +308,7 @@ static TPServerController * _defaultServerController = nil;
 		[[self eventsController] stopPostingEvents];
 		
 		[self takeDownHotBorder:_clientHotBorder];
+		[_clientHotBorder close];
 		_clientHotBorder = nil;
 		
 		/* Update status menu */

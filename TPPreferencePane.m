@@ -25,6 +25,18 @@
 #define OPTIONS_HEIGHT 250
 
 @implementation TPPreferencePane
+{
+	BOOL hasPendingLayoutUpdates;
+}
+
+- (instancetype)init
+{
+	self = [super init];
+	if (self) {
+		hasPendingLayoutUpdates = NO;
+	}
+	return self;
+}
 
 + (instancetype)preferencePane
 {
@@ -68,14 +80,19 @@
 	BOOL hasSeveralPotentialIdentities = ([[[TPLocalHost localHost] potentialIdentities] count] > 1);
 	[showCertificateButton setHidden:hasSeveralPotentialIdentities];
 	[chooseCertificateButton setHidden:!hasSeveralPotentialIdentities];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:layoutView selector:@selector(updateLayout) name:TPHostsConfigurationDidChangeNotification object:nil];
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needUpdateLayout) name:TPHostsConfigurationDidChangeNotification object:nil];
 }
 
 - (void)showWindow:(id)sender
 {
 	[super showWindow:sender];
 	[NSApp activateIgnoringOtherApps:YES];
+
+	if (hasPendingLayoutUpdates) {
+		[layoutView updateLayout];
+		hasPendingLayoutUpdates = NO;
+	}
 }
 
 - (SUUpdater *)updater
@@ -341,6 +358,16 @@
 		SFChooseIdentityPanel * chooserPanel = (__bridge SFChooseIdentityPanel*)contextInfo;
 		SecIdentityRef identity = [chooserPanel identity];
 		[[self localHost] setIdentity:identity];
+	}
+}
+
+- (void)needUpdateLayout
+{
+	DebugLog(@"TPPReferencePane@%p#needUpdateLayout, window=%p, visible=%d", self, self.window, self.window.isVisible);
+	if (self.window && self.window.isVisible) {
+		[layoutView updateLayout];
+	} else {
+		hasPendingLayoutUpdates = YES;
 	}
 }
 
