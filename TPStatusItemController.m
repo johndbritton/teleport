@@ -96,7 +96,7 @@ static TPStatusItemController * _defaultController = nil;
 		[menu addItem:[NSMenuItem separatorItem]];
 		
 #if DEBUG_BUILD
-		NSMenuItem * disconnectMenuItem = [menu addItemWithTitle:@"Disconnect" action:@selector(disconnect) keyEquivalent:@""];
+		NSMenuItem * disconnectMenuItem = [menu addItemWithTitle:NSLocalizedString(@"Disconnect", nil) action:@selector(disconnect) keyEquivalent:@""];
 		[disconnectMenuItem setTarget:self];
 #endif
 		

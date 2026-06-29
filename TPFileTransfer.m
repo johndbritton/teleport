@@ -241,7 +241,6 @@ NSString * TPFileTransferDragImageLocationKey = @"TPFileTransferDragImageLocatio
 - (void)startDragUsingHotBorder:(TPHotBorder*)hotBorder
 {
 	@autoreleasepool {
-		NSPasteboard * pboard = [NSPasteboard pasteboardWithName:NSDragPboard];
 		
 		NSMutableArray * fileTypes = [[NSMutableArray alloc] init];
 		NSEnumerator * representedFilesEnum = [_representedFiles objectEnumerator];
@@ -267,7 +266,6 @@ NSString * TPFileTransferDragImageLocationKey = @"TPFileTransferDragImageLocatio
 			}		
 		}
 		else {
-			image = _dragImage;
 			offset.width = _dragImageLocation.x;
 			offset.height = _dragImageLocation.y;
 		}

@@ -150,7 +150,6 @@
 	[ipStorage addLayoutManager:ipLayout];
 
 	NSRange ipGlyphRange = [ipLayout glyphRangeForTextContainer:ipContainer];
-	NSRect ipUsedRect = [ipLayout usedRectForTextContainer:ipContainer];
 
 	CGFloat ipY = hostNameY + NSHeight(usedRect) + 2.0; // draw just below host name
 	[ipLayout drawGlyphsForGlyphRange:ipGlyphRange atPoint:NSMakePoint(1.0, ipY)];
@@ -196,11 +195,11 @@
 	
 	NSArray * screens = [host screens];
 	NSEnumerator * screensEnum = [screens objectEnumerator];
-	TPScreen * screen;	
+	
 	Class screenViewClass = [[self class] screenViewClass];
 	
 	unsigned screenIndex = 0;
-	while((screen = [screensEnum nextObject])) {
+	while([screensEnum nextObject] != nil) {
 		NSView * screenView = [(TPLayoutScreenView*)[screenViewClass alloc] initWithHostView:self screenIndex:screenIndex];
 		[self addSubview:screenView];
 		screenIndex++;

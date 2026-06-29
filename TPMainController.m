@@ -330,7 +330,7 @@ static TPMainController * _mainController = nil;
 	if (![[TPLocalHost localHost] checkAccessibility]) {
 		NSAlert * alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Disabled access for assistive devices", @"Text in dialog about accessibility") defaultButton:NSLocalizedString(@"OK", @"Button title") alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"The access for assistive devices has been disabled although teleport needs this to operate.\nPlease allow teleport and launch it again.", @"Explanation in dialog for accessibility")];
 		
-		int returnCode = [self presentAlert:alert];
+		[self presentAlert:alert];
 		
 		
 		[NSApp terminate:nil];

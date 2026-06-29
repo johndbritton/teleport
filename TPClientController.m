@@ -314,12 +314,10 @@ static TPClientController * _defaultClientController = nil;
 	}
 	
 	/* Re-use existing connection if possible */
-	BOOL shouldConnect = YES;
 	TPNetworkConnection * currentConnection = [self currentConnection];
 	if(currentConnection != nil) {
 		if([currentConnection isValidForHost:remoteHost]) {
 			[self sendStartControlRequestForConnection:currentConnection withInfoDict:infoDict];
-			shouldConnect = NO;
 			return YES;
 		}
 		else {
@@ -327,11 +325,9 @@ static TPClientController * _defaultClientController = nil;
 		}
 	}
 	
-	if(shouldConnect) {
-		if([[TPConnectionsManager manager] connectToHost:remoteHost withDelegate:self infoDict:infoDict]) {
-			_state = TPClientConnectingState;
-			return YES;
-		}
+	if([[TPConnectionsManager manager] connectToHost:remoteHost withDelegate:self infoDict:infoDict]) {
+		_state = TPClientConnectingState;
+		return YES;
 	}
 	return NO;
 }

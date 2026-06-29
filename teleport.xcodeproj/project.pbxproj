@@ -992,6 +992,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		5203E59525987BE4009A23E6 /* Sign Sparkle.framework */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1010,6 +1011,7 @@
 		};
 		A71EA0750A10D5B400805CC6 /* Set revision number */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1024,6 +1026,7 @@
 		};
 		A786E22C1A19DFA500E66B43 /* Update strings */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);

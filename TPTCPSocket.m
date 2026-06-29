@@ -201,8 +201,6 @@ static void _cfsocketCallback(CFSocketRef inCFSocketRef, CFSocketCallBackType in
 
 - (BOOL)listenOnPort:(int)port
 {
-	OSStatus err;
-	
 	/* Setup context */
 	CFSocketContext socketContext;
 	bzero(&socketContext, sizeof(CFSocketContext));
@@ -228,7 +226,7 @@ static void _cfsocketCallback(CFSocketRef inCFSocketRef, CFSocketCallBackType in
 	address.sin_port = htons(port);
 	
 	CFDataRef addr = CFDataCreate(kCFAllocatorDefault, (void*)&address, sizeof(struct sockaddr_in));
-	if((err = CFSocketSetAddress(_cfSocket, addr)) != kCFSocketSuccess) {
+	if(CFSocketSetAddress(_cfSocket, addr) != kCFSocketSuccess) {
 		CFRelease(addr);
 		DebugLog(@"listen error: %d", errno);
 		return NO;

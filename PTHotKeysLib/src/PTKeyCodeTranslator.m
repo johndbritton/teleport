@@ -123,8 +123,7 @@
 {
     UniCharCount maxStringLength = 4, actualStringLength;
     UniChar unicodeString[4];
-    OSStatus err;
-    err = UCKeyTranslate( uchrData, keyCode, kUCKeyActionDisplay, 0, LMGetKbdType(), kUCKeyTranslateNoDeadKeysBit, &deadKeyState, maxStringLength, &actualStringLength, unicodeString );
+    UCKeyTranslate( uchrData, keyCode, kUCKeyActionDisplay, 0, LMGetKbdType(), kUCKeyTranslateNoDeadKeysBit, &deadKeyState, maxStringLength, &actualStringLength, unicodeString );
     return [NSString stringWithCharacters:unicodeString length:1];
 }
 

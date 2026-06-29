@@ -472,8 +472,6 @@ NSRect TPScaledRect(NSRect rect, float scale)
 		NSRect hostRect = [host hostRect];
 		hostRect.origin = hostPosition;
 		
-		BOOL animate = NO;
-		
 		snappedFrame.origin = minGluedRect.origin;
 		
 		[indicator setHostRect:hostRect localScreenIndex:nearestScreenIndex];
@@ -482,7 +480,6 @@ NSRect TPScaledRect(NSRect rect, float scale)
 		if(minDist < SQUARED_DISTANCE_TO_SNAP) {
 			if(!snapped) {
 				[indicator show];
-				animate = ANIMATE_SNAP;
 				_snapTime = 0.0;
 			}
 			snapped = YES;
