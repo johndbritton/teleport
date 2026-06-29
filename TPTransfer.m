@@ -249,7 +249,6 @@ NSString * TPTransferShouldEncryptKey = @"TPTransferShouldEncrypt";
 - (void)_sendDataThread
 {
 	@autoreleasepool {
-		SInt32 ret = kCFRunLoopRunTimedOut;
 		[_socket _setRunLoop:CFRunLoopGetCurrent()];
 		
 		if(_totalDataLength > 0) {
@@ -294,7 +293,7 @@ NSString * TPTransferShouldEncryptKey = @"TPTransferShouldEncrypt";
 					_data = nil;
 					[_lock unlock];
 					
-					ret = CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.0, false);
+					CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.0, false);
 					
 					if(!sent) {
 						break;
@@ -492,7 +491,6 @@ NSString * TPTransferShouldEncryptKey = @"TPTransferShouldEncrypt";
 {
 	@autoreleasepool {
 		SInt32 ret = kCFRunLoopRunTimedOut;
-
 		[_socket _setRunLoop:CFRunLoopGetCurrent()];
 		
 		if(_totalDataLength > 0) {
@@ -507,7 +505,6 @@ NSString * TPTransferShouldEncryptKey = @"TPTransferShouldEncrypt";
 					NSDate * lastDate = [[NSDate alloc] init];
 					if(-[lastDate timeIntervalSinceNow] >= REFRESH_RATE) {
 						[self performSelectorOnMainThread:@selector(_notifyProgress:) withObject:@(_receivedDataLength) waitUntilDone:NO];
-						lastDate = [[NSDate alloc] init];
 					}
 				}
 			}

@@ -326,8 +326,7 @@
 			unsigned long long folderSize = 0;
 			NSDirectoryEnumerator * dirEnum = [self enumeratorAtPath:path];
 			
-			NSString * file;
-			while((file = [dirEnum nextObject]) != nil) {
+			while([dirEnum nextObject] != nil) {
 				NSDictionary * attributes = [dirEnum fileAttributes];
 				if([[attributes fileType] isEqualToString:NSFileTypeRegular]) {
 					folderSize += [attributes fileSize];
