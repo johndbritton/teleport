@@ -48,16 +48,16 @@ static void pingRemoteAsync(NSString *host) {
 		task.standardOutput = pipe;
 		task.standardError = pipe;
 		
-		NSFileHandle *outputHandle = pipe.fileHandleForReading;
+		__weak NSFileHandle *weakOutputHandle = pipe.fileHandleForReading;
 		
 		task.terminationHandler = ^(NSTask *finishedTask) {
 			DebugLog(@"ping to %@ - done.", host);
 		};
 		
-		outputHandle.readabilityHandler = ^(NSFileHandle *handle) {
+		weakOutputHandle.readabilityHandler = ^(NSFileHandle *handle) {
 			NSData *data = [handle availableData];
 			if (data.length == 0) {
-				outputHandle.readabilityHandler = nil;
+				weakOutputHandle.readabilityHandler = nil;
 				return;
 			}
 			

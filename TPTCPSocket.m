@@ -467,16 +467,16 @@ static void _cfsocketCallback(CFSocketRef inCFSocketRef, CFSocketCallBackType in
     SInt32 size = 0;
     CFSocketNativeHandle sock = CFSocketGetNative(_cfSocket);
     const uint8_t * dataptr = CFDataGetBytePtr(data);
-    SInt32 datalen = CFDataGetLength(data);
+    SInt32 datalen = (SInt32)CFDataGetLength(data);
 	
-	size = send(sock, dataptr, datalen, 0);
+	size = (SInt32)send(sock, dataptr, datalen, 0);
 	while(size < datalen && retries--) {
 		DebugLog(@"retrying send, sent size: %d", size);
 		if(size > 0) {
 			dataptr += size;
 			datalen -= size;
 		}
-		size = send(sock, dataptr, datalen, 0);
+		size = (SInt32)send(sock, dataptr, datalen, 0);
 		DebugLog(@"after retry size: %d", size);
 	}
 	

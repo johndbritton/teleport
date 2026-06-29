@@ -286,12 +286,12 @@ NSString * TPFileTransferDragImageLocationKey = @"TPFileTransferDragImageLocatio
 	return NSDragOperationCopy;
 }
 
-- (NSArray *)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
-{
-	DebugLog(@"Drop at location: %@", dropDestination);
+// - (NSArray *)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
+// {
+// 	DebugLog(@"Drop at location: %@", dropDestination);
 	
-	return [self _dragEndedAtPath:[dropDestination path]];
-}
+// 	return [self _dragEndedAtPath:[dropDestination path]];
+// }
 
 - (void)draggedImage:(NSImage *)anImage endedAt:(NSPoint)aPoint operation:(NSDragOperation)operation
 {
